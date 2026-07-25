@@ -1,0 +1,6 @@
+{
+  "name": "VOLT-X Electric Dirt Bikes",
+  "description": "E-Commerce store for high-performance electric dirt bikes with advanced battery, range & motor power search filters, bike comparison, and secure checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
