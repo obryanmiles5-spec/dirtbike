@@ -69,7 +69,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
               className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
-              <img src="/Accessories.png" alt="Accessories" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-white" />
+              <img src="/Accessories.png" alt="Accessories" className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">Accessories</h3>
             </div>
           </div>

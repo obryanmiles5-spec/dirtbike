@@ -28,10 +28,10 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
   return (
     <div 
       onClick={() => onSelectBike(bike)}
-      className="group bg-zinc-950 rounded-lg border border-zinc-800 overflow-hidden flex flex-col transition-all duration-200 hover:border-lime-400/60 hover:shadow-lg hover:shadow-lime-400/10 cursor-pointer"
+      className="group flex flex-col transition-all duration-200 cursor-pointer h-full"
     >
       {/* Product Image Container */}
-      <div className="relative aspect-square bg-[#0B0B0B] overflow-hidden">
+      <div className="relative aspect-square bg-white overflow-hidden rounded-xl mb-4">
         <img
           src={bike.image}
           alt={bike.name}
@@ -69,7 +69,7 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
       </div>
 
       {/* Content Container */}
-      <div className="p-4 flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col px-1">
         {/* Category */}
         <p className="text-[11px] text-zinc-500 uppercase font-bold mb-1 tracking-wider">
           {bike.categoryLabel}
