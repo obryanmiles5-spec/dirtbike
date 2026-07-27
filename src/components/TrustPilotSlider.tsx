@@ -40,7 +40,7 @@ export const TrustPilotSlider: React.FC = () => {
   return (
     <div className="relative w-full py-20 border-t border-zinc-900 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src="/reviews-bg.jpg" alt="Reviews Background" className="w-full h-full object-cover" />
+        <img src="/reviews-bg.jpg" alt="Reviews Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-zinc-950/80"></div>
       </div>
 
