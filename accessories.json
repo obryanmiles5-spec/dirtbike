@@ -1,0 +1,1571 @@
+[
+  {
+    "id": 18974,
+    "name": "SurRon LBX 2025 OEM Battery",
+    "slug": "surron-lbx-2025-oem-battery",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/surron-lbx-2025-oem-battery/",
+    "sku": "",
+    "short_description": "",
+    "description": "",
+    "on_sale": false,
+    "prices": {
+      "price": "168182",
+      "regular_price": "168182",
+      "sale_price": "168182",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>1,681.82</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 18975,
+        "src": "https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_14a9acfc-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2025-06-12 at 08.10.30_14a9acfc",
+        "alt": ""
+      },
+      {
+        "id": 18976,
+        "src": "https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-08.10.30_5344b3ea-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2025-06-12 at 08.10.30_5344b3ea",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 97,
+        "name": "OEM Parts",
+        "slug": "oem-parts",
+        "link": "https://ebmx.com.au/product-category/oem-parts/"
+      },
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 235,
+        "name": "SurRon Light Bee X",
+        "slug": "surron-light-bee-x",
+        "link": "https://ebmx.com.au/product-category/oem-parts/surron-light-bee-x/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "In stock",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;SurRon LBX 2025 OEM Battery&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=18974",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 1,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "18974"
+      }
+    }
+  },
+  {
+    "id": 17317,
+    "name": "OEM Ultra Bee Battery (Special Order &#8211; Contact Us)",
+    "slug": "oem-ultra-bee-battery",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/oem-ultra-bee-battery/",
+    "sku": "OEMUBBAT",
+    "short_description": "<p>Brand New Ultra Bee OEM Batteries, Motors and Controllers are Available, contact us if you want to bundle an OEM Battery, Controller and Motor to receive an extra 10% discount (50% in total) off this Ultra Bee Battery.</p>",
+    "description": "<p>Features:</p>\n<ul>\n<li>Stunning Capacity: 4070Wh for long-lasting power</li>\n<li>Advanced Design: Higher power density and lower temperature rise during discharge</li>\n<li>Enhanced Reliability: Continuous discharge capabilities for dependable performance</li>\n<li>Lightweight Powerhouse: 20.5kg with an industry-leading 200Wh/kg capacity density</li>\n</ul>\n<p>Engineered for performance and built for endurance, the Ultra Bee battery pack transforms your riding experience with superior power and reliability.</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "380954",
+      "regular_price": "380954",
+      "sale_price": "380954",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>3,809.54</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 17318,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7.png",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7-300x225.png",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7.png 767w, https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7-368x480.png 368w, https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7-614x800.png 614w",
+        "sizes": "(max-width: 767px) 100vw, 767px",
+        "name": "ezgif.com-webp-to-png-converter (7)",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 97,
+        "name": "OEM Parts",
+        "slug": "oem-parts",
+        "link": "https://ebmx.com.au/product-category/oem-parts/"
+      },
+      {
+        "id": 236,
+        "name": "SurRon Ultra Bee",
+        "slug": "surron-ultra-bee",
+        "link": "https://ebmx.com.au/product-category/oem-parts/surron-ultra-bee/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": false,
+    "is_in_stock": true,
+    "is_on_backorder": true,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "Available on backorder",
+      "class": "available-on-backorder"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Read more",
+      "description": "Read more about &ldquo;OEM Ultra Bee Battery (Special Order &#8211; Contact Us)&rdquo;",
+      "url": "https://ebmx.com.au/product/oem-ultra-bee-battery/",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "17317"
+      }
+    }
+  },
+  {
+    "id": 17160,
+    "name": "Ultra Bee OEM Charger",
+    "slug": "ultra-bee-oem-charger",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/ultra-bee-oem-charger/",
+    "sku": "",
+    "short_description": "",
+    "description": "",
+    "on_sale": false,
+    "prices": {
+      "price": "43182",
+      "regular_price": "43182",
+      "sale_price": "43182",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>431.82</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 17161,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/s-l1200.png",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/s-l1200-300x225.png",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/s-l1200.png 539w, https://ebmx.com.au/wp-content/uploads/2024/10/s-l1200-480x480.png 480w, https://ebmx.com.au/wp-content/uploads/2024/10/s-l1200-150x150.png 150w, https://ebmx.com.au/wp-content/uploads/2024/10/s-l1200-100x100.png 100w",
+        "sizes": "(max-width: 539px) 100vw, 539px",
+        "name": "s-l1200",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 97,
+        "name": "OEM Parts",
+        "slug": "oem-parts",
+        "link": "https://ebmx.com.au/product-category/oem-parts/"
+      },
+      {
+        "id": 236,
+        "name": "SurRon Ultra Bee",
+        "slug": "surron-ultra-bee",
+        "link": "https://ebmx.com.au/product-category/oem-parts/surron-ultra-bee/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "In stock (can be backordered)",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;Ultra Bee OEM Charger&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=17160",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "17160"
+      }
+    }
+  },
+  {
+    "id": 17054,
+    "name": "Talaria XXX 74v 44ah Street Race (Special Order Only)",
+    "slug": "talaria-xxx-74v-44ah-street-race",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/talaria-xxx-74v-44ah-street-race/",
+    "sku": "",
+    "short_description": "",
+    "description": "<h2><strong>Talaria XXX 74v 44ah Street Race</strong></h2>\n<h5><span style=\"color: #ed1f24\"><strong>QS8 Harness for Controller Side Supplied</strong></span></h5>\n<p>Pair with the EBMX X-9000 Controller Kit for the ultimate power upgrade. An MPE Charger is required for these batteries.</p>\n<p>Watt Hours: 3024wh</p>\n<p>IP Rating: IP65</p>\n<p>Weight: 17.5</p>\n<p>Peak Power: 28kW</p>\n<p>BMS Rating: 400A</p>\n<p>Amp Hours: 44ah</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "200000",
+      "regular_price": "200000",
+      "sale_price": "200000",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>2,000.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 17049,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1.jpg 1280w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-900x1200.jpg 900w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1-1200x1600.jpg 1200w",
+        "sizes": "(max-width: 1280px) 100vw, 1280px",
+        "name": "X7444 (1)",
+        "alt": ""
+      },
+      {
+        "id": 17050,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2.jpg 1280w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-900x1200.jpg 900w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-2-1200x1600.jpg 1200w",
+        "sizes": "(max-width: 1280px) 100vw, 1280px",
+        "name": "X7444 (2)",
+        "alt": ""
+      },
+      {
+        "id": 17051,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3.jpg 1280w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-900x1200.jpg 900w, https://ebmx.com.au/wp-content/uploads/2024/10/X7444-3-1200x1600.jpg 1200w",
+        "sizes": "(max-width: 1280px) 100vw, 1280px",
+        "name": "X7444 (3)",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 240,
+        "name": "Talaria Modifications",
+        "slug": "talaria-modifications",
+        "link": "https://ebmx.com.au/product-category/talaria-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;Talaria XXX 74v 44ah Street Race (Special Order Only)&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=17054",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "17054"
+      }
+    }
+  },
+  {
+    "id": 17023,
+    "name": "Ride Longer 72v 63ah LBX Battery (Compatible with SurRon Light Bee) (Special Order &#8211; Contact Us)",
+    "slug": "ride-longer-72v-63ah-lbx-battery-compatible-with-surron-light-bee",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/ride-longer-72v-63ah-lbx-battery-compatible-with-surron-light-bee/",
+    "sku": "LBX7267",
+    "short_description": "",
+    "description": "<h5><strong>QS8 Harness for Controller Side Supplied &#8211; Does not require seat extenders &#8211; this battery is supplied with a extender hinge and longer clip. However, if you have seat extenders, this will fit.</strong></h5>\n<p>Our batteries are manufactured with NMC pouch cells that are potted inside of stainless-steel cases. The result is a battery with less internal connections, higher charging and discharging, as well as significantly higher power density (increased power in a smaller space). This battery comes with a 2 year non-transferable warranty.</p>\n<div class=\"product_specifications per_row\">\n<div class=\"specification row_item\"><span class=\"product_spec label\">Watt Hours: </span><span class=\"product_spec value\">4536 Wh</span></div>\n<div class=\"specification row_item\"><span class=\"product_spec label\">IP Rating: </span><span class=\"product_spec value\">IP65</span></div>\n<div class=\"specification row_item\"><span class=\"product_spec label\">Weight: </span><span class=\"product_spec value\">19.65 kg</span></div>\n</div>\n<div class=\"product_specifications per_col\">\n<div class=\"specification col_item\"><span class=\"product_spec label\">Peak Power: </span><span class=\"product_spec value\"><span class=\"number\">28</span> kW</span></div>\n<div class=\"specification col_item\"><span class=\"product_spec label\">BMS Rating: </span><span class=\"product_spec value\"><span class=\"number\">400</span> A</span></div>\n<div class=\"specification col_item\"><span class=\"product_spec label\">Amp Hours: 63ah</span></div>\n</div>",
+    "on_sale": false,
+    "prices": {
+      "price": "300000",
+      "regular_price": "300000",
+      "sale_price": "300000",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>3,000.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 17344,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2024-12-04 at 10.16.15_48bf5546",
+        "alt": ""
+      },
+      {
+        "id": 17038,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3.jpg 1280w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-900x1200.jpg 900w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3-1200x1600.jpg 1200w",
+        "sizes": "(max-width: 1280px) 100vw, 1280px",
+        "name": "L7263H (3)",
+        "alt": ""
+      },
+      {
+        "id": 17037,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2.jpg 1280w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-900x1200.jpg 900w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-2-1200x1600.jpg 1200w",
+        "sizes": "(max-width: 1280px) 100vw, 1280px",
+        "name": "L7263H (2)",
+        "alt": ""
+      },
+      {
+        "id": 17039,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1.jpg 1280w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-900x1200.jpg 900w, https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1-1200x1600.jpg 1200w",
+        "sizes": "(max-width: 1280px) 100vw, 1280px",
+        "name": "L7263H (1)",
+        "alt": ""
+      },
+      {
+        "id": 17335,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_51cf2b40-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2024-12-03 at 09.05.03_51cf2b40",
+        "alt": ""
+      },
+      {
+        "id": 17336,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_1d5dd942-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2024-12-03 at 09.05.03_1d5dd942",
+        "alt": ""
+      },
+      {
+        "id": 17334,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_9be5c11f-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2024-12-03 at 09.05.03_9be5c11f",
+        "alt": ""
+      },
+      {
+        "id": 17333,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2024/10/WhatsApp-Image-2024-12-03-at-09.05.03_c80a7d41-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "WhatsApp Image 2024-12-03 at 09.05.03_c80a7d41",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 238,
+        "name": "SurRon Light Bee Modifications",
+        "slug": "surron-light-bee-modifications",
+        "link": "https://ebmx.com.au/product-category/surron-light-bee-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": true,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "Available on backorder",
+      "class": "available-on-backorder"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;Ride Longer 72v 63ah LBX Battery (Compatible with SurRon Light Bee) (Special Order &#8211; Contact Us)&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=17023",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "17023"
+      }
+    }
+  },
+  {
+    "id": 15862,
+    "name": "72v 42ah V5 Talaria High Powered Race Battery (Compatible with Talaria Sting Only) (Special Order &#8211; Contact Us)",
+    "slug": "talaria-high-powered-race-battery",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/talaria-high-powered-race-battery/",
+    "sku": "TALRACE72v42ah",
+    "short_description": "",
+    "description": "<p>These batteries are optimised for more power and are best for harder riding, the higher voltage works to keep the stock motor cooler.  Comes with a 2 year non-transferable warranty.</p>\n<p>These batteries pair perfectly with the EBMX X-9000 Controller Kit for the ultimate power upgrade.</p>\n<p>You will require an 72v Charger for the 72v batteries.</p>\n<p>If you have a Talaria MX3 please see the video below:</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "200000",
+      "regular_price": "200000",
+      "sale_price": "200000",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>2,000.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 15863,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM.jpeg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM-300x225.jpeg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM.jpeg 1200w, https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM-360x480.jpeg 360w, https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM-768x1024.jpeg 768w, https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM-1152x1536.jpeg 1152w, https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM-600x800.jpeg 600w, https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM-900x1200.jpeg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "Talaria Race Battery",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 240,
+        "name": "Talaria Modifications",
+        "slug": "talaria-modifications",
+        "link": "https://ebmx.com.au/product-category/talaria-modifications/"
+      },
+      {
+        "id": 217,
+        "name": "Watts for Sale",
+        "slug": "watts-for-sale",
+        "link": "https://ebmx.com.au/product-category/watts-for-sale/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": true,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "Available on backorder",
+      "class": "available-on-backorder"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;72v 42ah V5 Talaria High Powered Race Battery (Compatible with Talaria Sting Only) (Special Order &#8211; Contact Us)&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=15862",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "15862"
+      }
+    }
+  },
+  {
+    "id": 15332,
+    "name": "QS8 Harness Upgrade for LBX Battery Upgrade",
+    "slug": "qs8-harness-upgrade-for-lbx-battery-upgrade",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/qs8-harness-upgrade-for-lbx-battery-upgrade/",
+    "sku": "",
+    "short_description": "<p>&nbsp;</p>\n<p>&nbsp;</p>",
+    "description": "<p>This new upgraded QS8 SurRon Light Bee Battery to Controller Harness allows you to safely run more power without melting your battery terminals or the OEM wires. Note, that you will need to have the ability to solder the battery terminal plug on without blowing yourself up. EBMX specifically disclaim we are not responsible for user installation errors. Please message us if you are in Australia and would like to drop or freight your battery to us and we can install the battery and terminal at an extra fee.</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "15000",
+      "regular_price": "15000",
+      "sale_price": "15000",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>150.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 15333,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM.jpeg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-300x225.jpeg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM.jpeg 768w, https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-360x480.jpeg 360w, https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-600x800.jpeg 600w",
+        "sizes": "(max-width: 768px) 100vw, 768px",
+        "name": "WhatsApp Image 2024-01-25 at 3.21.25 PM",
+        "alt": ""
+      },
+      {
+        "id": 15334,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-1.jpeg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-1-300x225.jpeg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-1.jpeg 768w, https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-1-360x480.jpeg 360w, https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM-1-600x800.jpeg 600w",
+        "sizes": "(max-width: 768px) 100vw, 768px",
+        "name": "WhatsApp Image 2024-01-25 at 3.21.25 PM (1)",
+        "alt": ""
+      },
+      {
+        "id": 15341,
+        "src": "https://ebmx.com.au/wp-content/uploads/2024/01/3fb6eaed-3ea1-4252-9f2d-cd2b9d1360a9.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2024/01/3fb6eaed-3ea1-4252-9f2d-cd2b9d1360a9-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2024/01/3fb6eaed-3ea1-4252-9f2d-cd2b9d1360a9.jpg 473w, https://ebmx.com.au/wp-content/uploads/2024/01/3fb6eaed-3ea1-4252-9f2d-cd2b9d1360a9-319x480.jpg 319w",
+        "sizes": "(max-width: 473px) 100vw, 473px",
+        "name": "3fb6eaed-3ea1-4252-9f2d-cd2b9d1360a9",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 238,
+        "name": "SurRon Light Bee Modifications",
+        "slug": "surron-light-bee-modifications",
+        "link": "https://ebmx.com.au/product-category/surron-light-bee-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;QS8 Harness Upgrade for LBX Battery Upgrade&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=15332",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "15332"
+      }
+    }
+  },
+  {
+    "id": 14877,
+    "name": "More Poweeer Electric 52V 17.5Ah Jumbo Shark Battery with 50A BMS Capable of up to 4kW of Power",
+    "slug": "more-poweeer-electric-52v-17-5ah-jumbo-shark-battery",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/more-poweeer-electric-52v-17-5ah-jumbo-shark-battery/",
+    "sku": "52VJSB",
+    "short_description": "",
+    "description": "<p>This pack is the highest power &amp; best 52V pack available in Australia.</p>\n<p>Made with Panasonic NCR18650GA 3500mah cells.</p>\n<p>It has a 50A BMS  with O2 IC.</p>\n<p>35cm discharge wires with XT90 female connector.</p>\n<p>It also comes with a 58.8V 4A aluminium charger</p>\n<p>Do not confuse this battery option with cheaper options. If you want to run a 4kw+ bike like SEM Venom or high power E-bike you will need a battery capable of 50A BMS or the battery wont work across the entire battery range.</p>\n<ul>\n<li>14S5P cell configuration</li>\n<li>910 Wh</li>\n<li>Battery charger included</li>\n<li>367L 95W 125H</li>\n<li>Docking station</li>\n<li>2 keys</li>\n<li>Weight 4.87 KG</li>\n<li>4 mounting slots to connect to bike frame</li>\n<li>Discharge cable with micro Anderson connectors</li>\n<li>Continuous discharge 50A</li>\n<li>Battery Management System (BMS) Managing</li>\n<li>12 months warranty</li>\n</ul>",
+    "on_sale": true,
+    "prices": {
+      "price": "68182",
+      "regular_price": "127500",
+      "sale_price": "68182",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>1,275.00</bdi></span></del> <span class=\"screen-reader-text\">Original price was: USD&#036;1,275.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>681.82</bdi></span></ins><span class=\"screen-reader-text\">Current price is: USD&#036;681.82.</span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 14878,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1.png",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1-300x225.png",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1.png 1500w, https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1-480x323.png 480w, https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1-1024x688.png 1024w, https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1-768x516.png 768w, https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1-800x538.png 800w, https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1-1200x806.png 1200w",
+        "sizes": "(max-width: 1500px) 100vw, 1500px",
+        "name": "Shark-Battery-1-1",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 217,
+        "name": "Watts for Sale",
+        "slug": "watts-for-sale",
+        "link": "https://ebmx.com.au/product-category/watts-for-sale/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": false,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "In stock",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Read more",
+      "description": "Read more about &ldquo;More Poweeer Electric 52V 17.5Ah Jumbo Shark Battery with 50A BMS Capable of up to 4kW of Power&rdquo;",
+      "url": "https://ebmx.com.au/product/more-poweeer-electric-52v-17-5ah-jumbo-shark-battery/",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 5,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "14877"
+      }
+    }
+  },
+  {
+    "id": 13049,
+    "name": "Ultra Bee 22S (81v 76ah) Version 4 High Power Battery Kit",
+    "slug": "ultra-bee-81-76ah-high-power-battery-kit",
+    "parent": 0,
+    "type": "bundle",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/ultra-bee-81-76ah-high-power-battery-kit/",
+    "sku": "",
+    "short_description": "<p>These items are a Special Order product, they may not always be available in stock. Please contact us if interested.</p>",
+    "description": "<p>If you already own an Ultra Bee, or are thinking about buying one, this bundle is the very best way to upgrade the power on your Ultra Bee.  These batteries come with a two year non-transferable warranty.</p>\n<ul>\n<li>88V76Ah</li>\n<li>Weight :26.5kg</li>\n<li> Peak Power: 53kW</li>\n<li>Nominal capacity: 6688Wh</li>\n<li>Dimensions (mm):225mm x 177mm x 373mm</li>\n<li>IP65 Rating</li>\n<li>High Power Harness</li>\n</ul>\n<p>The Bundle Includes:</p>\n<ul>\n<li>81v (22S) 76Ah High Power Version 4 Battery</li>\n<li>15A Charger*</li>\n<li>Custom Moulded Lid for Larger Battery</li>\n</ul>\n<p>*Please note, if you purchase an Ultra Bee  22S Battery  this is fitted with a 15A Plug (rather than a standard 10A plug). This is due to the charger needing to draw up to 11A. <strong>In order to use the charger, you will need a 15Amp outlet.</strong></p>\n<p>If you do not have a 15A outlet, you can get an adaptor from any Electrical Hardware Store or Online which will adapt your 10A outlet to 15A.</p>\n<p>Please be aware, that while using this solution is effective there is a very low possibility (depending on the RCD’s or RCBO’s in your house, and the wiring you have), this charger could possibly trip your fuse breakers (as it is drawing slightly more than 10a).</p>\n<p><em>If you specifically do not want the 15amp plug then please in notes let us know and we will custom fit a 10amp plug.</em> This will mean you cannot have the fast charger and your battery will take around 7 hours from zero to 100%.</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "0",
+      "regular_price": "0",
+      "sale_price": "0",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>3,863.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 21471,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1.jpeg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1-300x225.jpeg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1.jpeg 1200w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1-360x480.jpeg 360w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1-768x1024.jpeg 768w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1-1152x1536.jpeg 1152w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1-600x800.jpeg 600w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-1-900x1200.jpeg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "22S Battery 1",
+        "alt": ""
+      },
+      {
+        "id": 21470,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2.jpeg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2-300x225.jpeg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2.jpeg 1200w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2-360x480.jpeg 360w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2-768x1024.jpeg 768w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2-1152x1536.jpeg 1152w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2-600x800.jpeg 600w, https://ebmx.com.au/wp-content/uploads/2023/04/22S-Battery-2-900x1200.jpeg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "22S Battery 2",
+        "alt": ""
+      },
+      {
+        "id": 14658,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1.jpg 1707w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-480x360.jpg 480w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-1024x768.jpg 1024w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-768x576.jpg 768w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-1536x1152.jpg 1536w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-1568x1176.jpg 1568w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-800x600.jpg 800w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-1200x900.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2023/07/EBMX-SurRon-Ultra-Bee-High-Powered-Battery-and-Lid-Extension-1-300x225.jpg 300w",
+        "sizes": "(max-width: 1707px) 100vw, 1707px",
+        "name": "EBMX SurRon Ultra Bee High Powered Battery and Lid Extension (1)",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 239,
+        "name": "SurRon Ultra Bee Modifications",
+        "slug": "surron-ultra-bee-modifications",
+        "link": "https://ebmx.com.au/product-category/surron-ultra-bee-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Read more about &ldquo;Ultra Bee 22S (81v 76ah) Version 4 High Power Battery Kit&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=13049",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": {
+        "bundle_stock_status": "instock",
+        "bundle_stock_quantity": 0,
+        "bundle_virtual": false,
+        "bundle_layout": "default",
+        "bundle_add_to_cart_form_location": "default",
+        "bundle_editable_in_cart": false,
+        "bundle_sold_individually_context": "product",
+        "bundle_item_grouping": "parent",
+        "bundle_min_size": "",
+        "bundle_max_size": "",
+        "bundle_price": {
+          "price": {
+            "min": {
+              "incl_tax": "386300",
+              "excl_tax": "386300"
+            },
+            "max": {
+              "incl_tax": "386300",
+              "excl_tax": "386300"
+            }
+          },
+          "regular_price": {
+            "min": {
+              "incl_tax": "386300",
+              "excl_tax": "386300"
+            },
+            "max": {
+              "incl_tax": "386300",
+              "excl_tax": "386300"
+            }
+          },
+          "currency_code": "USD",
+          "currency_symbol": "$",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "$",
+          "currency_suffix": ""
+        },
+        "bundled_items": [
+          {
+            "bundled_item_id": 386,
+            "product_id": 11220,
+            "menu_order": 0,
+            "quantity_min": 1,
+            "quantity_max": 1,
+            "quantity_default": 1,
+            "priced_individually": true,
+            "shipped_individually": false,
+            "override_title": false,
+            "title": "Ultra Bee 22S (81v 76ah) High Power Battery",
+            "override_description": false,
+            "description": "",
+            "optional": false,
+            "hide_thumbnail": false,
+            "discount": "",
+            "override_variations": false,
+            "allowed_variations": [],
+            "override_default_variation_attributes": false,
+            "default_variation_attributes": [],
+            "single_product_visibility": "visible",
+            "cart_visibility": "visible",
+            "order_visibility": "visible",
+            "single_product_price_visibility": "visible",
+            "cart_price_visibility": "visible",
+            "order_price_visibility": "visible",
+            "stock_status": "on_backorder"
+          },
+          {
+            "bundled_item_id": 387,
+            "product_id": 11363,
+            "menu_order": 1,
+            "quantity_min": 1,
+            "quantity_max": 1,
+            "quantity_default": 1,
+            "priced_individually": true,
+            "shipped_individually": false,
+            "override_title": false,
+            "title": "22S (81v) Battery Charger",
+            "override_description": false,
+            "description": "",
+            "optional": false,
+            "hide_thumbnail": false,
+            "discount": "",
+            "override_variations": false,
+            "allowed_variations": [],
+            "override_default_variation_attributes": false,
+            "default_variation_attributes": [],
+            "single_product_visibility": "visible",
+            "cart_visibility": "visible",
+            "order_visibility": "visible",
+            "single_product_price_visibility": "visible",
+            "cart_price_visibility": "visible",
+            "order_price_visibility": "visible",
+            "stock_status": "on_backorder"
+          },
+          {
+            "bundled_item_id": 388,
+            "product_id": 11563,
+            "menu_order": 2,
+            "quantity_min": 1,
+            "quantity_max": 1,
+            "quantity_default": 1,
+            "priced_individually": true,
+            "shipped_individually": false,
+            "override_title": false,
+            "title": "Ultra Bee Battery Lid",
+            "override_description": false,
+            "description": "",
+            "optional": false,
+            "hide_thumbnail": false,
+            "discount": "",
+            "override_variations": false,
+            "allowed_variations": [],
+            "override_default_variation_attributes": false,
+            "default_variation_attributes": [],
+            "single_product_visibility": "visible",
+            "cart_visibility": "visible",
+            "order_visibility": "visible",
+            "single_product_price_visibility": "visible",
+            "cart_price_visibility": "visible",
+            "order_price_visibility": "visible",
+            "stock_status": "on_backorder"
+          }
+        ]
+      },
+      "woocommerce_google_analytics_integration": {
+        "identifier": "13049"
+      }
+    }
+  },
+  {
+    "id": 11891,
+    "name": "72V 42 Ah Race Battery LBX V5 (Compatible with SurRon Light Bee Only) &#8211; Includes Charger",
+    "slug": "72v-42ah-race-bat",
+    "parent": 0,
+    "type": "bundle",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/72v-42ah-race-bat/",
+    "sku": "",
+    "short_description": "<p>All batteries are provided with a medium size and longer clip and hinges. If you have a pre-2025 LBX you will need just the medium battery clip, if you have a 2025 model, you will need the longer clip and hinges for the lid to close properly This is due to a difference in the  battery box size with the 2025 model. All parts are supplied in the battery box, please be careful when you open your box and take the battery out you do not miss the clips and hinges embedded into the foam.</p>",
+    "description": "<p><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">Our new V5 high power Race Series SurRon LightBee Battery is a BEAST Power upgrade for your bike. This is Best of the Best!</span></p>\n<p><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">It has a new look with injection molded Top and QS8 receptacle harness and new Gen 5 Display.</span></p>\n<p><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">This is a 72v 42ah Battery capable of peak 28kW power (360a peak discharge for 51 seconds until cut off on mosfet temp protection. Voltage drop of 4.4 volts.)</span></p>\n<p style=\"text-align: start\"><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">15kW continuous at 200A discharge run for 4 minutes and 16 second continuous load until cut off on mosfet temp protection. Voltage drop of 2.8v.</span></p>\n<p style=\"text-align: start\"><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">This is a full plug and play kit that includes thicker wires and QS8 Connectors on the battery-side, custom made harness to replace the air switch.</span></p>\n<p style=\"text-align: start\"><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">Battery comes with an extended battery clip to enable it to fit into a SurRon Light Bee without seat extenders.</span></p>\n<p style=\"text-align: start\"><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">These batteries come with a two year non-transferable warranty. </span></p>\n<p style=\"text-align: start\"><i><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">Please note: We recommend to get the best operation power pairing this battery with the  EBMX X-9000 Controller. We cannot guarantee that this battery will be compatible with other third party controllers</span></i><span style=\"font-size: 13.0pt;font-family: Poppins;color: #231f20\">.</span></p>",
+    "on_sale": false,
+    "prices": {
+      "price": "0",
+      "regular_price": "0",
+      "sale_price": "0",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>2,065.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 20227,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "72v 42ah Race Battery",
+        "alt": ""
+      },
+      {
+        "id": 20229,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2.jpg 1200w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2-360x480.jpg 360w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2-768x1024.jpg 768w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2-1152x1536.jpg 1152w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2-600x800.jpg 600w, https://ebmx.com.au/wp-content/uploads/2023/05/72v-42ah-Race-Battery-2-900x1200.jpg 900w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px",
+        "name": "72v 42ah Race Battery 2",
+        "alt": ""
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 191,
+        "name": "Bundled",
+        "slug": "bundled",
+        "link": "https://ebmx.com.au/product-category/bundled/"
+      },
+      {
+        "id": 238,
+        "name": "SurRon Light Bee Modifications",
+        "slug": "surron-light-bee-modifications",
+        "link": "https://ebmx.com.au/product-category/surron-light-bee-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": true,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Select options",
+      "description": "Read more about &ldquo;72V 42 Ah Race Battery LBX V5 (Compatible with SurRon Light Bee Only) &#8211; Includes Charger&rdquo;",
+      "url": "https://ebmx.com.au/product/72v-42ah-race-bat/",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": {
+        "bundle_stock_status": "instock",
+        "bundle_stock_quantity": 0,
+        "bundle_virtual": false,
+        "bundle_layout": "default",
+        "bundle_add_to_cart_form_location": "default",
+        "bundle_editable_in_cart": false,
+        "bundle_sold_individually_context": "product",
+        "bundle_item_grouping": "parent",
+        "bundle_min_size": "",
+        "bundle_max_size": "",
+        "bundle_price": {
+          "price": {
+            "min": {
+              "incl_tax": "206500",
+              "excl_tax": "206500"
+            },
+            "max": {
+              "incl_tax": "206500",
+              "excl_tax": "206500"
+            }
+          },
+          "regular_price": {
+            "min": {
+              "incl_tax": "206500",
+              "excl_tax": "206500"
+            },
+            "max": {
+              "incl_tax": "206500",
+              "excl_tax": "206500"
+            }
+          },
+          "currency_code": "USD",
+          "currency_symbol": "$",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "$",
+          "currency_suffix": ""
+        },
+        "bundled_items": [
+          {
+            "bundled_item_id": 419,
+            "product_id": 11168,
+            "menu_order": 0,
+            "quantity_min": 1,
+            "quantity_max": 1,
+            "quantity_default": 1,
+            "priced_individually": true,
+            "shipped_individually": false,
+            "override_title": false,
+            "title": "72v 42ah V5 High Powered Race Battery 28kW (Compatible with SurRon Light Bee Only)",
+            "override_description": false,
+            "description": "",
+            "optional": false,
+            "hide_thumbnail": false,
+            "discount": "",
+            "override_variations": false,
+            "allowed_variations": [],
+            "override_default_variation_attributes": false,
+            "default_variation_attributes": [],
+            "single_product_visibility": "visible",
+            "cart_visibility": "visible",
+            "order_visibility": "visible",
+            "single_product_price_visibility": "visible",
+            "cart_price_visibility": "visible",
+            "order_price_visibility": "visible",
+            "stock_status": "in_stock"
+          },
+          {
+            "bundled_item_id": 420,
+            "product_id": 3477,
+            "menu_order": 1,
+            "quantity_min": 1,
+            "quantity_max": 1,
+            "quantity_default": 1,
+            "priced_individually": true,
+            "shipped_individually": false,
+            "override_title": false,
+            "title": "72v 20a Battery Fast Charger",
+            "override_description": false,
+            "description": "",
+            "optional": false,
+            "hide_thumbnail": false,
+            "discount": "",
+            "override_variations": false,
+            "allowed_variations": [],
+            "override_default_variation_attributes": true,
+            "default_variation_attributes": [
+              {
+                "id": 29,
+                "name": "Plug Type",
+                "option": "au-plug"
+              },
+              {
+                "id": 27,
+                "name": "Charger Size",
+                "option": "72v-20a"
+              }
+            ],
+            "single_product_visibility": "visible",
+            "cart_visibility": "visible",
+            "order_visibility": "visible",
+            "single_product_price_visibility": "visible",
+            "cart_price_visibility": "visible",
+            "order_price_visibility": "visible",
+            "stock_status": "in_stock"
+          }
+        ]
+      },
+      "woocommerce_google_analytics_integration": {
+        "identifier": "11891"
+      }
+    }
+  },
+  {
+    "id": 11363,
+    "name": "22S (81v) Battery Charger",
+    "slug": "22s-battery-charger",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/22s-battery-charger/",
+    "sku": "22SCHARGE",
+    "short_description": "",
+    "description": "<p>Please note, if you purchase an SurRon Ultra Bee or Talaria Sting 81V (22S) Battery, this charger is fitted with a 15Amp Plug (rather than a standard 10A plug). This has been done due to the higher voltage of the charger needing to draw up to 11 amps. This means that in order to use the charger, you will need a 15Amp outlet/</p>\n<p>If you do not have a 15A outlet, you can get an adaptor from any Electrical Hardware Store or Online which will adapt your 10A outlet to 15A.</p>\n<p>Please be aware, that while using this solution is effective, there is a very low possibility (depending on the RCD’s or RCBO’s in your house, and the wiring you have), this charger could possibly trip your fuse breakers (as it is drawing just slightly more than 10a).</p>\n<p>If you specifically do not want the 15amp plug then please in notes let us know and we will custom fit a 10amp plug. This will mean you cannot have the fast charger and your battery will take around 7 hours from zero to 100%.</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "33500",
+      "regular_price": "33500",
+      "sale_price": "33500",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>335.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 2983,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger.jpg 1080w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-480x480.jpg 480w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-1024x1024.jpg 1024w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-150x150.jpg 150w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-768x768.jpg 768w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-800x800.jpg 800w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-100x100.jpg 100w",
+        "sizes": "(max-width: 1080px) 100vw, 1080px",
+        "name": "60v 10a Surron Charger",
+        "alt": "60v 10a Surron Charger"
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 239,
+        "name": "SurRon Ultra Bee Modifications",
+        "slug": "surron-ultra-bee-modifications",
+        "link": "https://ebmx.com.au/product-category/surron-ultra-bee-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": true,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "",
+      "class": "available-on-backorder"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Add to cart",
+      "description": "Add to cart: &ldquo;22S (81v) Battery Charger&rdquo;",
+      "url": "/wp-json/wc/store/products?category=232&#038;per_page=100&#038;add-to-cart=11363",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "11363"
+      }
+    }
+  },
+  {
+    "id": 3477,
+    "name": "72v 20a Battery Fast Charger",
+    "slug": "72v-battery-chargers",
+    "parent": 0,
+    "type": "variable",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/72v-battery-chargers/",
+    "sku": "",
+    "short_description": "",
+    "description": "<p>These 72v 20a Fast Chargers are designed to work with the MPE 72v Range of Batteries. These chargers are not compatible with the 60v OEM SurRon Light Bee Battery or any of the 60v MPE Range of Batteries.</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "38636",
+      "regular_price": "26500",
+      "sale_price": "26500",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi>USD<span class=\"woocommerce-Price-currencySymbol\">&#036;</span>265.00</bdi></span>",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 2983,
+        "src": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger.jpg 1080w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-480x480.jpg 480w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-1024x1024.jpg 1024w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-150x150.jpg 150w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-768x768.jpg 768w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-800x800.jpg 800w, https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger-100x100.jpg 100w",
+        "sizes": "(max-width: 1080px) 100vw, 1080px",
+        "name": "60v 10a Surron Charger",
+        "alt": "60v 10a Surron Charger"
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 238,
+        "name": "SurRon Light Bee Modifications",
+        "slug": "surron-light-bee-modifications",
+        "link": "https://ebmx.com.au/product-category/surron-light-bee-modifications/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [
+      {
+        "id": 29,
+        "name": "Plug Type",
+        "taxonomy": "pa_plug-type",
+        "has_variations": true,
+        "terms": [
+          {
+            "id": 186,
+            "name": "AU Plug",
+            "slug": "au-plug",
+            "default": true
+          },
+          {
+            "id": 188,
+            "name": "Other",
+            "slug": "other",
+            "default": false
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "Charger Size",
+        "taxonomy": "pa_charger-size",
+        "has_variations": true,
+        "terms": [
+          {
+            "id": 181,
+            "name": "72v 20a",
+            "slug": "72v-20a",
+            "default": true
+          }
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "id": 3491,
+        "attributes": [
+          {
+            "name": "Plug Type",
+            "value": "au-plug"
+          },
+          {
+            "name": "Charger Size",
+            "value": "72v-20a"
+          }
+        ]
+      }
+    ],
+    "grouped_products": [],
+    "has_options": true,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Select options",
+      "description": "Select options for &ldquo;72v 20a Battery Fast Charger&rdquo;",
+      "url": "https://ebmx.com.au/product/72v-battery-chargers/",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "3477"
+      }
+    }
+  },
+  {
+    "id": 1145,
+    "name": "OEM 60v SurRon X/L1E Charger",
+    "slug": "oem-60v-surron-lbx-charger",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://ebmx.com.au/product/oem-60v-surron-lbx-charger/",
+    "sku": "OEMCHARGER60",
+    "short_description": "",
+    "description": "<p>These Stock SurRon Light Bee Chargers are available for purchase to replace damaged or lost chargers, or as a spare charger. These are compatible with the 60v SurRon Light Bee X Batteries, SurRon Light Bee L1E Batteries, and the EBMX 60v 53ah and EBMX 60v 65ah Batteries.</p>\n<p>This will not work with any non-60v battery and we cannot guarantee it will work with any battery not specified above.</p>\n\n<p>&nbsp;</p>",
+    "on_sale": false,
+    "prices": {
+      "price": "0",
+      "regular_price": "0",
+      "sale_price": "0",
+      "price_range": null,
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "price_html": "",
+    "average_rating": "0",
+    "review_count": 0,
+    "images": [
+      {
+        "id": 1986,
+        "src": "https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-scaled.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-scaled-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-scaled.jpg 2560w, https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-scaled-300x225.jpg 300w, https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-scaled-1200x900.jpg 1200w",
+        "sizes": "(max-width: 2560px) 100vw, 2560px",
+        "name": "OEM-60v-SurRon-X-charger",
+        "alt": "OEM 60v SurRon X"
+      },
+      {
+        "id": 1987,
+        "src": "https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-1-scaled.jpg",
+        "thumbnail": "https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-1-scaled-300x225.jpg",
+        "srcset": "https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-1-scaled.jpg 2560w, https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-1-scaled-300x225.jpg 300w, https://ebmx.com.au/wp-content/uploads/2022/11/OEM-60v-SurRon-X-charger-1-scaled-1200x900.jpg 1200w",
+        "sizes": "(max-width: 2560px) 100vw, 2560px",
+        "name": "OEM-60v-SurRon-X-charger-1",
+        "alt": "OEM 60v SurRon X"
+      }
+    ],
+    "categories": [
+      {
+        "id": 232,
+        "name": "Batteries and Chargers",
+        "slug": "batteries-and-chargers",
+        "link": "https://ebmx.com.au/product-category/batteries-and-chargers/"
+      },
+      {
+        "id": 97,
+        "name": "OEM Parts",
+        "slug": "oem-parts",
+        "link": "https://ebmx.com.au/product-category/oem-parts/"
+      },
+      {
+        "id": 235,
+        "name": "SurRon Light Bee X",
+        "slug": "surron-light-bee-x",
+        "link": "https://ebmx.com.au/product-category/oem-parts/surron-light-bee-x/"
+      }
+    ],
+    "tags": [],
+    "brands": [],
+    "attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "has_options": false,
+    "is_purchasable": false,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "stock_availability": {
+      "text": "In stock (can be backordered)",
+      "class": "in-stock"
+    },
+    "sold_individually": false,
+    "add_to_cart": {
+      "text": "Read more",
+      "description": "Read more about &ldquo;OEM 60v SurRon X/L1E Charger&rdquo;",
+      "url": "https://ebmx.com.au/product/oem-60v-surron-lbx-charger/",
+      "single_text": "Add to cart",
+      "minimum": 1,
+      "maximum": 9999,
+      "multiple_of": 1
+    },
+    "extensions": {
+      "composites": [],
+      "bundles": [],
+      "woocommerce_google_analytics_integration": {
+        "identifier": "1145"
+      }
+    }
+  }
+]

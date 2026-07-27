@@ -15,7 +15,7 @@ export const TestRideModal: React.FC<TestRideModalProps> = ({
   onClose,
   defaultBikeName
 }) => {
-  const [selectedBike, setSelectedBike] = useState(defaultBikeName || BIKES_DATA[0].name);
+  const [selectedBike, setSelectedBike] = useState(defaultBikeName || (BIKES_DATA.length > 0 ? BIKES_DATA[0].name : ''));
   const [location, setLocation] = useState('Reno HQ Test Track & Showroom');
   const [date, setDate] = useState('2026-08-01');
   const [timeSlot, setTimeSlot] = useState('10:00 AM');

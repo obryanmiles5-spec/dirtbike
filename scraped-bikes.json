@@ -1,0 +1,1538 @@
+{
+  "products": [
+    {
+      "id": 9642892460249,
+      "title": "X1 Spark M Electric Mini Bike",
+      "handle": "x1-spark",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li>4500W Mid-Drive Motor– Powerful acceleration and 50MPH top speed on any terrain.<br>\n</li>\n<li>1728Wh Battery - Large capacity, more power, longer riding time.<br>\n</li>\n<li>283Nm Torque – Powerful climbing ability and reliable load-carrying performance.<br>\n</li>\n<li class=\"a-spacing-mini\">150mm front and 75mm rear suspension soak up bumps with ease, delivering a smoother, more controlled ride.\n<div class=\"rich-text-paragraph\">\n<span class=\"text-only\"></span><br>\n</div>\n<div class=\"rich-text-paragraph\"><br></div>\n</li>\n</ul>",
+      "published_at": "2025-09-30T02:41:49-07:00",
+      "created_at": "2026-03-03T00:58:41-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X1 Spark",
+      "tags": [
+        "E_BIKE_S_6",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice"
+      ],
+      "variants": [
+        {
+          "id": 48058502381785,
+          "title": "Orange",
+          "option1": "Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "X1 Spark-Orange",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 48262000935129,
+            "product_id": 9642892460249,
+            "position": 1,
+            "created_at": "2026-03-03T00:58:55-08:00",
+            "updated_at": "2026-03-03T03:37:19-08:00",
+            "alt": "Orange_X1 Spark M mini electric dirt bike front right-side view",
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2.jpg?v=1772537839",
+            "variant_ids": [
+              48058502381785
+            ]
+          },
+          "available": true,
+          "price": "999.99",
+          "grams": 0,
+          "compare_at_price": "1399.99",
+          "position": 1,
+          "product_id": 9642892460249,
+          "created_at": "2026-03-03T00:58:41-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48058502414553,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "X1 Spark-Black",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 48262028558553,
+            "product_id": 9642892460249,
+            "position": 10,
+            "created_at": "2026-03-03T00:59:12-08:00",
+            "updated_at": "2026-03-03T00:59:14-08:00",
+            "alt": "Black_X1 Spark M mini electric dirt bike front right-side view",
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_0a684cb4-ed3d-4d26-ba53-a920af00be26.jpg?v=1772528354",
+            "variant_ids": [
+              48058502414553
+            ]
+          },
+          "available": true,
+          "price": "999.99",
+          "grams": 0,
+          "compare_at_price": "1399.99",
+          "position": 2,
+          "product_id": 9642892460249,
+          "created_at": "2026-03-03T00:58:41-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 48262000935129,
+          "created_at": "2026-03-03T00:58:55-08:00",
+          "position": 1,
+          "updated_at": "2026-03-03T03:37:19-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [
+            48058502381785
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2.jpg?v=1772537839",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262003785945,
+          "created_at": "2026-03-03T00:58:57-08:00",
+          "position": 2,
+          "updated_at": "2026-03-03T03:37:18-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_1.jpg?v=1772537838",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262006898905,
+          "created_at": "2026-03-03T00:58:59-08:00",
+          "position": 3,
+          "updated_at": "2026-03-03T00:59:01-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/1-1_3cc34289-793b-42dd-8e2a-9f17f811ad86.jpg?v=1772528341",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262009815257,
+          "created_at": "2026-03-03T00:59:01-08:00",
+          "position": 4,
+          "updated_at": "2026-03-03T00:59:03-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_c898c598-41ec-4a43-8696-e9b9f87f6316.jpg?v=1772528343",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262013550809,
+          "created_at": "2026-03-03T00:59:03-08:00",
+          "position": 5,
+          "updated_at": "2026-03-03T00:59:04-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/3_1aec27b1-cb73-4b28-9476-11e310390afb.jpg?v=1772528344",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262016237785,
+          "created_at": "2026-03-03T00:59:04-08:00",
+          "position": 6,
+          "updated_at": "2026-03-03T00:59:06-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/4_1b938aca-76d4-49d2-8363-7ef8ccd4c15d.jpg?v=1772528346",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262019219673,
+          "created_at": "2026-03-03T00:59:06-08:00",
+          "position": 7,
+          "updated_at": "2026-03-03T00:59:08-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/5_2f5a3c17-ba45-4c81-8c35-0035c96e98d3.jpg?v=1772528348",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262022168793,
+          "created_at": "2026-03-03T00:59:08-08:00",
+          "position": 8,
+          "updated_at": "2026-03-03T00:59:10-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/6_0a384eb3-8c5e-4e83-be5c-8f43b9d10855.jpg?v=1772528350",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 49044177912025,
+          "created_at": "2026-05-27T01:30:07-07:00",
+          "position": 9,
+          "updated_at": "2026-05-27T01:30:09-07:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/c8682a1b6d56a22c3b0a59f59bf75cf5_b761180c-4467-4a89-a640-f839110418dd.jpg?v=1779870609",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262028558553,
+          "created_at": "2026-03-03T00:59:12-08:00",
+          "position": 10,
+          "updated_at": "2026-03-03T00:59:14-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [
+            48058502414553
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_0a684cb4-ed3d-4d26-ba53-a920af00be26.jpg?v=1772528354",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262032031961,
+          "created_at": "2026-03-03T00:59:14-08:00",
+          "position": 11,
+          "updated_at": "2026-03-03T00:59:16-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/1_bade8022-f06b-497d-87e0-6df0b49150ed.jpg?v=1772528356",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262034358489,
+          "created_at": "2026-03-03T00:59:16-08:00",
+          "position": 12,
+          "updated_at": "2026-03-03T00:59:17-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/1-1_45d6bc69-2a9b-401e-a575-9713e9ecdc4f.jpg?v=1772528357",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262037831897,
+          "created_at": "2026-03-03T00:59:18-08:00",
+          "position": 13,
+          "updated_at": "2026-03-03T00:59:20-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_b6766925-c310-492c-88ad-f6c26cfe9144.jpg?v=1772528360",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262040879321,
+          "created_at": "2026-03-03T00:59:20-08:00",
+          "position": 14,
+          "updated_at": "2026-03-03T00:59:21-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/3_591d5bcb-d9c1-4845-ad16-f7dc865b1c8c.jpg?v=1772528361",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262043992281,
+          "created_at": "2026-03-03T00:59:22-08:00",
+          "position": 15,
+          "updated_at": "2026-03-03T00:59:23-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/6_761d0ed7-3523-4c64-87e5-fb75f16a0931.jpg?v=1772528363",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262047105241,
+          "created_at": "2026-03-03T00:59:23-08:00",
+          "position": 16,
+          "updated_at": "2026-03-03T00:59:25-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/4_673f9cf2-76cb-4b7c-ae5f-4ee16e90bdbd.jpg?v=1772528365",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262049988825,
+          "created_at": "2026-03-03T00:59:25-08:00",
+          "position": 17,
+          "updated_at": "2026-03-03T00:59:27-08:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/5_c84a9605-ba95-44b2-b5b4-80c7afa69062.jpg?v=1772528367",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 49044177879257,
+          "created_at": "2026-05-27T01:30:07-07:00",
+          "position": 18,
+          "updated_at": "2026-05-27T01:30:09-07:00",
+          "product_id": 9642892460249,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/8b9cc7c9808a81fc8db0eaf67a4d79d7_243931f1-6b47-4ed4-8faa-73c8a7a931a8.jpg?v=1779870609",
+          "width": 1600,
+          "height": 1600
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Orange",
+            "Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9642919985369,
+      "title": "X1 Spark L Electric Dirt Bike",
+      "handle": "x1-spark-l",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li>4500W Mid-Drive Motor– Powerful acceleration and 50MPH top speed on any terrain.<br>\n</li>\n<li>1728Wh Battery - Large capacity, more power, longer riding time.<br>\n</li>\n<li>283Nm Torque – Powerful climbing ability and reliable load-carrying performance.<br>\n</li>\n<li class=\"a-spacing-mini\">150mm front and 75mm rear suspension soak up bumps with ease, delivering a smoother, more controlled ride.</li>\n</ul>",
+      "published_at": "2025-11-24T03:36:27-08:00",
+      "created_at": "2026-03-03T01:06:27-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X1 Spark",
+      "tags": [
+        "E_BIKE_S_7",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice",
+        "Pre-sale label"
+      ],
+      "variants": [
+        {
+          "id": 48058533216473,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "X1 Spark L-Black",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49346529657049,
+            "product_id": 9642919985369,
+            "position": 8,
+            "created_at": "2026-07-10T03:00:37-07:00",
+            "updated_at": "2026-07-10T03:00:38-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_7f499a39-5510-4ebb-9279-663bf5a4804f.jpg?v=1783677638",
+            "variant_ids": [
+              48058533216473
+            ]
+          },
+          "available": true,
+          "price": "1399.99",
+          "grams": 0,
+          "compare_at_price": "1999.99",
+          "position": 1,
+          "product_id": 9642919985369,
+          "created_at": "2026-03-03T01:06:28-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48058533183705,
+          "title": "Orange",
+          "option1": "Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "X1 Spark L-Orange",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 48262185844953,
+            "product_id": 9642919985369,
+            "position": 1,
+            "created_at": "2026-03-03T01:06:41-08:00",
+            "updated_at": "2026-03-03T01:06:43-08:00",
+            "alt": "Orange_X1 Spark L electric dirt bike for teens front right-side view",
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_e1300103-89ee-4289-be55-7c885de67d48.jpg?v=1772528803",
+            "variant_ids": [
+              48058533183705
+            ]
+          },
+          "available": true,
+          "price": "1399.99",
+          "grams": 0,
+          "compare_at_price": "1999.99",
+          "position": 2,
+          "product_id": 9642919985369,
+          "created_at": "2026-03-03T01:06:28-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 48262185844953,
+          "created_at": "2026-03-03T01:06:41-08:00",
+          "position": 1,
+          "updated_at": "2026-03-03T01:06:43-08:00",
+          "product_id": 9642919985369,
+          "variant_ids": [
+            48058533183705
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_e1300103-89ee-4289-be55-7c885de67d48.jpg?v=1772528803",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262185877721,
+          "created_at": "2026-03-03T01:06:41-08:00",
+          "position": 2,
+          "updated_at": "2026-03-03T01:06:43-08:00",
+          "product_id": 9642919985369,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_1_438fe66c-25ec-4c21-b79d-df1be7f96755.jpg?v=1772528803",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346246213849,
+          "created_at": "2026-07-10T02:13:30-07:00",
+          "position": 3,
+          "updated_at": "2026-07-10T02:13:31-07:00",
+          "product_id": 9642919985369,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_d3666b4f-3e2e-41b4-b9ef-22ac2e0fc724.jpg?v=1783674811",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346246017241,
+          "created_at": "2026-07-10T02:13:30-07:00",
+          "position": 4,
+          "updated_at": "2026-07-10T02:13:32-07:00",
+          "product_id": 9642919985369,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/1_7ca358ac-d930-49ac-b0f1-6e6c7a3e7621.jpg?v=1783674812",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346246050009,
+          "created_at": "2026-07-10T02:13:30-07:00",
+          "position": 5,
+          "updated_at": "2026-07-10T02:13:32-07:00",
+          "product_id": 9642919985369,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/3_cdbb6822-a7a6-4718-bad6-6b48962ed9e8.jpg?v=1783674812",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346246246617,
+          "created_at": "2026-07-10T02:13:30-07:00",
+          "position": 6,
+          "updated_at": "2026-07-10T02:13:32-07:00",
+          "product_id": 9642919985369,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/4_3f656ae9-4466-480c-bde7-fc0f66e98697.jpg?v=1783674812",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346246344921,
+          "created_at": "2026-07-10T02:13:31-07:00",
+          "position": 7,
+          "updated_at": "2026-07-10T02:13:32-07:00",
+          "product_id": 9642919985369,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/5_298843e9-040d-4166-8db7-f24e13a9c95a.jpg?v=1783674812",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346529657049,
+          "created_at": "2026-07-10T03:00:37-07:00",
+          "position": 8,
+          "updated_at": "2026-07-10T03:00:38-07:00",
+          "product_id": 9642919985369,
+          "variant_ids": [
+            48058533216473
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_7f499a39-5510-4ebb-9279-663bf5a4804f.jpg?v=1783677638",
+          "width": 1800,
+          "height": 1800
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black",
+            "Orange"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9642833838297,
+      "title": "X7 Spark Electric Dirt Bike",
+      "handle": "x7-spark",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li>12000W Mid-Drive Motor– Powerful acceleration and 70MPH top speed on any terrain.<br>\n</li>\n<li>3600Wh Battery - Large capacity, more power, longer riding time.<br>\n</li>\n<li>600Nm Torque – Powerful climbing ability and reliable load-carrying performance.<br>\n</li>\n</ul>",
+      "published_at": "2026-02-12T21:31:50-08:00",
+      "created_at": "2026-03-03T00:53:05-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X7 Spark",
+      "tags": [
+        "E_BIKE_S_7",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice",
+        "Pre-sale label"
+      ],
+      "variants": [
+        {
+          "id": 48058438287577,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "X7 Spark-Black",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49493444919513,
+            "product_id": 9642833838297,
+            "position": 1,
+            "created_at": "2026-07-24T04:24:18-07:00",
+            "updated_at": "2026-07-24T04:24:19-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_2.jpg?v=1784892259",
+            "variant_ids": [
+              48058438287577
+            ]
+          },
+          "available": false,
+          "price": "3099.99",
+          "grams": 0,
+          "compare_at_price": "3499.99",
+          "position": 1,
+          "product_id": 9642833838297,
+          "created_at": "2026-03-03T00:53:05-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 49493444919513,
+          "created_at": "2026-07-24T04:24:18-07:00",
+          "position": 1,
+          "updated_at": "2026-07-24T04:24:19-07:00",
+          "product_id": 9642833838297,
+          "variant_ids": [
+            48058438287577
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_2.jpg?v=1784892259",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493444853977,
+          "created_at": "2026-07-24T04:24:18-07:00",
+          "position": 2,
+          "updated_at": "2026-07-24T04:24:19-07:00",
+          "product_id": 9642833838297,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_d00100f9-e1ce-40a2-95a2-48e15c75e372.jpg?v=1784892259",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493444788441,
+          "created_at": "2026-07-24T04:24:18-07:00",
+          "position": 3,
+          "updated_at": "2026-07-24T04:24:19-07:00",
+          "product_id": 9642833838297,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_3.jpg?v=1784892259",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493444821209,
+          "created_at": "2026-07-24T04:24:18-07:00",
+          "position": 4,
+          "updated_at": "2026-07-24T04:24:19-07:00",
+          "product_id": 9642833838297,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_4.jpg?v=1784892259",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493444886745,
+          "created_at": "2026-07-24T04:24:18-07:00",
+          "position": 5,
+          "updated_at": "2026-07-24T04:24:19-07:00",
+          "product_id": 9642833838297,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_5.jpg?v=1784892259",
+          "width": 1800,
+          "height": 1800
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9642833772761,
+      "title": "X5 Spark Electric Dirt Bike",
+      "handle": "x5-spark",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li>6000W Mid-Drive Motor– Powerful acceleration and 65MPH top speed on any terrain.<br>\n</li>\n<li>3000Wh Battery - Large capacity, more power, longer riding time.<br>\n</li>\n<li>300Nm Torque – Powerful climbing ability and reliable load-carrying performance.<br>\n</li>\n</ul>",
+      "published_at": "2026-02-12T21:31:31-08:00",
+      "created_at": "2026-03-03T00:52:46-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X5 Spark",
+      "tags": [
+        "E_BIKE_S_7",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice",
+        "Pre-sale label"
+      ],
+      "variants": [
+        {
+          "id": 48058437992665,
+          "title": "Black",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "sku": "X5 Spark-Black",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49493442232537,
+            "product_id": 9642833772761,
+            "position": 6,
+            "created_at": "2026-07-24T04:21:47-07:00",
+            "updated_at": "2026-07-24T04:21:48-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_2_e6b578ac-f8a3-4a2b-b679-0ffac61b4f93.jpg?v=1784892108",
+            "variant_ids": [
+              48058437992665
+            ]
+          },
+          "available": false,
+          "price": "2499.99",
+          "grams": 0,
+          "compare_at_price": "2799.99",
+          "position": 1,
+          "product_id": 9642833772761,
+          "created_at": "2026-03-03T00:52:46-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 49493441806553,
+          "created_at": "2026-07-24T04:21:02-07:00",
+          "position": 1,
+          "updated_at": "2026-07-24T04:21:04-07:00",
+          "product_id": 9642833772761,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_2.jpg?v=1784892064",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493441773785,
+          "created_at": "2026-07-24T04:21:02-07:00",
+          "position": 2,
+          "updated_at": "2026-07-24T04:21:03-07:00",
+          "product_id": 9642833772761,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_1.jpg?v=1784892063",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493441741017,
+          "created_at": "2026-07-24T04:21:02-07:00",
+          "position": 3,
+          "updated_at": "2026-07-24T04:21:03-07:00",
+          "product_id": 9642833772761,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_3.jpg?v=1784892063",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493441839321,
+          "created_at": "2026-07-24T04:21:02-07:00",
+          "position": 4,
+          "updated_at": "2026-07-24T04:21:04-07:00",
+          "product_id": 9642833772761,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_4.jpg?v=1784892064",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493441872089,
+          "created_at": "2026-07-24T04:21:02-07:00",
+          "position": 5,
+          "updated_at": "2026-07-24T04:21:05-07:00",
+          "product_id": 9642833772761,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_5.jpg?v=1784892065",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49493442232537,
+          "created_at": "2026-07-24T04:21:47-07:00",
+          "position": 6,
+          "updated_at": "2026-07-24T04:21:48-07:00",
+          "product_id": 9642833772761,
+          "variant_ids": [
+            48058437992665
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X5_2_e6b578ac-f8a3-4a2b-b679-0ffac61b4f93.jpg?v=1784892108",
+          "width": 1800,
+          "height": 1800
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9642917626073,
+      "title": "X1 Spark M*2 Electric Mini Bike",
+      "handle": "x1-spark-2",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li class=\"a-spacing-mini\">4500W Mid-Drive Motor– Powerful acceleration and 50MPH top speed on any terrain.</li>\n<li class=\"a-spacing-mini\">1728Wh removable battery – large capacity power, more power, longer ride.</li>\n<li class=\"a-spacing-mini\">283Nm Torque – Powerful climbing ability and reliable load-carrying performance.</li>\n<li class=\"a-spacing-mini\">150mm front and 75mm rear suspension soak up bumps with ease, delivering a smoother, more controlled ride.</li>\n</ul>",
+      "published_at": "2025-10-10T05:22:25-07:00",
+      "created_at": "2026-03-03T01:01:10-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X1 Spark",
+      "tags": [
+        "E_BIKE_S_12",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice"
+      ],
+      "variants": [
+        {
+          "id": 48058527908057,
+          "title": "Orange+Orange",
+          "option1": "Orange+Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "hhcheng-hhcheng",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 48262150291673,
+            "product_id": 9642917626073,
+            "position": 1,
+            "created_at": "2026-03-03T01:01:17-08:00",
+            "updated_at": "2026-03-03T01:01:18-08:00",
+            "alt": "Orange X1 Spark M*2 mini electric dirt bike front right-side view",
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_9fc89472-462d-4aff-9058-f064e806027a.jpg?v=1772528478",
+            "variant_ids": [
+              48058527908057
+            ]
+          },
+          "available": true,
+          "price": "1899.99",
+          "grams": 0,
+          "compare_at_price": "2799.99",
+          "position": 1,
+          "product_id": 9642917626073,
+          "created_at": "2026-03-03T01:01:10-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48815279079641,
+          "title": "Black+Black",
+          "option1": "Black+Black",
+          "option2": null,
+          "option3": null,
+          "sku": "hhhei-hhhei",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49159949091033,
+            "product_id": 9642917626073,
+            "position": 11,
+            "created_at": "2026-06-14T20:26:09-07:00",
+            "updated_at": "2026-06-14T20:26:11-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_M_M_510f2771-0b8e-4e4c-ba85-4353a9c2e7e2.jpg?v=1781493971",
+            "variant_ids": [
+              48815279079641
+            ]
+          },
+          "available": true,
+          "price": "1899.99",
+          "grams": 0,
+          "compare_at_price": "2799.99",
+          "position": 2,
+          "product_id": 9642917626073,
+          "created_at": "2026-06-14T20:19:09-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48815715123417,
+          "title": "Orange+Black",
+          "option1": "Orange+Black",
+          "option2": null,
+          "option3": null,
+          "sku": "hhcheng-hhhei",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49160115650777,
+            "product_id": 9642917626073,
+            "position": 12,
+            "created_at": "2026-06-14T22:43:15-07:00",
+            "updated_at": "2026-06-14T22:43:16-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_M_M_80360827-80a8-4f04-8099-1565fa651d70.jpg?v=1781502196",
+            "variant_ids": [
+              48815715123417
+            ]
+          },
+          "available": true,
+          "price": "1899.99",
+          "grams": 0,
+          "compare_at_price": "2799.99",
+          "position": 3,
+          "product_id": 9642917626073,
+          "created_at": "2026-06-14T22:42:45-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 48262150291673,
+          "created_at": "2026-03-03T01:01:17-08:00",
+          "position": 1,
+          "updated_at": "2026-03-03T01:01:18-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [
+            48058527908057
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_9fc89472-462d-4aff-9058-f064e806027a.jpg?v=1772528478",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262150717657,
+          "created_at": "2026-03-03T01:01:19-08:00",
+          "position": 2,
+          "updated_at": "2026-03-03T01:01:20-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_17d7a89a-d811-4652-acfe-9be9d219e477.jpg?v=1772528480",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262151667929,
+          "created_at": "2026-03-03T01:01:21-08:00",
+          "position": 3,
+          "updated_at": "2026-03-03T01:01:22-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_1_fd783f9c-9ae2-4f47-8195-28ba5ff05205.jpg?v=1772528482",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262152257753,
+          "created_at": "2026-03-03T01:01:22-08:00",
+          "position": 4,
+          "updated_at": "2026-03-03T01:01:24-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/1-1_fca3dc7c-cf37-4cd1-b9d7-78cf1942d31a.jpg?v=1772528484",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262152880345,
+          "created_at": "2026-03-03T01:01:24-08:00",
+          "position": 5,
+          "updated_at": "2026-03-03T01:01:26-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_94b98be7-aac7-4513-a33c-b2e411e7284f.jpg?v=1772528486",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262153273561,
+          "created_at": "2026-03-03T01:01:26-08:00",
+          "position": 6,
+          "updated_at": "2026-03-03T01:01:28-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/3_9760c183-a5cf-4189-9fc9-18a689147e71.jpg?v=1772528488",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262153306329,
+          "created_at": "2026-03-03T01:01:28-08:00",
+          "position": 7,
+          "updated_at": "2026-03-03T01:01:30-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/4_32565211-46dd-4bbc-8775-d092ca6702e9.jpg?v=1772528490",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262153502937,
+          "created_at": "2026-03-03T01:01:30-08:00",
+          "position": 8,
+          "updated_at": "2026-03-03T01:01:32-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/5_95d87c1c-fbe0-4f49-b3fa-db248013a768.jpg?v=1772528492",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 48262153699545,
+          "created_at": "2026-03-03T01:01:32-08:00",
+          "position": 9,
+          "updated_at": "2026-03-03T01:01:34-08:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/6_30fc3075-5790-4109-83b3-4cff3e744cbc.jpg?v=1772528494",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 49044177912025,
+          "created_at": "2026-05-27T01:30:07-07:00",
+          "position": 10,
+          "updated_at": "2026-05-27T01:30:09-07:00",
+          "product_id": 9642917626073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/c8682a1b6d56a22c3b0a59f59bf75cf5_b761180c-4467-4a89-a640-f839110418dd.jpg?v=1779870609",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "id": 49159949091033,
+          "created_at": "2026-06-14T20:26:09-07:00",
+          "position": 11,
+          "updated_at": "2026-06-14T20:26:11-07:00",
+          "product_id": 9642917626073,
+          "variant_ids": [
+            48815279079641
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_M_M_510f2771-0b8e-4e4c-ba85-4353a9c2e7e2.jpg?v=1781493971",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49160115650777,
+          "created_at": "2026-06-14T22:43:15-07:00",
+          "position": 12,
+          "updated_at": "2026-06-14T22:43:16-07:00",
+          "product_id": 9642917626073,
+          "variant_ids": [
+            48815715123417
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_M_M_80360827-80a8-4f04-8099-1565fa651d70.jpg?v=1781502196",
+          "width": 1800,
+          "height": 1800
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Orange+Orange",
+            "Black+Black",
+            "Orange+Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9642950394073,
+      "title": "X1 Spark L*2 Electric Dirt Bike",
+      "handle": "x1-spark-l-2",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li class=\"a-spacing-mini\">4500W Mid-Drive Motor– Powerful acceleration and 50MPH top speed on any terrain.</li>\n<li class=\"a-spacing-mini\">1728Wh removable battery – large capacity power, more power, longer ride.</li>\n<li class=\"a-spacing-mini\">283Nm Torque – Powerful climbing ability and reliable load-carrying performance.</li>\n<li class=\"a-spacing-mini\">150mm front and 75mm rear suspension soak up bumps with ease, delivering a smoother, more controlled ride.</li>\n</ul>",
+      "published_at": "2025-11-26T02:35:31-08:00",
+      "created_at": "2026-03-03T01:08:37-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X1 Spark",
+      "tags": [
+        "E_BIKE_S_13",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice",
+        "Pre-sale label"
+      ],
+      "variants": [
+        {
+          "id": 48058563690713,
+          "title": "Orange+Orange",
+          "option1": "Orange+Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlcheng-hhlcheng",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 48262410272985,
+            "product_id": 9642950394073,
+            "position": 1,
+            "created_at": "2026-03-03T01:08:45-08:00",
+            "updated_at": "2026-03-03T03:43:06-08:00",
+            "alt": "Orange X1 Spark L*2 electric dirt bike for teens front right-side view",
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_1.jpg?v=1772538186",
+            "variant_ids": [
+              48058563690713
+            ]
+          },
+          "available": true,
+          "price": "2699.99",
+          "grams": 0,
+          "compare_at_price": "3999.99",
+          "position": 1,
+          "product_id": 9642950394073,
+          "created_at": "2026-03-03T01:08:37-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48814877901017,
+          "title": "Black+Black",
+          "option1": "Black+Black",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlhei-hhlhei",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49346531918041,
+            "product_id": 9642950394073,
+            "position": 5,
+            "created_at": "2026-07-10T03:02:48-07:00",
+            "updated_at": "2026-07-10T03:02:49-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_0458c9c3-a7d0-408c-8082-3b6df0b543e5.jpg?v=1783677769",
+            "variant_ids": [
+              48814877901017
+            ]
+          },
+          "available": true,
+          "price": "2699.99",
+          "grams": 0,
+          "compare_at_price": "3999.99",
+          "position": 2,
+          "product_id": 9642950394073,
+          "created_at": "2026-06-14T19:49:51-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48815734784217,
+          "title": "Orange+Black",
+          "option1": "Orange+Black",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlcheng-hhlhei",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49160149926105,
+            "product_id": 9642950394073,
+            "position": 4,
+            "created_at": "2026-06-14T22:56:57-07:00",
+            "updated_at": "2026-06-14T22:56:58-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_L_L_2864812b-c43b-4dea-9b8c-92e7130f4b35.jpg?v=1781503018",
+            "variant_ids": [
+              48815734784217
+            ]
+          },
+          "available": true,
+          "price": "2699.99",
+          "grams": 0,
+          "compare_at_price": "3999.99",
+          "position": 3,
+          "product_id": 9642950394073,
+          "created_at": "2026-06-14T22:56:31-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 48262410272985,
+          "created_at": "2026-03-03T01:08:45-08:00",
+          "position": 1,
+          "updated_at": "2026-03-03T03:43:06-08:00",
+          "product_id": 9642950394073,
+          "variant_ids": [
+            48058563690713
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_1.jpg?v=1772538186",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262410305753,
+          "created_at": "2026-03-03T01:08:45-08:00",
+          "position": 2,
+          "updated_at": "2026-03-03T01:08:47-08:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_e729855c-3594-4d0c-b886-6516ef0caa15.jpg?v=1772528927",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262410338521,
+          "created_at": "2026-03-03T01:08:45-08:00",
+          "position": 3,
+          "updated_at": "2026-03-03T01:08:47-08:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_1_a8f26ece-0a8f-48ec-b70a-a1f2337a7705.jpg?v=1772528927",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49160149926105,
+          "created_at": "2026-06-14T22:56:57-07:00",
+          "position": 4,
+          "updated_at": "2026-06-14T22:56:58-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [
+            48815734784217
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_L_L_2864812b-c43b-4dea-9b8c-92e7130f4b35.jpg?v=1781503018",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346531918041,
+          "created_at": "2026-07-10T03:02:48-07:00",
+          "position": 5,
+          "updated_at": "2026-07-10T03:02:49-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [
+            48814877901017
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_0458c9c3-a7d0-408c-8082-3b6df0b543e5.jpg?v=1783677769",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346529657049,
+          "created_at": "2026-07-10T03:00:37-07:00",
+          "position": 6,
+          "updated_at": "2026-07-10T03:00:38-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/2_7f499a39-5510-4ebb-9279-663bf5a4804f.jpg?v=1783677638",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346530050265,
+          "created_at": "2026-07-10T03:01:04-07:00",
+          "position": 7,
+          "updated_at": "2026-07-10T03:01:06-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/5_5ea85e25-5242-46ca-95a1-23155b8a93a7.jpg?v=1783677666",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346530017497,
+          "created_at": "2026-07-10T03:01:04-07:00",
+          "position": 8,
+          "updated_at": "2026-07-10T03:01:05-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/4_a8f5601a-ac4a-4f78-ac1a-8a62c0cd8ee0.jpg?v=1783677665",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346529984729,
+          "created_at": "2026-07-10T03:01:03-07:00",
+          "position": 9,
+          "updated_at": "2026-07-10T03:01:05-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/1_92f9a919-5471-40a6-870c-176070a6b04d.jpg?v=1783677665",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346529951961,
+          "created_at": "2026-07-10T03:01:03-07:00",
+          "position": 10,
+          "updated_at": "2026-07-10T03:01:05-07:00",
+          "product_id": 9642950394073,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/3_673ac271-62f6-4126-8c02-56b68ba0d0dd.jpg?v=1783677665",
+          "width": 1800,
+          "height": 1800
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Orange+Orange",
+            "Black+Black",
+            "Orange+Black"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9642972250329,
+      "title": "X1 Spark (L/M) Electric Dirt Bike",
+      "handle": "x1-spark-l-x1-spark-m",
+      "body_html": "<h4 class=\"a-size-base-plus a-text-bold\">About this item</h4>\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li class=\"a-spacing-mini\">4500W Mid-Drive Motor– Powerful acceleration and 50MPH top speed on any terrain.</li>\n<li class=\"a-spacing-mini\">1728Wh removable battery – large capacity power, more power, longer ride.</li>\n<li class=\"a-spacing-mini\">283Nm Torque – Powerful climbing ability and reliable load-carrying performance.</li>\n<li class=\"a-spacing-mini\">150mm front and 75mm rear suspension soak up bumps with ease, delivering a smoother, more controlled ride.</li>\n</ul>",
+      "published_at": "2025-11-27T02:47:04-08:00",
+      "created_at": "2026-03-03T01:10:05-08:00",
+      "updated_at": "2026-07-27T09:46:12-07:00",
+      "vendor": "Qronge",
+      "product_type": "X1 Spark",
+      "tags": [
+        "E_BIKE_S_14",
+        "Electric Bike Category",
+        "electric dirt bike",
+        "For_Promotion",
+        "For_Promotion_Choice",
+        "Pre-sale label"
+      ],
+      "variants": [
+        {
+          "id": 48058585546969,
+          "title": "Orange+Orange",
+          "option1": "Orange+Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlcheng-hhmcheng",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 48262557237465,
+            "product_id": 9642972250329,
+            "position": 1,
+            "created_at": "2026-03-03T01:10:12-08:00",
+            "updated_at": "2026-03-03T01:10:13-08:00",
+            "alt": "X1 Spark L electric dirt bike for teens and X1 Spark M mini electric dirt bike front right-side view",
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_L_M.jpg?v=1772529013",
+            "variant_ids": [
+              48058585546969
+            ]
+          },
+          "available": true,
+          "price": "2299.99",
+          "grams": 0,
+          "compare_at_price": "3399.99",
+          "position": 1,
+          "product_id": 9642972250329,
+          "created_at": "2026-03-03T01:10:05-08:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48815838658777,
+          "title": "Orange+Black",
+          "option1": "Orange+Black",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlcheng-hhmhei",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49160285389017,
+            "product_id": 9642972250329,
+            "position": 6,
+            "created_at": "2026-06-14T23:16:00-07:00",
+            "updated_at": "2026-06-14T23:16:02-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_L_M_0b427030-82ac-44a2-a182-6dcc307b3ff8.jpg?v=1781504162",
+            "variant_ids": [
+              48815838658777
+            ]
+          },
+          "available": true,
+          "price": "2299.99",
+          "grams": 0,
+          "compare_at_price": "3399.99",
+          "position": 2,
+          "product_id": 9642972250329,
+          "created_at": "2026-06-14T23:13:48-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48815838953689,
+          "title": "Black+Black",
+          "option1": "Black+Black",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlhei-hhmhei",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49346672656601,
+            "product_id": 9642972250329,
+            "position": 9,
+            "created_at": "2026-07-10T03:39:54-07:00",
+            "updated_at": "2026-07-10T03:39:56-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/20260710-183902.jpg?v=1783679996",
+            "variant_ids": [
+              48815838953689
+            ]
+          },
+          "available": true,
+          "price": "2299.99",
+          "grams": 0,
+          "compare_at_price": "3399.99",
+          "position": 3,
+          "product_id": 9642972250329,
+          "created_at": "2026-06-14T23:14:01-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        },
+        {
+          "id": 48815839281369,
+          "title": "Black+Orange",
+          "option1": "Black+Orange",
+          "option2": null,
+          "option3": null,
+          "sku": "hhlhei-hhmcheng",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": {
+            "id": 49346676588761,
+            "product_id": 9642972250329,
+            "position": 10,
+            "created_at": "2026-07-10T03:40:53-07:00",
+            "updated_at": "2026-07-10T03:40:54-07:00",
+            "alt": null,
+            "width": 1800,
+            "height": 1800,
+            "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/20260710-183853_59aef98b-a9ab-494b-b09e-de9be45bca1f.jpg?v=1783680054",
+            "variant_ids": [
+              48815839281369
+            ]
+          },
+          "available": true,
+          "price": "2299.99",
+          "grams": 0,
+          "compare_at_price": "3399.99",
+          "position": 4,
+          "product_id": 9642972250329,
+          "created_at": "2026-06-14T23:14:20-07:00",
+          "updated_at": "2026-07-27T09:46:12-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 48262557237465,
+          "created_at": "2026-03-03T01:10:12-08:00",
+          "position": 1,
+          "updated_at": "2026-03-03T01:10:13-08:00",
+          "product_id": 9642972250329,
+          "variant_ids": [
+            48058585546969
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_L_M.jpg?v=1772529013",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262560153817,
+          "created_at": "2026-03-03T01:10:13-08:00",
+          "position": 2,
+          "updated_at": "2026-03-03T01:10:15-08:00",
+          "product_id": 9642972250329,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_fa62c607-acb1-4144-9744-76edad835675.jpg?v=1772529015",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262563528921,
+          "created_at": "2026-03-03T01:10:15-08:00",
+          "position": 3,
+          "updated_at": "2026-03-03T01:10:17-08:00",
+          "product_id": 9642972250329,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_1_28cc01a2-fd65-4adc-a393-f33b2ee12f28.jpg?v=1772529017",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262566609113,
+          "created_at": "2026-03-03T01:10:17-08:00",
+          "position": 4,
+          "updated_at": "2026-03-03T01:10:18-08:00",
+          "product_id": 9642972250329,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_2_fe1ca60a-71a1-4ed5-b471-bc83da236a06.jpg?v=1772529018",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 48262569296089,
+          "created_at": "2026-03-03T01:10:19-08:00",
+          "position": 5,
+          "updated_at": "2026-03-03T01:10:20-08:00",
+          "product_id": 9642972250329,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_1_74c27ac6-0216-4cc0-a3ab-1ee02b576d23.jpg?v=1772529020",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49160285389017,
+          "created_at": "2026-06-14T23:16:00-07:00",
+          "position": 6,
+          "updated_at": "2026-06-14T23:16:02-07:00",
+          "product_id": 9642972250329,
+          "variant_ids": [
+            48815838658777
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_L_M_0b427030-82ac-44a2-a182-6dcc307b3ff8.jpg?v=1781504162",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49160289747161,
+          "created_at": "2026-06-14T23:17:12-07:00",
+          "position": 7,
+          "updated_at": "2026-06-14T23:17:14-07:00",
+          "product_id": 9642972250329,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_L_M_f2726b29-6f07-4d5b-88f6-39d8aaf52c66.jpg?v=1781504234",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49160290992345,
+          "created_at": "2026-06-14T23:17:29-07:00",
+          "position": 8,
+          "updated_at": "2026-06-14T23:17:31-07:00",
+          "product_id": 9642972250329,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X1_L_M_7eb20514-56b9-4c0b-9718-996627e2fc99.jpg?v=1781504251",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346672656601,
+          "created_at": "2026-07-10T03:39:54-07:00",
+          "position": 9,
+          "updated_at": "2026-07-10T03:39:56-07:00",
+          "product_id": 9642972250329,
+          "variant_ids": [
+            48815838953689
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/20260710-183902.jpg?v=1783679996",
+          "width": 1800,
+          "height": 1800
+        },
+        {
+          "id": 49346676588761,
+          "created_at": "2026-07-10T03:40:53-07:00",
+          "position": 10,
+          "updated_at": "2026-07-10T03:40:54-07:00",
+          "product_id": 9642972250329,
+          "variant_ids": [
+            48815839281369
+          ],
+          "src": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/20260710-183853_59aef98b-a9ab-494b-b09e-de9be45bca1f.jpg?v=1783680054",
+          "width": 1800,
+          "height": 1800
+        }
+      ],
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Orange+Orange",
+            "Orange+Black",
+            "Black+Black",
+            "Black+Orange"
+          ]
+        }
+      ]
+    }
+  ]
+}

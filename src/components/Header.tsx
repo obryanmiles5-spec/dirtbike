@@ -18,8 +18,8 @@ import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
 
 interface HeaderProps {
-  activeTab: 'home' | 'shop' | 'about' | 'contact';
-  setActiveTab: (tab: 'home' | 'shop' | 'about' | 'contact') => void;
+  activeTab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories';
+  setActiveTab: (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => void;
   onOpenSearch?: () => void;
   onOpenTestRide?: () => void;
   onOpenQuiz?: () => void;
@@ -56,6 +56,9 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'shop', label: 'Shop', icon: BikeIcon },
     { id: 'about', label: 'About', icon: Info },
     { id: 'contact', label: 'Contact', icon: PhoneCall },
+    { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes', icon: BikeIcon },
+    { id: 'e-bikes', label: 'E-Bikes', icon: Zap },
+    { id: 'accessories', label: 'Accessories', icon: Zap },
   ] as const;
 
   return (

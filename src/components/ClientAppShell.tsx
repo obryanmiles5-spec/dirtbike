@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Header } from '@/components/Header';
@@ -11,12 +10,13 @@ import { CompareModal } from '@/components/CompareModal';
 import { TestRideModal } from '@/components/TestRideModal';
 import { RiderQuizModal } from '@/components/RiderQuizModal';
 import { Bike, OrderDetails } from '@/types';
+import { useAppContext } from '@/context/AppContext';
 
 export function ClientAppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const getTabFromPath = (path: string | null): 'home' | 'shop' | 'about' | 'contact' => {
+  const getTabFromPath = (path: string | null): 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories' => {
     if (!path) return 'home';
     if (path.startsWith('/shop')) return 'shop';
     if (path.startsWith('/about')) return 'about';
@@ -24,20 +24,20 @@ export function ClientAppShell({ children }: { children: React.ReactNode }) {
     return 'home';
   };
 
-  const [activeTab, setActiveTabState] = useState<'home' | 'shop' | 'about' | 'contact'>('home');
-  const [selectedBike, setSelectedBike] = useState<Bike | null>(null);
+  const [activeTab, setActiveTabState] = useState<'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories'>('home');
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [isTestRideOpen, setIsTestRideOpen] = useState(false);
-  const [testRideBikeName, setTestRideBikeName] = useState<string | undefined>(undefined);
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const { selectedBike, setSelectedBike, isQuizOpen, setIsQuizOpen, isTestRideOpen, setIsTestRideOpen, testRideBikeName, setTestRideBikeName } = useAppContext();
 
   useEffect(() => {
     setActiveTabState(getTabFromPath(pathname));
   }, [pathname]);
 
-  const handleSetActiveTab = (tab: 'home' | 'shop' | 'about' | 'contact') => {
+  const handleSetActiveTab = (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => {
     setActiveTabState(tab);
     if (tab === 'home') router.push('/');
+    else if (['electric-dirt-bikes', 'e-bikes', 'accessories'].includes(tab)) {
+      router.push(`/shop?category=${tab}`);
+    }
     else if (tab === 'shop') router.push('/shop');
     else if (tab === 'about') router.push('/about');
     else if (tab === 'contact') router.push('/contact');
@@ -70,21 +70,11 @@ export function ClientAppShell({ children }: { children: React.ReactNode }) {
       />
 
       <main className="flex-1">
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child as React.ReactElement<any>, {
-              onSelectBike: (bike: Bike) => setSelectedBike(bike),
-              onNavigateToShop: () => handleSetActiveTab('shop'),
-              onOpenQuiz: () => setIsQuizOpen(true),
-              onOpenTestRide: (bName?: string) => handleOpenTestRide(bName),
-            });
-          }
-          return child;
-        })}
+        {children}
       </main>
 
       <Footer setActiveTab={handleSetActiveTab} />
-
+      
       <BikeDetailModal
         bike={selectedBike}
         onClose={() => setSelectedBike(null)}

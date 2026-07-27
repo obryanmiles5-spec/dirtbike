@@ -18,7 +18,7 @@ import {
 import { LegalModal } from './LegalModal';
 
 interface FooterProps {
-  setActiveTab: (tab: 'home' | 'shop' | 'about' | 'contact') => void;
+  setActiveTab: (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { 
   Search, 
   SlidersHorizontal, 
@@ -16,6 +17,7 @@ import {
 } from 'lucide-react';
 import { BIKES_DATA } from '../data/bikes';
 import { BikeCard } from '../components/BikeCard';
+import { useAppContext } from '../context/AppContext';
 import { Bike, BikeCategory, FilterState } from '../types';
 
 interface ShopProps {
@@ -23,10 +25,13 @@ interface ShopProps {
   initialSearchQuery?: string;
 }
 
-export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '' }) => {
+export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
+  const { setSelectedBike } = useAppContext();
+  const searchParams = useSearchParams();
+
   const [filters, setFilters] = useState<FilterState>({
     search: initialSearchQuery,
-    category: 'all',
+    category: (searchParams?.get('category') as BikeCategory) || 'all',
     minMotorKW: 0,
     maxMotorKW: 70,
     minRangeMiles: 0,
@@ -37,16 +42,32 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
     sortBy: 'featured'
   });
 
+  useEffect(() => {
+    const cat = searchParams?.get('category') as BikeCategory;
+    if (cat && cat !== filters.category) {
+      setFilters(prev => ({ ...prev, category: cat }));
+    }
+  }, [searchParams]);
+
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   // Category list
-  const categories: { id: BikeCategory; label: string }[] = [
-    { id: 'all', label: 'All Bikes' },
-    { id: 'dual_seat_utility', label: '2-Seater / Sit Carrier' },
-    { id: 'trail_enduro', label: 'Trail / Enduro' },
-    { id: 'mx_racing', label: 'Motocross Track' },
-    { id: 'urban_supermoto', label: 'Urban Supermoto' },
-    { id: 'youth_stealth', label: 'Youth / Beginner' }
+  const categories = [
+    { id: 'all', label: 'All Products', isMain: true },
+    { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes', isMain: true },
+    { id: 'adult-emotos', label: 'Electric Dirt Bikes for Adults', parent: 'electric-dirt-bikes' },
+    { id: 'kids-youth', label: 'Electric Dirt Bikes for kids', parent: 'electric-dirt-bikes' },
+    { id: 'street-legal', label: 'Electric Dirt Bikes Street Legal', parent: 'electric-dirt-bikes' },
+    { id: 'mini-dirt-bikes', label: 'Electric Mini Dirt Bikes', parent: 'electric-dirt-bikes' },
+    { id: 'e-bikes', label: 'E-Bikes', isMain: true },
+    { id: 'high-speed-sport', label: 'High Speed Sport', parent: 'e-bikes' },
+    { id: 'dual-motor-AWD', label: 'Dual Motor AWD', parent: 'e-bikes' },
+    { id: 'urban-commuter', label: 'Urban Commuter', parent: 'e-bikes' },
+    { id: 'accessories', label: 'Accessories', isMain: true },
+    { id: 'batteries-power', label: 'Batteries Power', parent: 'accessories' },
+    { id: 'tires-wheels', label: 'Tires and Wheels', parent: 'accessories' },
+    { id: 'upgrades-performance', label: 'Upgrades Performance', parent: 'accessories' },
+    { id: 'riding-gear', label: 'Riding Gear', parent: 'accessories' }
   ];
 
   // Filtering Logic
@@ -64,7 +85,7 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
         
         // Match 2 seater keywords (e.g. "2 seater", "2 person", "carrier", "electronic dirt bike")
         const isTwoSeatQuery = q.includes('2 seat') || q.includes('two seat') || q.includes('2-seat') || q.includes('carrier') || q.includes('passenger') || q.includes('2 person') || q.includes('sit');
-        const matchesTwoSeatKeyword = isTwoSeatQuery && (bike.isTwoSeater || bike.category === 'dual_seat_utility');
+        const matchesTwoSeatKeyword = isTwoSeatQuery && (bike.isTwoSeater || bike.category === 'e-bikes');
 
         if (!matchesName && !matchesTagline && !matchesDesc && !matchesBattery && !matchesSeat && !matchesCategory && !matchesTwoSeatKeyword) return false;
       }
@@ -185,11 +206,13 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
               {categories.map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => setFilters({ ...filters, category: cat.id })}
+                  onClick={() => setFilters({ ...filters, category: cat.id as any })}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-between cursor-pointer font-sans uppercase ${
+                    cat.parent ? 'ml-4 w-[calc(100%-1rem)] border-l-2 border-zinc-800 rounded-l-none pl-4' : 'mt-2'
+                  } ${
                     filters.category === cat.id
-                      ? 'bg-lime-400 text-zinc-950 font-black'
-                      : 'text-zinc-300 hover:bg-zinc-900'
+                      ? (cat.parent ? 'border-lime-400 text-lime-400' : 'bg-lime-400 text-zinc-950 font-black')
+                      : 'text-zinc-300 hover:bg-zinc-900 hover:text-white'
                   }`}
                 >
                   <span>{cat.label}</span>
@@ -369,9 +392,9 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
                 <BikeIcon className="w-8 h-8 text-lime-400" />
               </div>
               <div>
-                <h3 className="font-black text-base text-white uppercase font-mono">NO MACHINES MATCH YOUR FILTERS</h3>
+                <h3 className="font-black text-base text-white uppercase font-mono">NO PRODUCTS AVAILABLE</h3>
                 <p className="text-xs text-zinc-400 mt-1 max-w-sm mx-auto">
-                  Adjust your battery voltage, motor power kW, or range limiters.
+                  Check back later for new inventory.
                 </p>
               </div>
               <button
@@ -384,7 +407,7 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5">
               {filteredBikes.map((bike) => (
-                <BikeCard key={bike.id} bike={bike} onSelectBike={onSelectBike} />
+                <BikeCard key={bike.id} bike={bike} onSelectBike={setSelectedBike} />
               ))}
             </div>
           )}
@@ -417,12 +440,14 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
                   <button
                     key={cat.id}
                     onClick={() => {
-                      setFilters({ ...filters, category: cat.id });
+                      setFilters({ ...filters, category: cat.id as any });
                       setMobileFilterOpen(false);
                     }}
                     className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold font-sans uppercase ${
+                      cat.parent ? 'ml-4 w-[calc(100%-1rem)] border-l-2 border-zinc-800 rounded-l-none pl-4' : 'mt-2'
+                    } ${
                       filters.category === cat.id
-                        ? 'bg-lime-400 text-zinc-950 font-black'
+                        ? (cat.parent ? 'border-lime-400 text-lime-400' : 'bg-lime-400 text-zinc-950 font-black')
                         : 'bg-zinc-900 text-zinc-300'
                     }`}
                   >

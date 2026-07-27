@@ -13,12 +13,15 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { FAQS_DATA } from '../data/faqs';
+import { useAppContext } from '../context/AppContext';
 
 interface ContactProps {
   onOpenTestRide: () => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ onOpenTestRide }) => {
+export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => {
+  const { setIsTestRideOpen } = useAppContext();
+  const onOpenTestRide = () => setIsTestRideOpen(true);
   const [formState, setFormState] = useState({
     name: 'Alex Rider',
     email: 'alex.rider@offroad.com',
