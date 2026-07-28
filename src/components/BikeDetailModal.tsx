@@ -33,6 +33,7 @@ import { Bike, Accessory } from '../types';
 import { BIKES_DATA, ACCESSORIES_DATA } from '../data/bikes';
 import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
+import { formatImageUrl } from '../lib/imageUtils';
 
 interface BikeDetailModalProps {
   bike: Bike | null;
@@ -160,7 +161,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
               {/* Main Image Stage */}
               <div className="relative aspect-[4/3] bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800 group">
                 <img
-                  src={activeImage}
+                  src={formatImageUrl(activeImage)}
                   alt={bike.name}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
@@ -187,7 +188,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                       activeImage === img ? 'border-lime-400 scale-102 shadow-lg shadow-lime-400/20' : 'border-zinc-800 opacity-60 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt={`Gallery ${idx}`} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+                    <img src={formatImageUrl(img)} alt={`Gallery ${idx}`} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -497,7 +498,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                     className="w-full py-3.5 px-4 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-lime-400/20 transition-all cursor-pointer font-mono"
                   >
                     <ShoppingCart className="w-4 h-4" />
-                    <span>RESERVE & BUY NOW</span>
+                    <span>ADD TO CART</span>
                   </button>
 
                   <button
@@ -552,7 +553,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                   <div className="space-y-3">
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-zinc-900">
                       <img
-                        src={relBike.image}
+                        src={formatImageUrl(relBike.image)}
                         alt={relBike.name}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

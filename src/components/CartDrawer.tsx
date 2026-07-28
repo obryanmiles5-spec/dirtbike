@@ -15,6 +15,7 @@ import {
   Lock
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { formatImageUrl } from '../lib/imageUtils';
 
 interface CartDrawerProps {
   onOpenCheckout: () => void;
@@ -133,7 +134,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 >
                   <div className="flex items-start gap-3">
                     <img
-                      src={item.bike.image}
+                      src={formatImageUrl(item.bike.image)}
                       alt={item.bike.name}
                       referrerPolicy="no-referrer"
                       className="w-16 h-16 object-cover rounded-lg border border-zinc-800 shrink-0"

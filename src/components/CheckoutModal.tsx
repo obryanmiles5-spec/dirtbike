@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { OrderDetails } from '../types';
+import { formatImageUrl } from '../lib/imageUtils';
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -331,7 +332,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div className="space-y-3 max-h-[260px] overflow-y-auto pr-1">
                   {cart.map((item) => (
                     <div key={item.id} className="flex items-center gap-3 text-xs">
-                      <img src={item.bike.image} alt={item.bike.name} referrerPolicy="no-referrer" className="w-12 h-12 rounded-md object-cover border border-zinc-800 shrink-0" />
+                      <img src={formatImageUrl(item.bike.image)} alt={item.bike.name} referrerPolicy="no-referrer" className="w-12 h-12 rounded-md object-cover border border-zinc-800 shrink-0" />
                       <div className="flex-1 min-w-0">
                         <div className="font-bold text-white uppercase truncate">{item.bike.name}</div>
                         <div className="text-[10px] text-zinc-400 font-mono">Qty: {item.quantity}</div>

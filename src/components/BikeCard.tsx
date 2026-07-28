@@ -1,14 +1,17 @@
 'use client';
+
 import React from 'react';
 import { 
   Star, 
-  ShoppingCart,
-  Eye,
+  ShoppingCart, 
+  Eye, 
+  SlidersHorizontal,
   Check
 } from 'lucide-react';
 import { Bike } from '../types';
 import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
+import { formatImageUrl } from '../lib/imageUtils';
 
 interface BikeCardProps {
   bike: Bike;
@@ -18,98 +21,140 @@ interface BikeCardProps {
 export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
   const { addToCart } = useCart();
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
+
   const isCompared = isInCompare(bike.id);
+
+  const handleCompareToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isCompared) {
+      removeFromCompare(bike.id);
+    } else {
+      addToCompare(bike);
+    }
+  };
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToCart(bike);
   };
 
+  const monthlyAffirm = Math.round(bike.price / 24);
+
   return (
     <div 
       onClick={() => onSelectBike(bike)}
-      className="group flex flex-col transition-all duration-200 cursor-pointer h-full"
+      className="group relative bg-[#0B0B0B] rounded-xl border border-zinc-800/90 hover:border-lime-400/60 overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-lime-400/10 cursor-pointer"
     >
-      {/* Product Image Container */}
-      <div className="relative aspect-square bg-white overflow-hidden rounded-xl mb-4">
-        <img
-          src={bike.image}
-          alt={bike.name}
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-        />
-        
-        {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-1">
-          {bike.originalPrice && (
-            <span className="bg-lime-400 text-zinc-950 font-bold text-[10px] uppercase px-2 py-0.5 rounded-sm shadow-sm inline-block w-fit">
-              Sale!
+      {/* Top Badges Overlay */}
+      <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between gap-2 pointer-events-none">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {bike.isTwoSeater && (
+            <span className="px-2.5 py-1 rounded-md bg-emerald-500 text-zinc-950 font-black text-[10px] uppercase tracking-wider shadow-md">
+              2-SEATER BENCH
             </span>
           )}
           {bike.isBestSeller && (
-            <span className="bg-amber-400 text-zinc-950 font-bold text-[10px] uppercase px-2 py-0.5 rounded-sm shadow-sm inline-block w-fit">
-              Top Seller
+            <span className="px-2.5 py-1 rounded-md bg-amber-400 text-zinc-950 font-black text-[10px] uppercase tracking-wider shadow-md">
+              BEST SELLER
             </span>
           )}
+          {bike.isNew && (
+            <span className="px-2.5 py-1 rounded-md bg-lime-400 text-zinc-950 font-black text-[10px] uppercase tracking-wider shadow-md">
+              2026 EDITION
+            </span>
+          )}
+          <span className="px-2.5 py-1 rounded-md bg-zinc-950/90 text-zinc-300 border border-zinc-700/80 text-[10px] font-bold uppercase tracking-wider">
+            {bike.categoryLabel}
+          </span>
         </div>
 
-        {/* Hover Action */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+        {/* Compare Toggle */}
+        <button
+          onClick={handleCompareToggle}
+          className={`pointer-events-auto flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
+            isCompared 
+              ? 'bg-lime-400 text-zinc-950' 
+              : 'bg-zinc-950/80 hover:bg-zinc-800 text-zinc-300 border border-zinc-700'
+          }`}
+          title={isCompared ? 'Remove from compare' : 'Compare this bike'}
+        >
+          {isCompared ? <Check className="w-3 h-3 stroke-[3]" /> : <SlidersHorizontal className="w-3 h-3" />}
+          {isCompared ? 'COMPARING' : 'COMPARE'}
+        </button>
+      </div>
+
+      {/* Product Image Container */}
+      <div className="relative aspect-[4/3] bg-zinc-950 overflow-hidden">
+        <img
+          src={formatImageUrl(bike.image)}
+          alt={bike.name}
+          referrerPolicy="no-referrer"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+        />
+
+        {/* Gradient vignette at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
+
+        {/* Hover Quick View Overlay */}
+        <div className="absolute inset-0 bg-zinc-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
           <button
             onClick={(e) => {
               e.stopPropagation();
               onSelectBike(bike);
             }}
-            className="w-10 h-10 bg-zinc-900 border border-zinc-700 rounded-full flex items-center justify-center text-white shadow-md hover:bg-zinc-800 hover:text-lime-400 transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
-            title="Quick View"
+            className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-black text-xs uppercase tracking-wider flex items-center gap-2 border border-zinc-700 shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-all cursor-pointer"
           >
-            <Eye className="w-5 h-5" />
+            <Eye className="w-4 h-4 text-lime-400" />
+            INSPECT SPECS
           </button>
         </div>
       </div>
 
       {/* Content Container */}
-      <div className="flex-1 flex flex-col px-1">
-        {/* Category */}
-        <p className="text-[11px] text-zinc-500 uppercase font-bold mb-1 tracking-wider">
-          {bike.categoryLabel}
-        </p>
-        
-        {/* Title */}
-        <h3 className="text-sm font-bold text-white line-clamp-2 mb-2 group-hover:text-lime-400 transition-colors uppercase tracking-tight">
-          {bike.name}
-        </h3>
-        
-        {/* Rating */}
-        <div className="flex items-center gap-1 mb-4">
-          <div className="flex text-amber-400">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className={`w-3.5 h-3.5 ${i < Math.round(bike.rating) ? 'fill-amber-400' : 'fill-zinc-800 text-zinc-800'}`} />
-            ))}
+      <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+        <div>
+          {/* Rating */}
+          <div className="flex items-center gap-1.5 text-xs mb-1.5">
+            <div className="flex items-center text-amber-400">
+              <Star className="w-3.5 h-3.5 fill-amber-400" />
+            </div>
+            <span className="font-bold text-zinc-200">{bike.rating.toFixed(2)}</span>
+            <span className="text-zinc-500 font-mono">({bike.reviewCount} reviews)</span>
           </div>
-          <span className="text-xs text-zinc-500 font-mono">({bike.reviewCount})</span>
+
+          {/* Title & Tagline */}
+          <h3 className="text-lg font-black text-white group-hover:text-lime-400 transition-colors uppercase tracking-tight line-clamp-1">
+            {bike.name}
+          </h3>
+          <p className="text-xs text-zinc-400 line-clamp-2 mt-1 leading-relaxed">
+            {bike.tagline}
+          </p>
         </div>
 
-        <div className="mt-auto">
-          {/* Price */}
-          <div className="flex items-center gap-2 mb-4 font-mono">
-            {bike.originalPrice && (
-              <span className="text-sm text-zinc-500 line-through">
-                ${bike.originalPrice.toLocaleString()}
+        {/* Price & Add to Cart Footer */}
+        <div className="flex flex-col gap-3 pt-2 border-t border-zinc-800/80">
+          <div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-2xl font-black text-white font-mono tracking-tight">
+                ${bike.price.toLocaleString()}
               </span>
-            )}
-            <span className="text-lg font-black text-white">
-              ${bike.price.toLocaleString()}
-            </span>
+              {bike.originalPrice && (
+                <span className="text-xs text-zinc-500 line-through font-mono">
+                  ${bike.originalPrice.toLocaleString()}
+                </span>
+              )}
+            </div>
+            <div className="text-[11px] text-zinc-400 font-medium font-sans flex items-center gap-1 mt-0.5">
+              or <strong className="text-lime-400 font-bold">${monthlyAffirm}/mo</strong> with Affirm
+            </div>
           </div>
 
-          {/* Add to Cart Button */}
           <button
             onClick={handleAddToCart}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded transition-colors shadow-sm"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider shadow-md shadow-lime-400/20 transition-all transform active:scale-[0.98] cursor-pointer"
           >
             <ShoppingCart className="w-4 h-4" />
-            Add to cart
+            <span>ADD TO CART</span>
           </button>
         </div>
       </div>

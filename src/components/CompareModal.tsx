@@ -13,6 +13,7 @@ import {
   SlidersHorizontal 
 } from 'lucide-react';
 import { useCompare } from '../context/CompareContext';
+import { formatImageUrl } from '../lib/imageUtils';
 import { useCart } from '../context/CartContext';
 import { Bike } from '../types';
 
@@ -104,7 +105,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({ onSelectBike }) => {
                       </button>
 
                       <div className="flex items-center gap-3">
-                        <img src={bike.image} alt={bike.name} referrerPolicy="no-referrer" className="w-12 h-12 rounded-xl object-cover border border-zinc-800" />
+                        <img src={formatImageUrl(bike.image)} alt={bike.name} referrerPolicy="no-referrer" className="w-12 h-12 rounded-xl object-cover border border-zinc-800" />
                         <div>
                           <h4 className="font-bold text-xs text-white line-clamp-1">{bike.name}</h4>
                           <span className="text-[10px] text-cyan-400 font-mono font-bold">{bike.categoryLabel}</span>

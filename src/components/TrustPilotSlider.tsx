@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Star } from 'lucide-react';
-import Image from 'next/image';
-import reviewsBg from '../../public/reviews-bg.jpg';
-
+import { formatImageUrl, handleImageError } from '../lib/imageUtils';
 
 const REVIEWS = [
   { id: 1, name: "Marcus T.", rating: 5, date: "2 days ago", title: "Absolute Beast", text: "The Apex Pro exceeded all my expectations. Instant torque and the suspension handles jumps like nothing else." },
@@ -16,6 +14,8 @@ const REVIEWS = [
 export const TrustPilotSlider: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+
+  const bgImageUrl = formatImageUrl("https://drive.google.com/file/d/1lgSDp2p2Dv1uGSd6lEoDlf3Xy-wz_KZe/view?usp=sharing");
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -43,7 +43,12 @@ export const TrustPilotSlider: React.FC = () => {
   return (
     <div className="relative w-full py-20 border-t border-zinc-900 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Image src={reviewsBg} alt="Reviews Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <img 
+          src={bgImageUrl} 
+          alt="Reviews Background" 
+          onError={(e) => handleImageError(e, '/reviews-bg.jpg')}
+          className="w-full h-full object-cover" 
+        />
         <div className="absolute inset-0 bg-zinc-950/80"></div>
       </div>
 
@@ -93,3 +98,4 @@ export const TrustPilotSlider: React.FC = () => {
     </div>
   );
 };
+
