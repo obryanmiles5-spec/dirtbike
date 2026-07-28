@@ -1,4 +1,4 @@
-export type BikeCategory = "all" | "electric-dirt-bikes" | "adult-emotos" | "kids-youth" | "street-legal" | "mini-dirt-bikes" | "e-bikes" | "high-speed-sport" | "dual-motor-AWD" | "urban-commuter" | "accessories" | "batteries-power" | "tires-wheels" | "upgrades-performance" | "riding-gear";
+export type BikeCategory = "all" | "electric-dirt-bikes" | "e-bikes" | "accessories" | "battery";
 
 export interface BikeSpec {
   motorPowerKW: number;        // e.g. 6.0 kW, 12.0 kW, 60.0 kW

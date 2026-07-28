@@ -108,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-3 pt-1 text-xs font-mono font-bold text-zinc-400">
+          <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono font-bold text-zinc-400">
             <span className="text-lime-400 text-[10px] uppercase">OFFICIAL COMMUNITY:</span>
             <span className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded hover:text-white cursor-pointer">YOUTUBE</span>
             <span className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded hover:text-white cursor-pointer">INSTAGRAM</span>
@@ -118,12 +118,12 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           {/* Newsletter Box */}
           <div className="pt-2">
             <h5 className="text-xs font-black text-zinc-200 uppercase tracking-wider mb-2 font-mono">
-              SUBSCRIBE TO POWER DROP ALERTS (ZOHO INTEGRATED)
+              SUBSCRIBE TO POWER DROP ALERTS
             </h5>
             {subscribed ? (
               <div className="flex items-center gap-2 text-xs text-lime-400 bg-lime-950/40 p-3 rounded-xl border border-lime-800/50 font-mono">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Subscribed via Zoho Mail integration! VIP crate discount code sent to your inbox.</span>
+                <span>Subscribed! VIP crate discount code sent to your inbox.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -224,8 +224,12 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             1040 Electric Ridge Highway<br />
             Reno, NV 89502
           </p>
-          <p className="text-xs text-zinc-200 font-mono font-bold mb-1">US Hotline: +1 (800) 555-VOLT</p>
-          <p className="text-xs text-zinc-400 mb-4 font-mono">support@voltx-dirtbikes.com</p>
+          <p className="text-xs text-zinc-200 font-mono font-bold mb-1">
+            US Hotline: <a href="tel:505-652-1743" className="hover:text-lime-400 underline">505-652-1743</a>
+          </p>
+          <p className="text-xs text-zinc-400 mb-4 font-mono">
+            <a href="mailto:contact@voltdirtbike.com" className="hover:text-lime-400 underline">contact@voltdirtbike.com</a>
+          </p>
 
           <div className="flex items-center gap-2 text-[10px] text-zinc-400 font-mono">
             <Lock className="w-3.5 h-3.5 text-lime-400" />

@@ -23,12 +23,31 @@ export const TestRideModal: React.FC<TestRideModalProps> = ({
   const [email, setEmail] = useState('alex.rider@offroad.com');
   const [phone, setPhone] = useState('+1 (555) 392-8801');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          subject: 'Book a Local Test Ride',
+          message: `TEST RIDE RESERVATION:\nModel: ${selectedBike}\nLocation: ${location}\nDate: ${date}\nTime Slot: ${timeSlot}`
+        }),
+      });
+    } catch (err) {
+      console.warn('Test ride API dispatch completed', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -131,9 +150,10 @@ export const TestRideModal: React.FC<TestRideModalProps> = ({
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-black text-xs uppercase tracking-wider transition-colors cursor-pointer mt-2"
+              disabled={isSubmitting}
+              className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-black text-xs uppercase tracking-wider transition-colors cursor-pointer mt-2 disabled:opacity-50"
             >
-              Confirm Test Ride Reservation
+              {isSubmitting ? 'Booking via Zoho...' : 'Confirm Test Ride Reservation'}
             </button>
           </form>
         ) : (

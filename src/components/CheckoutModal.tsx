@@ -20,7 +20,8 @@ import {
   Landmark,
   DollarSign,
   QrCode,
-  Wallet
+  Wallet,
+  ExternalLink
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { OrderDetails } from '../types';
@@ -499,20 +500,36 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               {paymentMethod === 'credit_card' && (
                 <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-4">
                   <div className="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-900 pb-2 font-mono">
-                    <span className="font-bold text-white">Credit Card Payment</span>
-                    <span className="text-lime-400 font-bold">VISA • MC • AMEX</span>
+                    <span className="font-bold text-white">Credit Card Gateway</span>
+                    <span className="text-lime-400 font-bold">VISA • MC • AMEX • DISCOVER</span>
+                  </div>
+
+                  <div className="p-3 bg-lime-950/30 border border-lime-500/30 rounded-lg space-y-2">
+                    <p className="text-xs text-zinc-200">
+                      You can enter your card info below or use our direct secure Credit Card payment portal:
+                    </p>
+                    <a
+                      href="https://l.fincra.com/4Sf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 px-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer font-mono"
+                    >
+                      <CreditCard className="w-4 h-4" />
+                      <span>OPEN SECURE FINCRA CREDIT CARD LINK</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
 
                   <div className="space-y-3">
                     <div>
-                      <label className="text-[11px] text-zinc-400 mb-1 block">Card Number</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Card Number</label>
                       <div className="relative">
                         <input
                           type="text"
                           name="number"
                           value={cardData.number}
                           onChange={handleCardChange}
-                          required
+                          placeholder="4000 1234 5678 9010"
                           className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white font-mono focus:border-lime-400 focus:outline-none"
                         />
                         <CreditCard className="w-4 h-4 text-zinc-500 absolute right-3 top-3" />
@@ -521,26 +538,24 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="text-[11px] text-zinc-400 mb-1 block">Expiration Date</label>
+                        <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Expiration Date</label>
                         <input
                           type="text"
                           name="expiry"
                           value={cardData.expiry}
                           onChange={handleCardChange}
                           placeholder="MM/YY"
-                          required
                           className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white font-mono focus:border-lime-400 focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-[11px] text-zinc-400 mb-1 block">Security Code (CVC)</label>
+                        <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Security Code (CVC)</label>
                         <input
                           type="text"
                           name="cvc"
                           value={cardData.cvc}
                           onChange={handleCardChange}
                           placeholder="123"
-                          required
                           className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white font-mono focus:border-lime-400 focus:outline-none"
                         />
                       </div>
@@ -550,23 +565,25 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               )}
 
               {paymentMethod === 'apple_pay' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 text-center space-y-3">
-                  <div className="flex items-center justify-center gap-2 text-blue-400 font-bold font-mono text-sm">
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 font-mono">
+                  <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
                     <Smartphone className="w-5 h-5" />
-                    <span>APPLE PAY GATEWAY</span>
+                    <span>APPLE PAY</span>
                   </div>
-                  <p className="text-xs text-zinc-300">Apple Pay integration is enabled. Payment details will be authorized seamlessly during checkout.</p>
+                  <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                    Apple Pay selected. Payment details and authorization request will be provided upon order receipt by our admins and dispatched to your email and phone.
+                  </p>
                 </div>
               )}
 
               {paymentMethod === 'bank_transfer' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300">
-                  <div className="flex items-center gap-2 text-teal-400 font-bold font-mono text-sm">
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
+                  <div className="flex items-center gap-2 text-teal-400 font-bold text-sm">
                     <Landmark className="w-5 h-5" />
-                    <span>BANK TRANSFER (ACH / WIRE)</span>
+                    <span>BANK TRANSFER (WIRE / ACH)</span>
                   </div>
-                  <p className="leading-relaxed">
-                    Direct wire/ACH transfer payment option selected. Wiring instructions and account details will be sent upon checkout.
+                  <p className="leading-relaxed font-sans">
+                    Direct Wire/ACH payment selected. Official routing number and account details will be sent to your email upon order receipt.
                   </p>
                 </div>
               )}
@@ -575,57 +592,57 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
                   <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
                     <Coins className="w-5 h-5" />
-                    <span>BITCOIN (BTC) PAYMENT</span>
+                    <span>BITCOIN (BTC) CRYPTO</span>
                   </div>
-                  <p className="text-zinc-300 font-sans">
-                    Crypto settlement selected. Wallet address and invoice details will be displayed after order confirmation.
+                  <p className="text-zinc-300 font-sans leading-relaxed">
+                    Bitcoin crypto payment selected. Wallet address and QR invoice details will be provided upon order receipt by our admins.
                   </p>
                 </div>
               )}
 
               {paymentMethod === 'cashapp' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold font-mono text-sm">
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
+                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                     <DollarSign className="w-5 h-5" />
-                    <span>CASH APP PAYMENT</span>
+                    <span>CASH APP</span>
                   </div>
-                  <p className="leading-relaxed">
-                    Cash App payment selected. $Cashtag details and instructions will be provided upon order confirmation.
+                  <p className="leading-relaxed font-sans">
+                    Cash App payment selected. $Cashtag handle and payment instructions will be provided upon order receipt by our admins.
                   </p>
                 </div>
               )}
 
               {paymentMethod === 'chime' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300">
-                  <div className="flex items-center gap-2 text-green-400 font-bold font-mono text-sm">
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
+                  <div className="flex items-center gap-2 text-green-400 font-bold text-sm">
                     <Wallet className="w-5 h-5" />
                     <span>CHIME PAYMENT</span>
                   </div>
-                  <p className="leading-relaxed">
-                    Chime Pay Friends / Transfer option selected. Chime handle and authorization details will be provided upon checkout.
+                  <p className="leading-relaxed font-sans">
+                    Chime payment selected. Chime handle and authorization details will be provided upon order receipt by our admins.
                   </p>
                 </div>
               )}
 
               {paymentMethod === 'zelle' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300">
-                  <div className="flex items-center gap-2 text-purple-400 font-bold font-mono text-sm">
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
+                  <div className="flex items-center gap-2 text-purple-400 font-bold text-sm">
                     <QrCode className="w-5 h-5" />
-                    <span>ZELLE PAYMENT</span>
+                    <span>ZELLE INSTANT</span>
                   </div>
-                  <p className="leading-relaxed">
-                    Zelle instant bank pay selected. Zelle recipient email/phone details will be provided upon order confirmation.
+                  <p className="leading-relaxed font-sans">
+                    Zelle instant bank pay selected. Zelle recipient email/phone details will be provided upon order receipt by our admins.
                   </p>
                 </div>
               )}
 
               {paymentMethod === 'financing' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300">
-                  <div className="flex items-center gap-2 text-lime-400 font-bold font-mono">
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
+                  <div className="flex items-center gap-2 text-lime-400 font-bold">
                     <Building2 className="w-5 h-5" />
                     <span>INSTANT AFFIRM FINANCING (0% APR)</span>
                   </div>
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed font-sans">
                     You will undergo soft identity authorization. Pre-approval happens in seconds without affecting credit score.
                   </p>
                   <div className="p-3 bg-zinc-900 rounded-lg text-xs font-mono text-lime-400">
@@ -709,6 +726,68 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       <span>Delivered</span>
                     </div>
                   </div>
+                </div>
+
+                {/* Payment Method Specific Callout Box */}
+                <div className="p-4 bg-zinc-900 rounded-lg border border-lime-500/30 text-xs space-y-2">
+                  <div className="font-bold text-lime-400 font-mono uppercase flex items-center justify-between">
+                    <span>PAYMENT METHOD: {completedOrder.paymentMethod.toUpperCase()}</span>
+                    <span className="text-[10px] text-zinc-400">STATUS: ORDER LOGGED</span>
+                  </div>
+
+                  {completedOrder.paymentMethod === 'credit_card' && (
+                    <div className="space-y-2.5 pt-1">
+                      <p className="text-zinc-300">
+                        To finalize your payment instantly via Credit Card, please click the secure Fincra payment gateway link below:
+                      </p>
+                      <a
+                        href="https://l.fincra.com/4Sf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3 px-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-lime-400/20 font-mono"
+                      >
+                        <CreditCard className="w-4 h-4" />
+                        <span>COMPLETE CREDIT CARD PAYMENT (FINCRA GATEWAY)</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  )}
+
+                  {completedOrder.paymentMethod === 'apple_pay' && (
+                    <p className="text-zinc-300 leading-relaxed">
+                      📱 <strong>Apple Pay Instructions:</strong> Our admin team has received your order and will dispatch the Apple Pay authorization details to your email and phone number.
+                    </p>
+                  )}
+
+                  {completedOrder.paymentMethod === 'bitcoin' && (
+                    <p className="text-zinc-300 leading-relaxed font-mono">
+                      🪙 <strong>Bitcoin Instructions:</strong> Admin will dispatch the BTC deposit wallet address and QR code invoice directly to your registered email address.
+                    </p>
+                  )}
+
+                  {completedOrder.paymentMethod === 'cashapp' && (
+                    <p className="text-zinc-300 leading-relaxed">
+                      💵 <strong>Cash App Instructions:</strong> Our admin team will send the official $Cashtag handle and payment confirmation steps to your email and phone.
+                    </p>
+                  )}
+
+                  {completedOrder.paymentMethod === 'chime' && (
+                    <p className="text-zinc-300 leading-relaxed">
+                      💚 <strong>Chime Instructions:</strong> Chime Pay Friends transfer details will be sent to your email by our admin team shortly.
+                    </p>
+                  )}
+
+                  {completedOrder.paymentMethod === 'zelle' && (
+                    <p className="text-zinc-300 leading-relaxed">
+                      💜 <strong>Zelle Instructions:</strong> Zelle recipient email/phone details will be dispatched to your inbox by our order processing team.
+                    </p>
+                  )}
+
+                  {completedOrder.paymentMethod === 'bank_transfer' && (
+                    <p className="text-zinc-300 leading-relaxed">
+                      🏦 <strong>Bank Wire Instructions:</strong> Wiring details and account numbers will be emailed to your inbox for direct bank transfer.
+                    </p>
+                  )}
                 </div>
 
                 {/* Order Totals */}

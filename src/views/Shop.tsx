@@ -51,23 +51,12 @@ export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
-  // Category list
+  // Main Category list
   const categories = [
-    { id: 'all', label: 'All Products', isMain: true },
-    { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes', isMain: true },
-    { id: 'adult-emotos', label: 'Electric Dirt Bikes for Adults', parent: 'electric-dirt-bikes' },
-    { id: 'kids-youth', label: 'Electric Dirt Bikes for kids', parent: 'electric-dirt-bikes' },
-    { id: 'street-legal', label: 'Electric Dirt Bikes Street Legal', parent: 'electric-dirt-bikes' },
-    { id: 'mini-dirt-bikes', label: 'Electric Mini Dirt Bikes', parent: 'electric-dirt-bikes' },
-    { id: 'e-bikes', label: 'E-Bikes', isMain: true },
-    { id: 'high-speed-sport', label: 'High Speed Sport', parent: 'e-bikes' },
-    { id: 'dual-motor-AWD', label: 'Dual Motor AWD', parent: 'e-bikes' },
-    { id: 'urban-commuter', label: 'Urban Commuter', parent: 'e-bikes' },
-    { id: 'accessories', label: 'Accessories', isMain: true },
-    { id: 'batteries-power', label: 'Batteries Power', parent: 'accessories' },
-    { id: 'tires-wheels', label: 'Tires and Wheels', parent: 'accessories' },
-    { id: 'upgrades-performance', label: 'Upgrades Performance', parent: 'accessories' },
-    { id: 'riding-gear', label: 'Riding Gear', parent: 'accessories' }
+    { id: 'all', label: 'All Products' },
+    { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes' },
+    { id: 'e-bikes', label: 'E-Bikes' },
+    { id: 'accessories', label: 'Accessories & Batteries' }
   ];
 
   // Filtering Logic
@@ -75,23 +64,38 @@ export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
     return BIKES_DATA.filter((bike) => {
       // Text search
       if (filters.search) {
-        const q = filters.search.toLowerCase();
-        const matchesName = bike.name.toLowerCase().includes(q);
-        const matchesTagline = bike.tagline.toLowerCase().includes(q);
-        const matchesDesc = bike.description.toLowerCase().includes(q);
-        const matchesBattery = bike.specs.batteryCapacity.toLowerCase().includes(q);
-        const matchesSeat = bike.specs.seatCapacity ? bike.specs.seatCapacity.toLowerCase().includes(q) : false;
-        const matchesCategory = bike.categoryLabel.toLowerCase().includes(q);
-        
-        // Match 2 seater keywords (e.g. "2 seater", "2 person", "carrier", "electronic dirt bike")
-        const isTwoSeatQuery = q.includes('2 seat') || q.includes('two seat') || q.includes('2-seat') || q.includes('carrier') || q.includes('passenger') || q.includes('2 person') || q.includes('sit');
-        const matchesTwoSeatKeyword = isTwoSeatQuery && (bike.isTwoSeater || bike.category === 'e-bikes');
+        const queryTerms = filters.search.toLowerCase().trim().split(/\s+/).filter(Boolean);
+        const searchableText = [
+          bike.name,
+          bike.tagline,
+          bike.description,
+          bike.category,
+          bike.categoryLabel,
+          bike.specs.batteryCapacity,
+          bike.specs.frameType,
+          bike.specs.brakes,
+          bike.specs.suspension,
+          bike.specs.wheelSize,
+          bike.specs.seatCapacity || '',
+          ...(bike.features || [])
+        ].join(' ').toLowerCase();
 
-        if (!matchesName && !matchesTagline && !matchesDesc && !matchesBattery && !matchesSeat && !matchesCategory && !matchesTwoSeatKeyword) return false;
+        const matchesAllTerms = queryTerms.every(term => {
+          if (term === '2-seater' || term === '2seater' || term === 'twoseater' || term === '2seat' || term === '2-seat') {
+            return bike.isTwoSeater || searchableText.includes('2') || searchableText.includes('sit') || searchableText.includes('passenger');
+          }
+          return searchableText.includes(term);
+        });
+
+        if (!matchesAllTerms) return false;
       }
 
-      // Category
-      if (filters.category !== 'all' && bike.category !== filters.category) return false;
+      // Category filter
+      if (filters.category === 'accessories') {
+        if (bike.category !== 'accessories' && bike.category !== 'battery') return false;
+      } else if (filters.category !== 'all') {
+        if (bike.category !== filters.category) return false;
+      }
 
       // Motor Power (kW)
       if (bike.specs.peakPowerKW < filters.minMotorKW) return false;
@@ -202,17 +206,15 @@ export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
           {/* 1. Category Filter */}
           <div className="space-y-2">
             <label className="text-[10px] font-mono font-black uppercase tracking-wider text-zinc-400">CATEGORY</label>
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setFilters({ ...filters, category: cat.id as any })}
-                  className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-between cursor-pointer font-sans uppercase ${
-                    cat.parent ? 'ml-4 w-[calc(100%-1rem)] border-l-2 border-zinc-800 rounded-l-none pl-4' : 'mt-2'
-                  } ${
+                  className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer font-sans uppercase flex items-center justify-between ${
                     filters.category === cat.id
-                      ? (cat.parent ? 'border-lime-400 text-lime-400' : 'bg-lime-400 text-zinc-950 font-black')
-                      : 'text-zinc-300 hover:bg-zinc-900 hover:text-white'
+                      ? 'bg-lime-400 text-zinc-950 font-black shadow-md shadow-lime-400/20'
+                      : 'text-zinc-300 bg-zinc-900/60 border border-zinc-800/80 hover:bg-zinc-900 hover:text-white'
                   }`}
                 >
                   <span>{cat.label}</span>
@@ -435,7 +437,7 @@ export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
             {/* Mobile Categories */}
             <div className="space-y-2">
               <label className="text-xs font-mono font-bold text-zinc-400 uppercase">Category</label>
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
@@ -443,12 +445,10 @@ export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
                       setFilters({ ...filters, category: cat.id as any });
                       setMobileFilterOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold font-sans uppercase ${
-                      cat.parent ? 'ml-4 w-[calc(100%-1rem)] border-l-2 border-zinc-800 rounded-l-none pl-4' : 'mt-2'
-                    } ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-bold font-sans uppercase transition-all ${
                       filters.category === cat.id
-                        ? (cat.parent ? 'border-lime-400 text-lime-400' : 'bg-lime-400 text-zinc-950 font-black')
-                        : 'bg-zinc-900 text-zinc-300'
+                        ? 'bg-lime-400 text-zinc-950 font-black'
+                        : 'bg-zinc-900 text-zinc-300 border border-zinc-800'
                     }`}
                   >
                     {cat.label}

@@ -11,6 +11,7 @@ import {
   Compass, 
   Bike as BikeIcon, 
   PhoneCall, 
+  Mail,
   Info,
   CalendarCheck
 } from 'lucide-react';
@@ -38,9 +39,10 @@ export const Header: React.FC<HeaderProps> = ({
   const [announcementIndex, setAnnouncementIndex] = useState(0);
 
   const announcements = [
-    { text: "FREE 50-STATE FREIGHT CRATE DELIVERY ON ALL E-MOTO ORDERS", code: "CODE: VOLTX100 ($100 OFF)", highlight: "FREE FREIGHT" },
-    { text: "2026 APEX 60 & STEALTH PRO 72 IN STOCK FOR NEXT-DAY RENO DISPATCH", code: "FAST DISPATCH", highlight: "READY TO SHIP" },
-    { text: "NO-INTEREST FINANCING AS LOW AS $99/MO VIA AFFIRM & SHOP PAY", code: "0% DOWN AVAILABLE", highlight: "INSTANT FINANCING" }
+    { text: "US HOTLINE: 505-652-1743 | EMAIL: contact@voltdirtbike.com", code: "DIRECT DISPATCH", highlight: "24/7 SUPPORT", link: "tel:505-652-1743" },
+    { text: "FREE 50-STATE FREIGHT CRATE DELIVERY ON ALL E-MOTO ORDERS", code: "CODE: VOLTX100 ($100 OFF)", highlight: "FREE FREIGHT", link: null },
+    { text: "ACCEPTING CREDIT CARD (FINCRA), APPLE PAY, BITCOIN, CASH APP & CHIME", code: "INSTANT CHECKOUT", highlight: "SECURE PAY", link: null },
+    { text: "2026 APEX 60 & STEALTH PRO 72 IN STOCK FOR NEXT-DAY RENO DISPATCH", code: "FAST DISPATCH", highlight: "READY TO SHIP", link: null }
   ];
 
   // Auto-rotate announcement bar
@@ -64,35 +66,65 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-40 bg-[#161821]/95 backdrop-blur-md border-b border-lime-500/25 text-white transition-all shadow-xl">
       {/* Revolution Slider Style Top Announcement Bar */}
-      <div className="bg-[#0c0e14] px-4 py-2 text-xs border-b border-zinc-800/90 text-zinc-300 flex items-center justify-between font-mono max-w-7xl mx-auto">
-        <button 
-          onClick={() => setAnnouncementIndex((prev) => (prev - 1 + announcements.length) % announcements.length)}
-          className="text-zinc-500 hover:text-lime-400 text-xs px-1 select-none cursor-pointer"
-          aria-label="Previous announcement"
-        >
-          &lsaquo;
-        </button>
-
-        <div className="flex items-center justify-center gap-2 overflow-hidden text-center transition-all duration-500">
-          <span className="inline-flex items-center gap-1.5 font-black uppercase tracking-wider text-lime-400 bg-lime-950/60 px-2 py-0.5 rounded border border-lime-500/30 text-[10px]">
-            <Zap className="w-3.5 h-3.5 text-lime-400 animate-pulse fill-lime-400" />
-            {announcements[announcementIndex].highlight}
-          </span>
-          <span className="text-[11px] font-bold text-zinc-200 hidden sm:inline">
-            {announcements[announcementIndex].text}
-          </span>
-          <span className="text-[10px] font-black text-lime-300 underline bg-zinc-900 px-2 py-0.5 rounded border border-zinc-700">
-            {announcements[announcementIndex].code}
-          </span>
+      <div className="bg-[#080a0f] px-3 sm:px-6 py-2 text-xs border-b border-zinc-800/90 text-zinc-300 font-mono max-w-7xl mx-auto flex items-center justify-between gap-2">
+        
+        {/* Left Quick Contact Badge */}
+        <div className="hidden lg:flex items-center gap-4 shrink-0 text-[11px]">
+          <a href="tel:505-652-1743" className="flex items-center gap-1.5 text-lime-400 font-bold hover:underline">
+            <PhoneCall className="w-3.5 h-3.5 text-lime-400" />
+            <span>505-652-1743</span>
+          </a>
+          <span className="text-zinc-700">|</span>
+          <a href="mailto:contact@voltdirtbike.com" className="flex items-center gap-1.5 text-zinc-300 hover:text-white hover:underline">
+            <Mail className="w-3.5 h-3.5 text-lime-400" />
+            <span>contact@voltdirtbike.com</span>
+          </a>
         </div>
 
-        <button 
-          onClick={() => setAnnouncementIndex((prev) => (prev + 1) % announcements.length)}
-          className="text-zinc-500 hover:text-lime-400 text-xs px-1 select-none cursor-pointer"
-          aria-label="Next announcement"
-        >
-          &rsaquo;
-        </button>
+        {/* Center Revolution Slider Display */}
+        <div className="flex-1 flex items-center justify-center gap-2 overflow-hidden text-center transition-all duration-500">
+          <button 
+            onClick={() => setAnnouncementIndex((prev) => (prev - 1 + announcements.length) % announcements.length)}
+            className="text-zinc-500 hover:text-lime-400 text-xs px-1 select-none cursor-pointer"
+            aria-label="Previous announcement"
+          >
+            &lsaquo;
+          </button>
+
+          <div className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
+            <span className="inline-flex items-center gap-1.5 font-black uppercase tracking-wider text-lime-400 bg-lime-950/70 px-2 py-0.5 rounded border border-lime-500/40 text-[10px]">
+              <Zap className="w-3.5 h-3.5 text-lime-400 animate-pulse fill-lime-400" />
+              {announcements[announcementIndex].highlight}
+            </span>
+            <span className="text-[11px] font-bold text-zinc-200">
+              {announcements[announcementIndex].text}
+            </span>
+            <span className="text-[10px] font-black text-lime-300 underline bg-zinc-900 px-2 py-0.5 rounded border border-zinc-700 hidden sm:inline">
+              {announcements[announcementIndex].code}
+            </span>
+          </div>
+
+          <button 
+            onClick={() => setAnnouncementIndex((prev) => (prev + 1) % announcements.length)}
+            className="text-zinc-500 hover:text-lime-400 text-xs px-1 select-none cursor-pointer"
+            aria-label="Next announcement"
+          >
+            &rsaquo;
+          </button>
+        </div>
+
+        {/* Right Slider Indicators */}
+        <div className="hidden sm:flex items-center gap-1 text-[10px] text-zinc-500 shrink-0">
+          {announcements.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setAnnouncementIndex(idx)}
+              className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                idx === announcementIndex ? 'w-4 bg-lime-400' : 'w-1.5 bg-zinc-700 hover:bg-zinc-500'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Main Header Container */}

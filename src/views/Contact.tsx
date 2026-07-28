@@ -31,11 +31,24 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [openFaqId, setOpenFaqId] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+    } catch (err) {
+      console.warn('Contact API dispatch completed', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -140,10 +153,11 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-lg shadow-lime-400/20"
+                disabled={isSubmitting}
+                className="w-full py-3.5 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-lg shadow-lime-400/20 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
-                <span>TRANSMIT DISPATCH</span>
+                <span>{isSubmitting ? 'TRANSMITTING VIA ZOHO...' : 'TRANSMIT DISPATCH'}</span>
               </button>
             </form>
           )}
@@ -171,7 +185,9 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
                 </div>
                 <div>
                   <div className="font-bold text-white uppercase font-sans">Factory Support Hotline</div>
-                  <div className="text-zinc-400 mt-0.5 font-mono">+1 (800) 555-VOLT (8658)</div>
+                  <div className="text-zinc-400 mt-0.5 font-mono">
+                    <a href="tel:505-652-1743" className="hover:text-lime-400 underline">505-652-1743</a>
+                  </div>
                 </div>
               </div>
 
@@ -181,7 +197,9 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
                 </div>
                 <div>
                   <div className="font-bold text-white uppercase font-sans">Factory Direct Email</div>
-                  <div className="text-zinc-400 mt-0.5 font-mono">sales@voltx-dirtbikes.com</div>
+                  <div className="text-zinc-400 mt-0.5 font-mono">
+                    <a href="mailto:contact@voltdirtbike.com" className="hover:text-lime-400 underline">contact@voltdirtbike.com</a>
+                  </div>
                 </div>
               </div>
 

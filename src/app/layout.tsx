@@ -7,6 +7,11 @@ import { ClientAppShell } from '@/components/ClientAppShell';
 export const metadata: Metadata = {
   title: 'VOLT-X Electric Dirt Bikes | High-Performance Off-Road E-Motos',
   description: 'E-Commerce store for high-performance electric dirt bikes with advanced battery, range & motor power search filters, bike comparison, and secure checkout.',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
