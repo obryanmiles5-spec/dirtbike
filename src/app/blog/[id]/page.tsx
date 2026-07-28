@@ -143,9 +143,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-            <Link href="/" className="hover:text-lime-400 transition-colors">HOME</Link>
+            <Link href="/" prefetch={false} className="hover:text-lime-400 transition-colors">HOME</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-lime-400 transition-colors">BLOG</Link>
+            <Link href="/blog" prefetch={false} className="hover:text-lime-400 transition-colors">BLOG</Link>
             <span>/</span>
             <span className="text-white font-bold truncate uppercase">{post.title}</span>
           </nav>

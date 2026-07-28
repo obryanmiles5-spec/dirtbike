@@ -19,6 +19,7 @@ import { BIKES_DATA } from '../data/bikes';
 import { BikeCard } from '../components/BikeCard';
 import { useAppContext } from '../context/AppContext';
 import { Bike, BikeCategory, FilterState } from '../types';
+import { matchesBatteryVoltageFilter } from '../lib/batteryUtils';
 
 interface ShopProps {
   onSelectBike?: (bike: Bike) => void;
@@ -98,14 +99,16 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
         if (bike.category !== filters.category) return false;
       }
 
-      // Motor Power (kW)
-      if (bike.specs.peakPowerKW < filters.minMotorKW) return false;
+      // Motor Power (kW) - skip for general accessories unless explicitly filtering bikes
+      if (filters.category !== 'accessories' && bike.specs.peakPowerKW < filters.minMotorKW) return false;
 
-      // Battery Life / Voltage
-      if (filters.minBatteryVoltage > 0 && bike.specs.batteryVoltage < filters.minBatteryVoltage) return false;
+      // Battery Voltage (Bikes & Standalone Battery Packs)
+      if (filters.minBatteryVoltage > 0) {
+        if (!matchesBatteryVoltageFilter(bike, filters.minBatteryVoltage)) return false;
+      }
 
-      // Range (Miles)
-      if (bike.specs.rangeMilesMax < filters.minRangeMiles) return false;
+      // Range (Miles) - skip for general accessories
+      if (filters.category !== 'accessories' && bike.specs.rangeMilesMax < filters.minRangeMiles) return false;
 
       // Weight (lbs)
       if (bike.specs.weightLbs > filters.maxWeightLbs) return false;
@@ -249,24 +252,42 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
           </div>
 
           {/* 3. SPEC FILTER: BATTERY VOLTAGE */}
-          <div className="space-y-2 pt-3 border-t border-zinc-800">
-            <label className="text-[10px] font-mono font-black uppercase tracking-wider text-zinc-400 flex items-center gap-1">
-              <Battery className="w-3.5 h-3.5 text-lime-400" /> BATTERY VOLTAGE
-            </label>
+          <div className="space-y-2.5 pt-3 border-t border-zinc-800">
+            <div className="flex justify-between items-center text-xs">
+              <label className="font-mono text-[10px] font-black uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+                <Battery className="w-3.5 h-3.5 text-lime-400" />
+                <span>BATTERY & PACK VOLTAGE</span>
+              </label>
+              {filters.minBatteryVoltage > 0 && (
+                <span className="text-[10px] font-mono text-lime-400 font-bold bg-lime-400/10 px-1.5 py-0.5 rounded border border-lime-400/30">
+                  {filters.minBatteryVoltage === 80 ? '80V+' : `${filters.minBatteryVoltage}V`}
+                </span>
+              )}
+            </div>
+
             <div className="grid grid-cols-2 gap-1.5 font-mono">
-              {[0, 60, 72, 80].map((v) => (
-                <button
-                  key={v}
-                  onClick={() => setFilters({ ...filters, minBatteryVoltage: v })}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
-                    filters.minBatteryVoltage === v
-                      ? 'bg-lime-400 text-zinc-950 font-black'
-                      : 'bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700'
-                  }`}
-                >
-                  {v === 0 ? 'ALL VOLTS' : `${v}V+`}
-                </button>
-              ))}
+              {[
+                { v: 0, label: 'ALL VOLTS' },
+                { v: 48, label: '48V NOMINAL' },
+                { v: 60, label: '60V E-MOTO' },
+                { v: 72, label: '72V RACE' },
+                { v: 80, label: '80V+ ULTRA' }
+              ].map(({ v, label }) => {
+                const isSelected = filters.minBatteryVoltage === v;
+                return (
+                  <button
+                    key={v}
+                    onClick={() => setFilters({ ...filters, minBatteryVoltage: v })}
+                    className={`px-2.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex flex-col justify-center items-start text-left ${
+                      isSelected
+                        ? 'bg-lime-400 text-zinc-950 font-black shadow-md shadow-lime-400/20 border border-lime-400'
+                        : 'bg-zinc-900/90 border border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:text-white'
+                    }`}
+                  >
+                    <span className="text-[11px] font-mono leading-none">{label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -473,6 +494,38 @@ export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '
                 onChange={(e) => setFilters({ ...filters, minMotorKW: Number(e.target.value) })}
                 className="w-full accent-lime-400"
               />
+            </div>
+
+            {/* Mobile Battery & Pack Voltage */}
+            <div className="space-y-2 pt-4 border-t border-zinc-800">
+              <label className="text-xs font-mono font-bold text-zinc-400 uppercase flex items-center gap-1.5">
+                <Battery className="w-3.5 h-3.5 text-lime-400" />
+                <span>BATTERY & PACK VOLTAGE</span>
+              </label>
+              <div className="grid grid-cols-2 gap-1.5 font-mono">
+                {[
+                  { v: 0, label: 'ALL VOLTS' },
+                  { v: 48, label: '48V NOMINAL' },
+                  { v: 60, label: '60V E-MOTO' },
+                  { v: 72, label: '72V RACE' },
+                  { v: 80, label: '80V+ ULTRA' }
+                ].map(({ v, label }) => {
+                  const isSelected = filters.minBatteryVoltage === v;
+                  return (
+                    <button
+                      key={v}
+                      onClick={() => setFilters({ ...filters, minBatteryVoltage: v })}
+                      className={`px-2.5 py-2 rounded-lg text-xs font-bold transition-all flex flex-col justify-center items-start text-left ${
+                        isSelected
+                          ? 'bg-lime-400 text-zinc-950 font-black'
+                          : 'bg-zinc-900 border border-zinc-800 text-zinc-300'
+                      }`}
+                    >
+                      <span className="text-[11px] font-mono leading-none">{label}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Mobile Actions */}

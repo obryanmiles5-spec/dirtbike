@@ -95,7 +95,7 @@ export default function BlogListingPage() {
                     </div>
 
                     <h2 className="text-xl font-bold text-white group-hover:text-lime-400 transition-colors uppercase leading-snug">
-                      <Link href={`/blog/${post.id}`}>
+                      <Link href={`/blog/${post.id}`} prefetch={false}>
                         {post.title}
                       </Link>
                     </h2>
@@ -114,6 +114,7 @@ export default function BlogListingPage() {
 
                   <Link
                     href={`/blog/${post.id}`}
+                    prefetch={false}
                     className="text-xs font-black text-lime-400 hover:text-lime-300 uppercase tracking-wider flex items-center gap-1"
                   >
                     <span>Read Guide</span>

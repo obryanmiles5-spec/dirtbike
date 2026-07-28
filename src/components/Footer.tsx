@@ -172,7 +172,7 @@ export const Footer: React.FC<FooterProps> = () => {
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5 font-bold">
+              <Link href="/blog" prefetch={false} className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5 font-bold">
                 <BookOpen className="w-3.5 h-3.5 text-lime-400" />
                 <span>12 E-Moto Tech & Trail Guides</span>
                 <span className="bg-lime-400 text-zinc-950 text-[9px] font-mono font-black px-1.5 py-0.5 rounded">NEW</span>

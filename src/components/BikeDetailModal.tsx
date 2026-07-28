@@ -30,10 +30,11 @@ import {
   Layers
 } from 'lucide-react';
 import { Bike, Accessory } from '../types';
-import { BIKES_DATA, ACCESSORIES_DATA } from '../data/bikes';
+import { BIKES_DATA } from '../data/bikes';
 import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
 import { formatImageUrl } from '../lib/imageUtils';
+import { ProductWatermark } from './ProductWatermark';
 
 interface BikeDetailModalProps {
   bike: Bike | null;
@@ -162,6 +163,9 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
                 />
+
+                {/* Product Logo Watermark Overlay */}
+                <ProductWatermark size="lg" />
 
                 <div className="absolute top-3 left-3 bg-zinc-950/90 backdrop-blur-md px-3 py-1.5 rounded-md border border-zinc-800 text-xs font-mono text-lime-400 font-bold">
                   {bike.specs.batteryVoltage}V {bike.specs.batteryAh}Ah High-Output Battery Pack

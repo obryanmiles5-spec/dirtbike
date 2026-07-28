@@ -2,11 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { BIKES_DATA } from '../data/bikes';
+import { BLOG_POSTS_DATA } from '../data/blogs';
 import { BikeCard } from '../components/BikeCard';
+import { BlogCardboardHeader } from '../components/BlogCardboardHeader';
 import { useAppContext } from '../context/AppContext';
 import { TrustPilotSlider } from '../components/TrustPilotSlider';
 import { Bike } from '../types';
 import { formatImageUrl, handleImageError } from '../lib/imageUtils';
+import { ArrowRight, BookOpen, Calendar, Clock } from 'lucide-react';
 
 interface HomeProps {
   onSelectBike?: (bike: Bike) => void;
@@ -197,6 +200,88 @@ export const Home: React.FC<HomeProps> = () => {
       </section>
 
       <TrustPilotSlider />
+
+      {/* Homepage Blog Posts Section (4 posts in 1 row) */}
+      <section className="py-20 bg-zinc-950 px-4 border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-lime-400/10 border border-lime-400/30 px-3 py-1 rounded-md text-lime-400 text-xs font-mono font-bold uppercase mb-3">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Tech & Trail Guides</span>
+              </div>
+              <h2 className="text-3xl font-black text-white uppercase tracking-tight">
+                Latest E-Moto Guides
+              </h2>
+              <p className="text-zinc-400 text-sm font-mono mt-1">
+                Expert insights on battery tech, trail prep, maintenance, and street conversion
+              </p>
+            </div>
+
+            <Link
+              href="/blog"
+              prefetch={false}
+              className="inline-flex items-center gap-2 text-lime-400 hover:text-lime-300 font-mono font-bold text-xs uppercase tracking-wider bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-4 py-2.5 rounded-lg transition-colors shrink-0"
+            >
+              <span>View All 12 Guides</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {BLOG_POSTS_DATA.slice(0, 4).map((post, index) => (
+              <article
+                key={post.id}
+                className="bg-[#0f121a] rounded-2xl border border-zinc-800/80 overflow-hidden flex flex-col justify-between hover:border-lime-400/50 transition-all group shadow-xl"
+              >
+                <div>
+                  <div className="relative aspect-[16/9] overflow-hidden bg-zinc-900">
+                    <BlogCardboardHeader post={post} index={index} compact={true} />
+                  </div>
+
+                  <div className="p-5 space-y-3">
+                    <div className="flex items-center gap-3 text-[11px] font-mono text-zinc-400">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3 text-lime-400" />
+                        {post.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-lime-400" />
+                        {post.readTime}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-bold text-white group-hover:text-lime-400 transition-colors uppercase leading-snug line-clamp-2">
+                      <Link href={`/blog/${post.id}`} prefetch={false}>
+                        {post.title}
+                      </Link>
+                    </h3>
+
+                    <p className="text-xs text-zinc-400 leading-relaxed line-clamp-2 font-sans">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-5 pt-0 flex items-center justify-between border-t border-zinc-800/60 mt-4">
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase">
+                    {post.category}
+                  </span>
+
+                  <Link
+                    href={`/blog/${post.id}`}
+                    prefetch={false}
+                    className="text-xs font-black text-lime-400 hover:text-lime-300 uppercase tracking-wider flex items-center gap-1 font-mono"
+                  >
+                    <span>Read</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

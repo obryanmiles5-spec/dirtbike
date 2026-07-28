@@ -9,6 +9,7 @@ import { CheckoutModal } from '@/components/CheckoutModal';
 import { CompareModal } from '@/components/CompareModal';
 import { TestRideModal } from '@/components/TestRideModal';
 import { RiderQuizModal } from '@/components/RiderQuizModal';
+import { ContentProtection } from '@/components/ContentProtection';
 import { Bike, OrderDetails } from '@/types';
 import { useAppContext } from '@/context/AppContext';
 
@@ -112,6 +113,8 @@ export function ClientAppShell({ children }: { children: React.ReactNode }) {
         onClose={() => setIsQuizOpen(false)}
         onSelectBike={(bike) => setSelectedBike(bike)}
       />
+
+      <ContentProtection />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { Bike } from '../types';
 import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
 import { formatImageUrl } from '../lib/imageUtils';
+import { ProductWatermark } from './ProductWatermark';
 
 interface BikeCardProps {
   bike: Bike;
@@ -98,6 +99,9 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
         />
+
+        {/* Product Logo Watermark Overlay */}
+        <ProductWatermark size="sm" />
 
         {/* Gradient vignette at bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { BIKES_DATA } from '@/data/bikes';
 import { BikeCard } from '@/components/BikeCard';
+import { ProductWatermark } from '@/components/ProductWatermark';
 import { formatImageUrl } from '@/lib/imageUtils';
 import { Star, ShieldCheck, Truck, Zap, Check, ArrowLeft, SlidersHorizontal, ShoppingCart } from 'lucide-react';
 
@@ -202,6 +203,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   alt={bike.name}
                   className="w-full h-full object-cover object-center"
                 />
+                {/* Logo Watermark Overlay */}
+                <ProductWatermark size="lg" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   {bike.isBestSeller && (
                     <span className="px-3 py-1 bg-amber-400 text-zinc-950 text-xs font-black uppercase tracking-wider rounded-md">

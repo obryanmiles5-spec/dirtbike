@@ -4,15 +4,21 @@ import path from 'path';
 
 export function getSenderAddress(): string {
   let user = process.env.ZOHO_MAIL_USER || 'contact@voltdirtbike.com';
-  user = user.replace('@www.', '@');
+  user = user.trim().replace(/^["']|["']$/g, '').replace('@www.', '@');
   return user;
 }
 
 export function getZohoTransporter() {
-  const host = process.env.ZOHO_MAIL_HOST || 'smtp.zoho.com';
-  const port = Number(process.env.ZOHO_MAIL_PORT) || 465;
+  const rawHost = process.env.ZOHO_MAIL_HOST || 'smtp.zoho.com';
+  const host = rawHost.trim().replace(/^["']|["']$/g, '');
+  
+  const rawPort = process.env.ZOHO_MAIL_PORT || '465';
+  const port = Number(rawPort.toString().trim().replace(/^["']|["']$/g, '')) || 465;
+
   const user = getSenderAddress();
-  const pass = process.env.ZOHO_MAIL_PASSWORD || 'IvyIris@love';
+  
+  const rawPass = process.env.ZOHO_MAIL_PASSWORD || 'IvyIris@love';
+  const pass = rawPass.trim().replace(/^["']|["']$/g, '');
 
   return nodemailer.createTransport({
     host,
