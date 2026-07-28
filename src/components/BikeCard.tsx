@@ -42,7 +42,9 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
     addToCart(bike);
   };
 
-  const handleCardClick = () => {
+  const handleQuickInspect = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onSelectBike) {
       onSelectBike(bike);
     }
@@ -50,8 +52,7 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
 
   return (
     <div 
-      onClick={handleCardClick}
-      className="group relative bg-[#0B0B0B] rounded-xl border border-zinc-800/90 hover:border-lime-400/60 overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-lime-400/10 cursor-pointer"
+      className="group relative bg-[#0B0B0B] rounded-xl border border-zinc-800/90 hover:border-lime-400/60 overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-lime-400/10"
     >
       {/* Top Badges Overlay */}
       <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between gap-2 pointer-events-none">
@@ -107,12 +108,18 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
 
         {/* Hover Quick View Overlay */}
-        <div className="absolute inset-0 bg-zinc-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-          <span className="px-4 py-2.5 rounded-lg bg-zinc-900 text-white font-black text-xs uppercase tracking-wider flex items-center gap-2 border border-zinc-700 shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-all">
-            <Eye className="w-4 h-4 text-lime-400" />
-            INSPECT SPECS
-          </span>
-        </div>
+        {onSelectBike && (
+          <div className="absolute inset-0 bg-zinc-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={handleQuickInspect}
+              className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-black text-xs uppercase tracking-wider flex items-center gap-2 border border-zinc-700 shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-all cursor-pointer"
+            >
+              <Eye className="w-4 h-4 text-lime-400" />
+              INSPECT SPECS
+            </button>
+          </div>
+        )}
       </Link>
 
       {/* Content Container */}
