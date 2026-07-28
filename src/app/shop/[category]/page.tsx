@@ -10,7 +10,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://voltdirtbike.com';
 const CATEGORY_NAMES: Record<string, string> = {
   'electric-dirt-bikes': 'Electric Dirt Bikes',
   'e-bikes': 'E-Bikes',
-  'accessories': 'Accessories',
+  'accessories': 'Accessories & Batteries',
+  'battery': 'Batteries & Chargers',
 };
 
 interface CategoryPageProps {
@@ -22,6 +23,7 @@ export async function generateStaticParams() {
     { category: 'electric-dirt-bikes' },
     { category: 'e-bikes' },
     { category: 'accessories' },
+    { category: 'battery' },
   ];
 }
 
@@ -63,7 +65,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  const bikes = BIKES_DATA.filter((b) => b.category === category);
+  const bikes = BIKES_DATA.filter((b) => {
+    if (category === 'accessories') {
+      return b.category === 'accessories' || b.category === 'battery';
+    }
+    return b.category === category;
+  });
   const canonicalUrl = `${siteUrl}/shop/${category}`;
 
   const breadcrumbSchema = {

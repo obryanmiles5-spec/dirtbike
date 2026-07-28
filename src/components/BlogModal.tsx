@@ -3,6 +3,7 @@
 import React from 'react';
 import { X, Calendar, Clock, User, ArrowRight, BookOpen, Share2 } from 'lucide-react';
 import { BlogPost } from '../data/blogs';
+import { BlogCardboardHeader } from './BlogCardboardHeader';
 
 interface BlogModalProps {
   post: BlogPost | null;
@@ -38,24 +39,9 @@ export const BlogModal: React.FC<BlogModalProps> = ({
           </button>
         </div>
 
-        {/* Hero Cover Image */}
-        <div className="relative h-64 sm:h-80 overflow-hidden">
-          <img
-            src={post.image}
-            alt={post.title}
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
-          
-          <div className="absolute bottom-4 left-4 right-4 space-y-2">
-            <span className="px-3 py-1 rounded bg-lime-400 text-zinc-950 font-black text-[10px] uppercase tracking-wider font-mono">
-              {post.category}
-            </span>
-            <h2 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight font-sans">
-              {post.title}
-            </h2>
-          </div>
+        {/* Hero Cover Cardboard */}
+        <div className="relative h-64 sm:h-72 overflow-hidden border-b border-zinc-800">
+          <BlogCardboardHeader post={post} compact={true} />
         </div>
 
         {/* Article Metadata */}

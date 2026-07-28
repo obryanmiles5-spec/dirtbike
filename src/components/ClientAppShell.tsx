@@ -18,6 +18,10 @@ export function ClientAppShell({ children }: { children: React.ReactNode }) {
 
   const getTabFromPath = (path: string | null): 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories' => {
     if (!path) return 'home';
+    if (path.startsWith('/shop/electric-dirt-bikes')) return 'electric-dirt-bikes';
+    if (path.startsWith('/shop/e-bikes')) return 'e-bikes';
+    if (path.startsWith('/shop/accessories')) return 'accessories';
+    if (path.startsWith('/shop/battery')) return 'accessories';
     if (path.startsWith('/shop')) return 'shop';
     if (path.startsWith('/about')) return 'about';
     if (path.startsWith('/contact')) return 'contact';
@@ -36,7 +40,7 @@ export function ClientAppShell({ children }: { children: React.ReactNode }) {
     setActiveTabState(tab);
     if (tab === 'home') router.push('/');
     else if (['electric-dirt-bikes', 'e-bikes', 'accessories'].includes(tab)) {
-      router.push(`/shop?category=${tab}`);
+      router.push(`/shop/${tab}`);
     }
     else if (tab === 'shop') router.push('/shop');
     else if (tab === 'about') router.push('/about');

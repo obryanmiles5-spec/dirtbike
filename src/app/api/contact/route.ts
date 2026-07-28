@@ -1,14 +1,17 @@
 import { NextResponse } from 'next/server';
-import { sendMailDirect, getSenderAddress } from '@/lib/zohoMail';
+import { sendMailDirect, saveContactToLog, getSenderAddress } from '@/lib/zohoMail';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, phone, subject, message } = body;
 
+    // 1. Always save inquiry to server storage log immediately
+    saveContactToLog({ name, email, phone, subject, message });
+
     const senderEmail = getSenderAddress();
 
-    // 1. Email notification to VOLT-X Headquarters
+    // 2. Email notification to VOLT-X Headquarters
     const adminEmailHtml = `
       <div style="font-family: Arial, sans-serif; background-color: #0b0f17; color: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #1e293b;">
         <h2 style="color: #a3e635; margin-top: 0; text-transform: uppercase;">⚡ VOLT-X Direct Dispatch Received</h2>
@@ -28,7 +31,7 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    await sendMailDirect({
+    const adminResult = await sendMailDirect({
       to: senderEmail,
       subject: `[VOLT-X Dispatch Inquiry] ${subject || 'General Inquiry'} - ${name}`,
       html: adminEmailHtml,
@@ -36,7 +39,7 @@ export async function POST(request: Request) {
       replyTo: email
     });
 
-    // 2. Auto-responder to customer if email is provided
+    // 3. Auto-responder to customer if email is provided
     let userDispatchResult: any = null;
     if (email && email.includes('@')) {
       const userEmailHtml = `
@@ -74,13 +77,14 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       userDispatchResult,
-      message: 'Contact inquiry recorded and confirmation email dispatched via Zoho Mail.',
+      emailStatus: adminResult.success ? 'sent' : 'logged',
+      message: 'Contact inquiry recorded safely and saved to server log.',
       timestamp: new Date().toISOString()
     });
   } catch (error: any) {
     console.error('[VOLT-X Contact API Error]', error);
     return NextResponse.json(
-      { success: false, error: error?.message || 'Failed to send contact message' },
+      { success: false, error: error?.message || 'Failed to process contact message' },
       { status: 500 }
     );
   }

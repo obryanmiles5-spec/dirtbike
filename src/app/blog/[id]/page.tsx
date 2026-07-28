@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BLOG_POSTS_DATA } from '@/data/blogs';
 import { BIKES_DATA } from '@/data/bikes';
 import { BikeCard } from '@/components/BikeCard';
+import { BlogCardboardHeader } from '@/components/BlogCardboardHeader';
 import { Calendar, Clock, User, ArrowLeft, BookOpen, Share2 } from 'lucide-react';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://voltdirtbike.com';
@@ -175,13 +176,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             </div>
           </div>
 
-          {/* Hero Article Image */}
-          <div className="relative aspect-[16/9] rounded-2xl bg-zinc-900 overflow-hidden border border-zinc-800">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-full object-cover"
-            />
+          {/* Hero Article Cardboard Header */}
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] rounded-2xl bg-zinc-900 overflow-hidden border border-zinc-800 shadow-2xl">
+            <BlogCardboardHeader post={post} index={BLOG_POSTS_DATA.findIndex(p => p.id === post.id)} compact={false} />
           </div>
 
           {/* Article Body */}

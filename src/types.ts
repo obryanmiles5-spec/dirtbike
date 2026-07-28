@@ -108,4 +108,5 @@ export interface OrderDetails {
   estimatedDelivery: string;
   trackingNumber: string;
   status: 'Processing' | 'Shipped' | 'Out for Delivery' | 'Delivered';
+  emailStatus?: string;
 }

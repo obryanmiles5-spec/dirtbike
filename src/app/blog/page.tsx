@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { BLOG_POSTS_DATA } from '@/data/blogs';
+import { BlogCardboardHeader } from '@/components/BlogCardboardHeader';
 import { BookOpen, ArrowRight, User, Calendar, Clock } from 'lucide-react';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://voltdirtbike.com';
@@ -71,21 +72,14 @@ export default function BlogListingPage() {
 
           {/* Grid of Blog Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {BLOG_POSTS_DATA.map((post) => (
+            {BLOG_POSTS_DATA.map((post, index) => (
               <article
                 key={post.id}
-                className="bg-[#0f121a] rounded-2xl border border-zinc-800/80 overflow-hidden flex flex-col justify-between hover:border-lime-400/50 transition-all group"
+                className="bg-[#0f121a] rounded-2xl border border-zinc-800/80 overflow-hidden flex flex-col justify-between hover:border-lime-400/50 transition-all group shadow-xl"
               >
                 <div>
                   <div className="relative aspect-[16/9] overflow-hidden bg-zinc-900">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-3 left-3 bg-lime-400 text-zinc-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">
-                      {post.category}
-                    </span>
+                    <BlogCardboardHeader post={post} index={index} compact={true} />
                   </div>
 
                   <div className="p-6 space-y-3">

@@ -126,14 +126,18 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       orderId,
+      emailStatus: emailDispatchResult?.success ? 'sent' : 'failed',
+      emailError: emailDispatchResult?.error,
       emailDispatchResult,
-      message: 'Order processed successfully and stored in server log.',
+      message: emailDispatchResult?.success
+        ? 'Order processed successfully and receipt dispatched via email.'
+        : 'Order processed and logged in server queue. (Note: Email receipt pending Zoho SMTP App Password configuration).',
       timestamp: new Date().toISOString()
     });
   } catch (error: any) {
     console.error('[VOLT-X Order API Error]', error);
     return NextResponse.json(
-      { success: false, error: error?.message || 'Failed to dispatch order receipt' },
+      { success: false, error: error?.message || 'Failed to process order' },
       { status: 500 }
     );
   }

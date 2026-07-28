@@ -127,11 +127,15 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
     try {
       // Post order notification to Next.js server route & send email
-      await fetch('/api/order', {
+      const res = await fetch('/api/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newOrder),
       });
+      const data = await res.json();
+      if (data?.emailStatus) {
+        newOrder.emailStatus = data.emailStatus;
+      }
     } catch (err) {
       console.warn('Order API dispatch notice:', err);
     }
@@ -654,6 +658,16 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       <Calendar className="w-3.5 h-3.5 text-lime-400" />
                       {completedOrder.estimatedDelivery}
                     </div>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-zinc-900/90 rounded-lg border border-lime-500/30 flex items-center gap-3 text-xs">
+                  <ShieldCheck className="w-5 h-5 text-lime-400 shrink-0" />
+                  <div>
+                    <span className="font-bold text-white font-mono uppercase block">Order Record Saved in Factory System Queue</span>
+                    <span className="text-[11px] text-zinc-400">
+                      Order #{completedOrder.orderId} was securely logged for Reno HQ Crate Preparation.
+                    </span>
                   </div>
                 </div>
 
