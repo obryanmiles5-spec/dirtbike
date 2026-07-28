@@ -4,6 +4,14 @@ import { BIKES_DATA } from '../data/bikes';
 import { BikeCard } from '../components/BikeCard';
 import { useAppContext } from '../context/AppContext';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import heroCover from '../../public/hero-cover.jpg';
+import electricDirtBikes from '../../public/Electric-Dirt-Bikes.webp';
+import eBikes from '../../public/E-Bikes.jpg';
+import accessories from '../../public/Accessories.png';
+import promoBanner from '../../public/promo-banner.jpg';
+import featuredCover from '../../public/featured-cover.jpg';
+
 import { TrustPilotSlider } from '../components/TrustPilotSlider';
 import { Bike } from '../types';
 
@@ -20,11 +28,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
   return (
     <div className="flex flex-col">
       <section className="relative w-full min-h-screen bg-zinc-950 flex flex-col items-center justify-center overflow-hidden">
-        <img 
-          src="/hero-cover.jpg" 
-          alt="Untamed Power" 
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-        referrerPolicy="no-referrer" />
+        <Image src={heroCover} alt="Untamed Power" className="absolute inset-0 w-full h-full object-cover opacity-70" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent flex flex-col items-center justify-end pb-12 sm:pb-32 text-center px-4">
           <h1 className="text-5xl sm:text-7xl font-black text-white uppercase tracking-tighter mb-6 drop-shadow-lg">
             Untamed Power. <br/> <span className="text-lime-400">Zero Emissions.</span>
@@ -53,7 +57,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
               className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
-              <img src="/Electric-Dirt-Bikes.webp" alt="Electric Dirt Bikes" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <Image src={electricDirtBikes} alt="Electric Dirt Bikes" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">Electric Dirt Bikes</h3>
             </div>
             <div 
@@ -61,7 +65,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
               className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
-              <img src="/E-Bikes.jpg" alt="E-Bikes" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <Image src={eBikes} alt="E-Bikes" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">E-Bikes</h3>
             </div>
             <div 
@@ -69,7 +73,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
               className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
-              <img src="/Accessories.png" alt="Accessories" className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <Image src={accessories} alt="Accessories" className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">Accessories</h3>
             </div>
           </div>
@@ -77,11 +81,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
       </section>
 
       <section className="relative w-full h-[60vh] sm:h-[80vh]">
-        <img 
-          src="/promo-banner.jpg" 
-          alt="Promo Banner" 
-          className="w-full h-full object-cover"
-        referrerPolicy="no-referrer" />
+        <Image src={promoBanner} alt="Promo Banner" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <button 
             onClick={() => router.push('/shop')} 
@@ -140,11 +140,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
             {/* Center Image */}
             <div className="order-1 lg:order-2 flex justify-center relative">
               <div className="absolute inset-0 bg-lime-500/10 rounded-full blur-3xl -z-10 transform scale-75"></div>
-              <img 
-                src="/featured-cover.jpg" 
-                alt="Featured Products Cover" 
-                className="w-full max-w-md h-auto max-h-[70vh] object-contain mx-auto rounded-xl relative z-10"
-              referrerPolicy="no-referrer" />
+              <Image src={featuredCover} alt="Featured Products Cover" className="w-full max-w-md h-auto max-h-[70vh] object-contain mx-auto rounded-xl relative z-10" referrerPolicy="no-referrer" />
             </div>
             
             {/* Right Column */}

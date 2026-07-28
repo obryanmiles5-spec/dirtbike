@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Star } from 'lucide-react';
+import Image from 'next/image';
+import reviewsBg from '../../public/reviews-bg.jpg';
+
 
 const REVIEWS = [
   { id: 1, name: "Marcus T.", rating: 5, date: "2 days ago", title: "Absolute Beast", text: "The Apex Pro exceeded all my expectations. Instant torque and the suspension handles jumps like nothing else." },
@@ -40,7 +43,7 @@ export const TrustPilotSlider: React.FC = () => {
   return (
     <div className="relative w-full py-20 border-t border-zinc-900 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src="/reviews-bg.jpg" alt="Reviews Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <Image src={reviewsBg} alt="Reviews Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-zinc-950/80"></div>
       </div>
 
