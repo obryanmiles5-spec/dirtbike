@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { 
   Star, 
   ShoppingCart, 
@@ -15,7 +16,7 @@ import { formatImageUrl } from '../lib/imageUtils';
 
 interface BikeCardProps {
   bike: Bike;
-  onSelectBike: (bike: Bike) => void;
+  onSelectBike?: (bike: Bike) => void;
 }
 
 export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
@@ -25,6 +26,7 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
   const isCompared = isInCompare(bike.id);
 
   const handleCompareToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     if (isCompared) {
       removeFromCompare(bike.id);
@@ -34,15 +36,20 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
   };
 
   const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     addToCart(bike);
   };
 
-  const monthlyAffirm = Math.round(bike.price / 24);
+  const handleCardClick = () => {
+    if (onSelectBike) {
+      onSelectBike(bike);
+    }
+  };
 
   return (
     <div 
-      onClick={() => onSelectBike(bike)}
+      onClick={handleCardClick}
       className="group relative bg-[#0B0B0B] rounded-xl border border-zinc-800/90 hover:border-lime-400/60 overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-lime-400/10 cursor-pointer"
     >
       {/* Top Badges Overlay */}
@@ -84,7 +91,7 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
       </div>
 
       {/* Product Image Container */}
-      <div className="relative aspect-[4/3] bg-zinc-950 overflow-hidden">
+      <Link href={`/product/${bike.id}`} className="relative aspect-[4/3] bg-zinc-950 overflow-hidden block">
         <img
           src={formatImageUrl(bike.image)}
           alt={bike.name}
@@ -97,18 +104,12 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
 
         {/* Hover Quick View Overlay */}
         <div className="absolute inset-0 bg-zinc-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onSelectBike(bike);
-            }}
-            className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-black text-xs uppercase tracking-wider flex items-center gap-2 border border-zinc-700 shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-all cursor-pointer"
-          >
+          <span className="px-4 py-2.5 rounded-lg bg-zinc-900 text-white font-black text-xs uppercase tracking-wider flex items-center gap-2 border border-zinc-700 shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-all">
             <Eye className="w-4 h-4 text-lime-400" />
             INSPECT SPECS
-          </button>
+          </span>
         </div>
-      </div>
+      </Link>
 
       {/* Content Container */}
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
@@ -124,7 +125,9 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
 
           {/* Title & Tagline */}
           <h3 className="text-lg font-black text-white group-hover:text-lime-400 transition-colors uppercase tracking-tight line-clamp-1">
-            {bike.name}
+            <Link href={`/product/${bike.id}`}>
+              {bike.name}
+            </Link>
           </h3>
           <p className="text-xs text-zinc-400 line-clamp-2 mt-1 leading-relaxed">
             {bike.tagline}
@@ -145,7 +148,7 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
               )}
             </div>
             <div className="text-[11px] text-zinc-400 font-medium font-sans flex items-center gap-1 mt-0.5">
-              or <strong className="text-lime-400 font-bold">${monthlyAffirm}/mo</strong> with Affirm
+              <span className="text-lime-400 font-bold">Free Crate Freight Delivery</span>
             </div>
           </div>
 

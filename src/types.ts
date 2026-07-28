@@ -85,8 +85,18 @@ export interface OrderDetails {
     zip: string;
     country: string;
   };
+  customer?: {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    address?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+  };
   deliveryMethod: 'freight_crate' | 'dealer_pickup';
-  paymentMethod: 'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'financing' | 'crypto';
+  paymentMethod: 'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto';
   items: CartItem[];
   subtotal: number;
   shippingCost: number;

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { 
   Zap, 
   ShoppingCart, 
@@ -19,15 +20,15 @@ import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
 
 interface HeaderProps {
-  activeTab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories';
-  setActiveTab: (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => void;
+  activeTab?: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories';
+  setActiveTab?: (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => void;
   onOpenSearch?: () => void;
   onOpenTestRide?: () => void;
   onOpenQuiz?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  activeTab,
+  activeTab = 'home',
   setActiveTab,
   onOpenSearch,
   onOpenTestRide,
@@ -54,13 +55,13 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: Compass },
-    { id: 'shop', label: 'Shop', icon: BikeIcon },
-    { id: 'about', label: 'About', icon: Info },
-    { id: 'contact', label: 'Contact', icon: PhoneCall },
-    { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes', icon: BikeIcon },
-    { id: 'e-bikes', label: 'E-Bikes', icon: Zap },
-    { id: 'accessories', label: 'Accessories', icon: Zap },
+    { id: 'home', label: 'Home', href: '/', icon: Compass },
+    { id: 'shop', label: 'Shop', href: '/shop', icon: BikeIcon },
+    { id: 'about', label: 'About', href: '/about', icon: Info },
+    { id: 'contact', label: 'Contact', href: '/contact', icon: PhoneCall },
+    { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes', href: '/shop/electric-dirt-bikes', icon: BikeIcon },
+    { id: 'e-bikes', label: 'E-Bikes', href: '/shop/e-bikes', icon: Zap },
+    { id: 'accessories', label: 'Accessories', href: '/shop/accessories', icon: Zap },
   ] as const;
 
   return (
@@ -130,8 +131,8 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Main Header Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Brand Logo */}
-        <div 
-          onClick={() => setActiveTab('home')}
+        <Link 
+          href="/"
           className="flex items-center gap-2.5 cursor-pointer group select-none"
         >
           <div className="w-10 h-10 rounded-xl bg-lime-400 p-0.5 shadow-lg shadow-lime-400/20 group-hover:scale-105 transition-transform">
@@ -147,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({
               US E-MOTO & POWERSPORTS
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1 bg-zinc-900/90 p-1.5 rounded-xl border border-zinc-800">
@@ -155,9 +156,10 @@ export const Header: React.FC<HeaderProps> = ({
             const Icon = item.icon;
             const isActive = activeTab === item.id;
             return (
-              <button
+              <Link
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                href={item.href}
+                onClick={() => setActiveTab?.(item.id as any)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                   isActive
                     ? 'bg-lime-400 text-zinc-950 font-black shadow-md shadow-lime-400/20'
@@ -166,7 +168,7 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Icon className="w-4 h-4" />
                 {item.label}
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -184,13 +186,13 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* Prominent ORDER NOW CTA */}
-          <button
-            onClick={() => setActiveTab('shop')}
+          <Link
+            href="/shop"
             className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-lime-400/20 transition-all transform hover:scale-105 cursor-pointer font-mono"
           >
             <BikeIcon className="w-4 h-4" />
             <span>ORDER NOW</span>
-          </button>
+          </Link>
 
           {/* Bike Compare Drawer Button */}
           <button
@@ -239,10 +241,11 @@ export const Header: React.FC<HeaderProps> = ({
               const Icon = item.icon;
               const isActive = activeTab === item.id;
               return (
-                <button
+                <Link
                   key={item.id}
+                  href={item.href}
                   onClick={() => {
-                    setActiveTab(item.id);
+                    setActiveTab?.(item.id as any);
                     setMobileMenuOpen(false);
                   }}
                   className={`flex items-center gap-2.5 p-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all ${
@@ -253,7 +256,7 @@ export const Header: React.FC<HeaderProps> = ({
                 >
                   <Icon className="w-4 h-4" />
                   {item.label}
-                </button>
+                </Link>
               );
             })}
           </div>

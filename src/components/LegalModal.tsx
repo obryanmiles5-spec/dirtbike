@@ -18,7 +18,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       body: `At VOLT-X Motors USA Inc., we prioritize the protection of your personal and financial data.
 
 1. **Information Collection:** We collect order details, shipping addresses, and email contact information solely to process e-moto freight crate orders, issue manufacturer VIN/MSO documentation, and process warranty claims.
-2. **Encryption Standards:** All payment transactions are secured using 256-bit SSL encryption via compliant payment gateways (Affirm, Shop Pay, Visa/Mastercard). We never store raw credit card credentials on our servers.
+2. **Encryption Standards:** All payment transactions are secured using 256-bit SSL encryption via compliant payment gateways (Fincra Gateway, Visa/Mastercard/Amex, Crypto, Wire). We never store raw credit card credentials on our servers.
 3. **No Third-Party Sales:** Your contact information is never sold, leased, or rented to external marketing firms.`
     },
     terms: {

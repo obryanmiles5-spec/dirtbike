@@ -55,8 +55,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
 
   const [activeImage, setActiveImage] = useState(bike.image);
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
-  const [activeTab, setActiveTab] = useState<'specs' | 'battery' | 'included' | 'financing' | 'reviews'>('specs');
-  const [financingMonths, setFinancingMonths] = useState<12 | 24 | 36>(24);
+  const [activeTab, setActiveTab] = useState<'specs' | 'battery' | 'included' | 'reviews'>('specs');
   const [viewerCount, setViewerCount] = useState<number>(18);
 
   // Synchronize active image when bike changes
@@ -93,9 +92,6 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
 
   const accessoryTotalPrice = selectedAccessories.reduce((sum, a) => sum + a.price, 0);
   const grandTotal = bike.price + accessoryTotalPrice;
-
-  // Financing calculation
-  const monthlyPayment = Math.round(grandTotal / financingMonths);
 
   const handleAddToCart = () => {
     addToCart(bike, selectedAccessories, 1);
@@ -270,9 +266,9 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                   </div>
 
                   <div className="text-right font-mono">
-                    <div className="text-[10px] text-zinc-400 uppercase font-bold">Financing From</div>
-                    <div className="text-lg font-black text-lime-400">${monthlyPayment}/mo</div>
-                    <div className="text-[9px] text-zinc-400 font-sans">via Affirm or Shop Pay</div>
+                    <div className="text-[10px] text-lime-400 uppercase font-black tracking-widest">SHIPPING & FREIGHT</div>
+                    <div className="text-sm font-black text-white">FREE 50-STATE</div>
+                    <div className="text-[9px] text-zinc-400 font-sans">Wooden Crate Dispatch</div>
                   </div>
                 </div>
 
@@ -283,7 +279,6 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                       { id: 'specs', label: 'Tech Specs' },
                       { id: 'battery', label: 'Battery & Charger' },
                       { id: 'included', label: 'In The Box' },
-                      { id: 'financing', label: 'Financing' },
                       { id: 'reviews', label: 'Rider Reviews' },
                     ] as const
                   ).map((tab) => (
@@ -414,45 +409,6 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                         <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 flex items-center gap-2">
                           <CheckCircle2 className="w-4 h-4 text-lime-400 shrink-0" />
                           <span className="text-zinc-200 font-medium">2-Year Factory Battery Warranty</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === 'financing' && (
-                    <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-4 text-xs">
-                      <div className="flex items-center gap-2 text-lime-400 font-black uppercase font-mono">
-                        <Calculator className="w-4 h-4" />
-                        <span>AFFIRM & SHOP PAY INSTANT FINANCING</span>
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="text-zinc-400 font-medium">Select Desired Loan Duration:</label>
-                        <div className="grid grid-cols-3 gap-2">
-                          {([12, 24, 36] as const).map((m) => (
-                            <button
-                              key={m}
-                              onClick={() => setFinancingMonths(m)}
-                              className={`py-2 rounded-lg text-xs font-black font-mono transition-colors cursor-pointer ${
-                                financingMonths === m
-                                  ? 'bg-lime-400 text-zinc-950'
-                                  : 'bg-zinc-900 border border-zinc-800 text-zinc-300 hover:bg-zinc-800'
-                              }`}
-                            >
-                              {m} Months
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="p-3 bg-zinc-900 rounded-lg space-y-1">
-                        <div className="flex justify-between text-zinc-400 font-sans">
-                          <span>Monthly Installment:</span>
-                          <span className="text-lime-400 font-black font-mono text-base">${monthlyPayment} / month</span>
-                        </div>
-                        <div className="flex justify-between text-[10px] text-zinc-400 font-mono">
-                          <span>0% APR Qualified Options</span>
-                          <span>Instant Soft Check (No Credit Score Hit)</span>
                         </div>
                       </div>
                     </div>

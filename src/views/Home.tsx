@@ -1,21 +1,20 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import { BIKES_DATA } from '../data/bikes';
 import { BikeCard } from '../components/BikeCard';
 import { useAppContext } from '../context/AppContext';
-import { useRouter } from 'next/navigation';
 import { TrustPilotSlider } from '../components/TrustPilotSlider';
 import { Bike } from '../types';
 import { formatImageUrl, handleImageError } from '../lib/imageUtils';
 
 interface HomeProps {
-  onSelectBike: (bike: Bike) => void;
+  onSelectBike?: (bike: Bike) => void;
   onNavigateToShop?: (category?: string) => void;
 }
 
-export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
+export const Home: React.FC<HomeProps> = () => {
   const { setSelectedBike } = useAppContext();
-  const router = useRouter();
   const featuredBikes = BIKES_DATA.filter(b => b.isBestSeller || b.featuredOrder).slice(0, 4);
 
   // User provided Google Drive Image URLs
@@ -44,9 +43,9 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
           <p className="text-zinc-200 text-sm sm:text-base max-w-2xl font-mono mb-10 drop-shadow">
             The next generation of high-performance electric dirt bikes. Precision engineered for the track, the trail, and the streets.
           </p>
-          <button onClick={() => router.push('/shop')} className="px-8 py-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-sm uppercase rounded-lg shadow-lg shadow-lime-400/20 transition-transform hover:scale-105 cursor-pointer">
+          <Link href="/shop" className="px-8 py-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-sm uppercase rounded-lg shadow-lg shadow-lime-400/20 transition-transform hover:scale-105 cursor-pointer">
             Shop All Models
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -60,9 +59,9 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
-            <div 
-              onClick={() => router.push('/shop?category=electric-dirt-bikes')} 
-              className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
+            <Link 
+              href="/shop/electric-dirt-bikes" 
+              className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end block"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
               <img 
@@ -72,10 +71,11 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
               />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">Electric Dirt Bikes</h3>
-            </div>
-            <div 
-              onClick={() => router.push('/shop?category=e-bikes')} 
-              className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
+            </Link>
+
+            <Link 
+              href="/shop/e-bikes" 
+              className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end block"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
               <img 
@@ -85,10 +85,11 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
               />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">E-Bikes</h3>
-            </div>
-            <div 
-              onClick={() => router.push('/shop?category=accessories')} 
-              className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end"
+            </Link>
+
+            <Link 
+              href="/shop/accessories" 
+              className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer p-8 aspect-square flex items-end block"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent z-10" />
               <img 
@@ -98,7 +99,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-white" 
               />
               <h3 className="text-2xl font-black text-white uppercase z-20 relative">Accessories</h3>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -111,12 +112,12 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <button 
-            onClick={() => router.push('/shop')} 
+          <Link 
+            href="/shop" 
             className="px-8 py-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-sm uppercase rounded-lg shadow-lg shadow-lime-400/20 transition-transform hover:scale-105 cursor-pointer"
           >
             Shop All Models
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -199,4 +200,3 @@ export const Home: React.FC<HomeProps> = ({ onNavigateToShop }) => {
     </div>
   );
 };
-

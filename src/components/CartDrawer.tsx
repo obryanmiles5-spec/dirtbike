@@ -273,10 +273,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               </div>
             </div>
 
-            {/* Financing Option Callout */}
+            {/* Payment Methods Callout */}
             <div className="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between font-mono">
-              <span>Pay as low as <strong className="text-lime-400">${Math.round(grandTotal / 24)}/mo</strong></span>
-              <span className="text-zinc-400 font-bold">Affirm / Shop Pay</span>
+              <span>Instant Dispatch Direct Checkout</span>
+              <span className="text-lime-400 font-bold">Fincra • Cards • Crypto</span>
             </div>
 
             {/* Checkout Button */}

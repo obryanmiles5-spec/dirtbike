@@ -9,45 +9,79 @@ import {
   Send, 
   CheckCircle2, 
   Calendar,
-  Building2,
+  AlertCircle,
   ChevronDown
 } from 'lucide-react';
 import { FAQS_DATA } from '../data/faqs';
 import { useAppContext } from '../context/AppContext';
+import { submitContactAction, ContactActionState } from '../app/actions/contact';
 
 interface ContactProps {
-  onOpenTestRide: () => void;
+  onOpenTestRide?: () => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => {
+export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: propOpenTestRide }) => {
   const { setIsTestRideOpen } = useAppContext();
-  const onOpenTestRide = () => setIsTestRideOpen(true);
+  const handleOpenTestRide = () => {
+    if (propOpenTestRide) propOpenTestRide();
+    else setIsTestRideOpen(true);
+  };
+
   const [formState, setFormState] = useState({
-    name: 'Alex Rider',
-    email: 'alex.rider@offroad.com',
-    phone: '+1 (555) 392-8801',
+    name: '',
+    email: '',
+    phone: '',
     subject: 'Sales Inquiry & Shipping Options',
-    message: 'Hi VOLT-X team, I am interested in the Stealth Pro 72V. What is the current crate delivery timeframe for Nevada?'
+    message: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [actionResult, setActionResult] = useState<ContactActionState | null>(null);
   const [openFaqId, setOpenFaqId] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setActionResult(null);
+
     try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
+      let res: any = null;
+      try {
+        const formData = new FormData();
+        formData.append('name', formState.name);
+        formData.append('email', formState.email);
+        formData.append('phone', formState.phone);
+        formData.append('subject', formState.subject);
+        formData.append('message', formState.message);
+        res = await submitContactAction({ success: false }, formData);
+      } catch (_saErr) {
+        // Direct API route fallback
+        const apiRes = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formState),
+        });
+        res = await apiRes.json();
+      }
+
+      if (res && res.success) {
+        setActionResult({
+          success: true,
+          message: res.message || 'Your inquiry has been successfully dispatched to our Reno HQ team!'
+        });
+      } else {
+        setActionResult({
+          success: false,
+          error: res?.error || 'Transmission failed. Please check your network and try again.'
+        });
+      }
+    } catch (err: any) {
+      setActionResult({
+        success: false,
+        error: err?.message || 'Transmission failed. Please try again.'
       });
-    } catch (err) {
-      console.warn('Contact API dispatch completed', err);
     } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
     }
   };
 
@@ -70,43 +104,60 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
         <div className="lg:col-span-7 bg-zinc-950 p-6 sm:p-8 rounded-xl border border-zinc-800 space-y-6">
           <h3 className="font-black text-sm uppercase tracking-wider text-white font-mono">SEND US A DIRECT INQUIRY</h3>
 
-          {submitted ? (
+          {actionResult?.success ? (
             <div className="text-center py-12 space-y-4">
               <div className="w-14 h-14 bg-lime-400/20 text-lime-400 rounded-full flex items-center justify-center mx-auto border border-lime-400/40">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <div>
+              <div className="space-y-2">
                 <h4 className="font-black text-base uppercase text-white">DISPATCH RECEIVED!</h4>
-                <p className="text-xs text-zinc-400 mt-1">
-                  Our Reno powersports team will dispatch a response to <span className="text-lime-400 font-mono font-bold">{formState.email}</span> within 2 business hours.
+                <p className="text-xs text-zinc-300">
+                  {actionResult.message || 'Our Reno powersports team received your inquiry and will respond via email shortly.'}
+                </p>
+                <p className="text-[11px] text-zinc-400 font-mono">
+                  Confirmation sent to: <span className="text-lime-400 font-bold">{formState.email}</span>
                 </p>
               </div>
               <button
-                onClick={() => setSubmitted(false)}
-                className="px-5 py-2 rounded-lg bg-zinc-800 text-xs font-mono font-bold text-white cursor-pointer"
+                onClick={() => {
+                  setActionResult(null);
+                  setFormState({ name: '', email: '', phone: '', subject: 'Sales Inquiry & Shipping Options', message: '' });
+                }}
+                className="px-5 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-bold text-white transition-colors cursor-pointer"
               >
-                Send Another Dispatch
+                Send Another Inquiry
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
+              {actionResult?.error && (
+                <div className="p-3 bg-red-950/60 border border-red-500/50 rounded-lg flex items-center gap-2.5 text-xs text-red-300 font-mono">
+                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                  <span>{actionResult.error}</span>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Your Name</label>
+                  <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Your Full Name *</label>
                   <input
                     type="text"
+                    name="name"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                    placeholder="Alex Rider"
                     required
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-lime-400 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Email Address</label>
+                  <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Email Address *</label>
                   <input
                     type="email"
+                    name="email"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                    placeholder="alex.rider@offroad.com"
                     required
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-lime-400 focus:outline-none"
                   />
@@ -117,16 +168,18 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
                 <div>
                   <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Phone Number</label>
                   <input
-                    type="text"
+                    type="tel"
+                    name="phone"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                    required
+                    placeholder="+1 (555) 392-8801"
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-lime-400 focus:outline-none font-mono"
                   />
                 </div>
                 <div>
                   <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Subject Topic</label>
                   <select
+                    name="subject"
                     value={formState.subject}
                     onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-lime-400 focus:outline-none font-mono"
@@ -141,11 +194,13 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
               </div>
 
               <div>
-                <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Your Dispatch Message</label>
+                <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Your Dispatch Message *</label>
                 <textarea
                   rows={4}
+                  name="message"
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  placeholder="Hi VOLT-X team, I am interested in the Stealth Pro 72V..."
                   required
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-lime-400 focus:outline-none"
                 />
@@ -157,7 +212,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
                 className="w-full py-3.5 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-lg shadow-lime-400/20 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
-                <span>{isSubmitting ? 'TRANSMITTING VIA ZOHO...' : 'TRANSMIT DISPATCH'}</span>
+                <span>{isSubmitting ? 'SENDING VIA ZOHO MAIL...' : 'SEND INQUIRY'}</span>
               </button>
             </form>
           )}
@@ -216,7 +271,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: _unused }) => 
 
             <div className="pt-2 border-t border-zinc-800">
               <button
-                onClick={onOpenTestRide}
+                onClick={handleOpenTestRide}
                 className="w-full py-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-lime-400 font-mono font-bold text-xs flex items-center justify-center gap-2 border border-lime-400/30 cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />

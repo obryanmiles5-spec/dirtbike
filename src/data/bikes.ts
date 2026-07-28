@@ -2,6 +2,55 @@ import { Bike, Accessory } from '../types';
 
 export const BIKES_DATA: Bike[] = [
   {
+    "id": "altis-sigma-72v",
+    "name": "Altis Sigma 72V Electric Dirt Bike",
+    "tagline": "20kW Peak Power Off-Road Dominator",
+    "category": "electric-dirt-bikes",
+    "categoryLabel": "Electric Dirt Bike",
+    "price": 5499.99,
+    "originalPrice": 5999.99,
+    "rating": 5,
+    "reviewCount": 38,
+    "image": "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_2.jpg?v=1784892259",
+    "galleryImages": [
+      "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_2.jpg?v=1784892259",
+      "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_d00100f9-e1ce-40a2-95a2-48e15c75e372.jpg?v=1784892259",
+      "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_3.jpg?v=1784892259",
+      "https://cdn.shopify.com/s/files/1/0801/4456/4441/files/X7_4.jpg?v=1784892259"
+    ],
+    "specs": {
+      "motorPowerKW": 12.0,
+      "peakPowerKW": 20.0,
+      "peakTorqueNm": 1000,
+      "batteryCapacity": "72V 35Ah Quick-Release",
+      "batteryVoltage": 72,
+      "batteryAh": 35,
+      "batteryKWh": 2.52,
+      "rangeMilesMin": 35,
+      "rangeMilesMax": 65,
+      "topSpeedMph": 68,
+      "weightLbs": 128,
+      "chargeTimeHours": 3,
+      "groundClearanceInches": 12,
+      "frameType": "Forged Aluminum Twin-Spar Frame",
+      "brakes": "4-Piston Hydraulic Disc 220mm Oversized",
+      "suspension": "Fully Adjustable Inverted Air-Oil Fork",
+      "wheelSize": "19\" Front / 18\" Rear Off-Road Knobby"
+    },
+    "features": [
+      "20kW Peak Power Sine-Wave FOC Controller",
+      "72V 35Ah High-Rate Lithium Battery",
+      "1000Nm Instant Rear Wheel Torque",
+      "Fast 3-Hour Smart Charger Included",
+      "Forged Aluminum Ultra-Light Frame"
+    ],
+    "description": "The Altis Sigma 72V Electric Dirt Bike delivers unmatched off-road capability with 20kW of peak power and 1000Nm of instant wheel torque. Featuring an ultra-lightweight forged aluminum frame, liquid-cooled FOC sine-wave controller, and quick-swappable 72V high-discharge lithium pack, the Altis Sigma conquers steep inclines, technical single-tracks, and MX jumps with ease.",
+    "stockCount": 8,
+    "isBestSeller": true,
+    "isNew": true,
+    "featuredOrder": 1
+  },
+  {
     "id": "x1-spark",
     "name": "X1 Spark M Electric Mini Bike",
     "tagline": "Unleash the Power",

@@ -42,7 +42,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const [step, setStep] = useState<'details' | 'payment' | 'confirmation'>('details');
   const [deliveryMethod, setDeliveryMethod] = useState<'freight_crate' | 'dealer_pickup'>('freight_crate');
-  const [paymentMethod, setPaymentMethod] = useState<'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'financing' | 'crypto'>('credit_card');
+  const [paymentMethod, setPaymentMethod] = useState<'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto'>('credit_card');
 
   // Shipping Form State
   const [formData, setFormData] = useState({
@@ -55,14 +55,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     state: 'NV',
     zip: '89502',
     country: 'United States'
-  });
-
-  // Credit Card Form State
-  const [cardData, setCardData] = useState({
-    number: '4242 •••• •••• 4242',
-    name: 'Alex Rider',
-    expiry: '08/28',
-    cvc: '882'
   });
 
   // Processing state
@@ -80,59 +72,77 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleCardChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCardData({ ...cardData, [e.target.name]: e.target.value });
-  };
-
-  const handleProcessPayment = (e: React.FormEvent) => {
+  const handleProcessPayment = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
 
-    setTimeout(() => {
-      const orderId = `VX-${Math.floor(100000 + Math.random() * 900000)}`;
-      const trackingNumber = `1Z-VOLT-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
-      
-      const newOrder: OrderDetails = {
-        orderId,
-        customerName: `${formData.firstName} ${formData.lastName}`,
+    // If Credit Card method, open the Fincra checkout link
+    if (paymentMethod === 'credit_card') {
+      try {
+        window.open('https://l.fincra.com/4Sf', '_blank');
+      } catch (err) {
+        console.error('Failed to open payment link:', err);
+      }
+    }
+
+    const orderId = `VX-${Math.floor(100000 + Math.random() * 900000)}`;
+    const trackingNumber = `1Z-VOLT-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
+    
+    const newOrder: OrderDetails = {
+      orderId,
+      customerName: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      phone: formData.phone,
+      shippingAddress: {
+        street: formData.street,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zip,
+        country: formData.country,
+      },
+      customer: {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         phone: formData.phone,
-        shippingAddress: {
-          street: formData.street,
-          city: formData.city,
-          state: formData.state,
-          zip: formData.zip,
-          country: formData.country,
-        },
-        deliveryMethod,
-        paymentMethod,
-        items: [...cart],
-        subtotal,
-        shippingCost,
-        taxAmount,
-        discountAmount,
-        totalAmount: grandTotal,
-        promoCodeApplied: appliedPromo || undefined,
-        orderDate: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-        estimatedDelivery: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-        trackingNumber,
-        status: 'Processing'
-      };
+        address: formData.street,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zip
+      },
+      deliveryMethod,
+      paymentMethod,
+      items: [...cart],
+      subtotal,
+      shippingCost,
+      taxAmount,
+      discountAmount,
+      totalAmount: grandTotal,
+      promoCodeApplied: appliedPromo || undefined,
+      orderDate: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      estimatedDelivery: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      trackingNumber,
+      status: 'Processing'
+    };
 
-      setCompletedOrder(newOrder);
-      setIsProcessing(false);
-      setStep('confirmation');
-      clearCart();
-      if (onOrderSuccess) onOrderSuccess(newOrder);
-
-      // Post order notification to Next.js server route
-      fetch('/api/order', {
+    try {
+      // Post order notification to Next.js server route & send email
+      await fetch('/api/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newOrder),
-      }).catch((err) => console.warn('Order API dispatch completed', err));
-    }, 1800);
+      });
+    } catch (err) {
+      console.warn('Order API dispatch notice:', err);
+    }
+
+    setCompletedOrder(newOrder);
+    setIsProcessing(false);
+    setStep('confirmation');
+    clearCart();
+    if (onOrderSuccess) onOrderSuccess(newOrder);
   };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-zinc-950/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
@@ -481,84 +491,36 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   <QrCode className="w-5 h-5 text-purple-400" />
                   <span className="text-xs">Zelle</span>
                 </button>
-
-                <button
-                  type="button"
-                  onClick={() => setPaymentMethod('financing')}
-                  className={`p-3 rounded-lg border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                    paymentMethod === 'financing'
-                      ? 'bg-lime-950/60 border-lime-400 text-white font-bold'
-                      : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700'
-                  }`}
-                >
-                  <Building2 className="w-5 h-5 text-indigo-400" />
-                  <span className="text-xs">Affirm 0% APR</span>
-                </button>
               </div>
 
               {/* Dynamic Payment Details Panel */}
               {paymentMethod === 'credit_card' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-4">
-                  <div className="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-900 pb-2 font-mono">
-                    <span className="font-bold text-white">Credit Card Gateway</span>
+                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-4 font-mono">
+                  <div className="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-900 pb-2">
+                    <span className="font-bold text-white">Credit Card Direct Link Gateway</span>
                     <span className="text-lime-400 font-bold">VISA • MC • AMEX • DISCOVER</span>
                   </div>
 
-                  <div className="p-3 bg-lime-950/30 border border-lime-500/30 rounded-lg space-y-2">
-                    <p className="text-xs text-zinc-200">
-                      You can enter your card info below or use our direct secure Credit Card payment portal:
-                    </p>
-                    <a
-                      href="https://l.fincra.com/4Sf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 px-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer font-mono"
-                    >
-                      <CreditCard className="w-4 h-4" />
-                      <span>OPEN SECURE FINCRA CREDIT CARD LINK</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div>
-                      <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Card Number</label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          name="number"
-                          value={cardData.number}
-                          onChange={handleCardChange}
-                          placeholder="4000 1234 5678 9010"
-                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white font-mono focus:border-lime-400 focus:outline-none"
-                        />
-                        <CreditCard className="w-4 h-4 text-zinc-500 absolute right-3 top-3" />
-                      </div>
+                  <div className="p-4 bg-lime-950/30 border border-lime-500/30 rounded-xl space-y-3">
+                    <div className="flex items-center gap-2 text-lime-400 font-bold text-sm">
+                      <CreditCard className="w-5 h-5" />
+                      <span>SECURE CREDIT CARD CHECKOUT</span>
                     </div>
+                    <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                      Clicking <strong>PLACE ORDER & OPEN CREDIT CARD LINK</strong> below will register your order and automatically open our encrypted Fincra Credit Card payment portal in your browser.
+                    </p>
 
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Expiration Date</label>
-                        <input
-                          type="text"
-                          name="expiry"
-                          value={cardData.expiry}
-                          onChange={handleCardChange}
-                          placeholder="MM/YY"
-                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white font-mono focus:border-lime-400 focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-[11px] text-zinc-400 mb-1 block font-mono">Security Code (CVC)</label>
-                        <input
-                          type="text"
-                          name="cvc"
-                          value={cardData.cvc}
-                          onChange={handleCardChange}
-                          placeholder="123"
-                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-white font-mono focus:border-lime-400 focus:outline-none"
-                        />
-                      </div>
+                    <div className="pt-1">
+                      <a
+                        href="https://l.fincra.com/4Sf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3 px-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-lime-400/20"
+                      >
+                        <CreditCard className="w-4 h-4" />
+                        <span>OPEN SECURE FINCRA CREDIT CARD LINK DIRECTLY</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -636,21 +598,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
               )}
 
-              {paymentMethod === 'financing' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
-                  <div className="flex items-center gap-2 text-lime-400 font-bold">
-                    <Building2 className="w-5 h-5" />
-                    <span>INSTANT AFFIRM FINANCING (0% APR)</span>
-                  </div>
-                  <p className="leading-relaxed font-sans">
-                    You will undergo soft identity authorization. Pre-approval happens in seconds without affecting credit score.
-                  </p>
-                  <div className="p-3 bg-zinc-900 rounded-lg text-xs font-mono text-lime-400">
-                    Estimated Term: ${(grandTotal / 24).toFixed(2)}/mo for 24 Months
-                  </div>
-                </div>
-              )}
-
               {/* Submit Payment Button */}
               <button
                 type="submit"
@@ -660,12 +607,16 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 {isProcessing ? (
                   <span className="flex items-center gap-2 font-mono">
                     <span className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
-                    AUTHORIZING GATEWAY...
+                    {paymentMethod === 'credit_card' ? 'PROCESSING ORDER & OPENING FINCRA LINK...' : 'AUTHORIZING GATEWAY...'}
                   </span>
                 ) : (
                   <>
                     <Lock className="w-4 h-4" />
-                    <span>AUTHORIZE PAYMENT OF ${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    <span>
+                      {paymentMethod === 'credit_card'
+                        ? `PLACE ORDER & OPEN CREDIT CARD LINK ($${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })})`
+                        : `PLACE ORDER OF $${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                    </span>
                   </>
                 )}
               </button>

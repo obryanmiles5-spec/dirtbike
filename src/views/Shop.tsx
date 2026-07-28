@@ -21,12 +21,13 @@ import { useAppContext } from '../context/AppContext';
 import { Bike, BikeCategory, FilterState } from '../types';
 
 interface ShopProps {
-  onSelectBike: (bike: Bike) => void;
+  onSelectBike?: (bike: Bike) => void;
   initialSearchQuery?: string;
 }
 
-export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
+export const Shop: React.FC<ShopProps> = ({ onSelectBike, initialSearchQuery = '' }) => {
   const { setSelectedBike } = useAppContext();
+  const handleSelectBike = onSelectBike || setSelectedBike;
   const searchParams = useSearchParams();
 
   const [filters, setFilters] = useState<FilterState>({
@@ -409,7 +410,7 @@ export const Shop: React.FC<ShopProps> = ({ initialSearchQuery = '' }) => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5">
               {filteredBikes.map((bike) => (
-                <BikeCard key={bike.id} bike={bike} onSelectBike={setSelectedBike} />
+                <BikeCard key={bike.id} bike={bike} onSelectBike={handleSelectBike} />
               ))}
             </div>
           )}

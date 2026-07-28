@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { 
   Zap, 
   ShieldCheck, 
@@ -12,16 +13,15 @@ import {
   Lock,
   FileText,
   HelpCircle,
-  BookOpen,
-  Share2
+  BookOpen
 } from 'lucide-react';
 import { LegalModal } from './LegalModal';
 
 interface FooterProps {
-  setActiveTab: (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => void;
+  setActiveTab?: (tab: 'home' | 'shop' | 'about' | 'contact' | 'electric-dirt-bikes' | 'e-bikes' | 'accessories') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
+export const Footer: React.FC<FooterProps> = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | 'shipping' | null>(null);
@@ -82,8 +82,8 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             <BatteryCharging className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="text-white font-black text-xs uppercase tracking-wider mb-1 font-mono">Affirm & Shop Pay Financing</h4>
-            <p className="text-xs text-zinc-400 leading-relaxed">Instant approval financing from $99/mo with zero down option for qualified buyers.</p>
+            <h4 className="text-white font-black text-xs uppercase tracking-wider mb-1 font-mono">Secure Direct Gateways</h4>
+            <p className="text-xs text-zinc-400 leading-relaxed">Accepting Credit Card (Fincra), Apple Pay, Bank Wire, Bitcoin, Cash App & Chime.</p>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-10">
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-4">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveTab('home')}>
+          <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-xl bg-lime-400 p-0.5">
               <div className="w-full h-full bg-[#06080e] rounded-[10px] flex items-center justify-center">
                 <Zap className="w-5 h-5 text-lime-400 fill-lime-400/20" />
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             <span className="text-2xl font-black text-white font-sans uppercase tracking-tight">
               VOLT<span className="text-lime-400">-X</span>
             </span>
-          </div>
+          </Link>
 
           <p className="text-xs text-zinc-400 leading-relaxed pr-4">
             America's premier high-output e-moto & electric dirt bike brand. Engineered with liquid-cooled FOC controllers, high-voltage battery packs, and up to 950Nm of instant wheel torque for pure off-road dominance.
@@ -152,36 +152,36 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <h4 className="text-xs font-black text-white uppercase tracking-widest mb-4 font-mono">EXPLORE</h4>
           <ul className="space-y-2.5 text-xs font-semibold">
             <li>
-              <button onClick={() => setActiveTab('home')} className="hover:text-lime-400 transition-colors uppercase">
+              <Link href="/" className="hover:text-lime-400 transition-colors uppercase">
                 Home Stage
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => setActiveTab('shop')} className="hover:text-lime-400 transition-colors uppercase">
+              <Link href="/shop" className="hover:text-lime-400 transition-colors uppercase">
                 All Electric Bikes
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => setActiveTab('about')} className="hover:text-lime-400 transition-colors uppercase">
+              <Link href="/about" className="hover:text-lime-400 transition-colors uppercase">
                 Engineering & Battery Tech
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => setActiveTab('contact')} className="hover:text-lime-400 transition-colors uppercase">
+              <Link href="/contact" className="hover:text-lime-400 transition-colors uppercase">
                 US Showroom & Dealers
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 1200, behavior: 'smooth' }); }} className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1">
+              <Link href="/blog" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1">
                 <BookOpen className="w-3 h-3 text-lime-400" />
                 E-Moto Blog Posts
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 1800, behavior: 'smooth' }); }} className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1">
+              <Link href="/faq" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1">
                 <HelpCircle className="w-3 h-3 text-lime-400" />
                 Homepage FAQs
-              </button>
+              </Link>
             </li>
           </ul>
         </div>
@@ -191,27 +191,27 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <h4 className="text-xs font-black text-white uppercase tracking-widest mb-4 font-mono">LEGAL & POLICIES</h4>
           <ul className="space-y-2.5 text-xs font-semibold">
             <li>
-              <button onClick={() => setActiveLegalModal('privacy')} className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5">
+              <Link href="/legal/privacy" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-lime-400" />
                 Privacy Policy
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => setActiveLegalModal('terms')} className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5">
+              <Link href="/legal/terms" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5">
                 <FileText className="w-3.5 h-3.5 text-lime-400" />
                 Terms of Service
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => setActiveLegalModal('shipping')} className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5">
+              <Link href="/legal/shipping" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5">
                 <Truck className="w-3.5 h-3.5 text-lime-400" />
                 Shipping & Returns
-              </button>
+              </Link>
             </li>
             <li>
-              <button onClick={() => setActiveTab('contact')} className="hover:text-lime-400 transition-colors uppercase">
+              <Link href="/contact" className="hover:text-lime-400 transition-colors uppercase">
                 MSO Title Registration
-              </button>
+              </Link>
             </li>
           </ul>
         </div>
@@ -238,9 +238,6 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
         </div>
       </div>
 
-
-
-      {/* Legal Modal Popup */}
       <LegalModal
         type={activeLegalModal}
         onClose={() => setActiveLegalModal(null)}
