@@ -269,10 +269,47 @@ export const Contact: React.FC<ContactProps> = ({ onOpenTestRide: propOpenTestRi
               </div>
             </div>
 
-            <div className="pt-2 border-t border-zinc-800">
+            <div className="pt-2 border-t border-zinc-800 space-y-3">
+              <div className="text-[11px] font-mono font-bold text-lime-400 uppercase tracking-wider">
+                OFFICIAL SOCIAL CHANNELS
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <a
+                  href="https://www.tiktok.com/@voltelectricbike?_r=1&_t=ZT-98PkqFjXC86"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 bg-zinc-900 border border-zinc-800 hover:border-lime-400/50 hover:text-lime-400 rounded-lg text-[11px] font-mono font-bold text-zinc-300 flex flex-col items-center justify-center gap-1 transition-all"
+                >
+                  <svg className="w-4 h-4 text-lime-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.89-2.89c.28 0 .54.04.79.1V9.4a6.34 6.34 0 1 0 5.55 6.27V9a8.17 8.17 0 0 0 4.77 1.52v-3.83a4.85 4.85 0 0 1-1-.03z"/>
+                  </svg>
+                  <span>TIKTOK</span>
+                </a>
+                <a
+                  href="https://v.lemon8-app.com/s/OghSrbkcNY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 bg-zinc-900 border border-zinc-800 hover:border-lime-400/50 hover:text-lime-400 rounded-lg text-[11px] font-mono font-bold text-zinc-300 flex flex-col items-center justify-center gap-1 transition-all"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse" />
+                  <span>LEMON8</span>
+                </a>
+                <a
+                  href="https://x.com/voltdirtbike?s=21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 bg-zinc-900 border border-zinc-800 hover:border-lime-400/50 hover:text-lime-400 rounded-lg text-[11px] font-mono font-bold text-zinc-300 flex flex-col items-center justify-center gap-1 transition-all"
+                >
+                  <svg className="w-4 h-4 text-lime-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  <span>TWITTER / X</span>
+                </a>
+              </div>
+
               <button
                 onClick={handleOpenTestRide}
-                className="w-full py-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-lime-400 font-mono font-bold text-xs flex items-center justify-center gap-2 border border-lime-400/30 cursor-pointer"
+                className="w-full py-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-lime-400 font-mono font-bold text-xs flex items-center justify-center gap-2 border border-lime-400/30 cursor-pointer mt-3"
               >
                 <Calendar className="w-4 h-4" />
                 <span>SCHEDULE TEST RIDE SESSION</span>

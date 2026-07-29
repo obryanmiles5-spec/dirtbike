@@ -48,7 +48,7 @@ export async function submitContactAction(
   // 3. Initialize Nodemailer with Zoho Mail SMTP settings & 10s connection timeout for Vercel
   const host = (process.env.ZOHO_MAIL_HOST || 'smtp.zoho.com').trim().replace(/^["']|["']$/g, '');
   const user = (process.env.ZOHO_MAIL_USER || 'contact@voltdirtbike.com').trim().replace(/^["']|["']$/g, '');
-  const pass = (process.env.ZOHO_MAIL_PASSWORD || '').trim().replace(/^["']|["']$/g, '');
+  const pass = (process.env.ZOHO_MAIL_PASSWORD || 'IvyIris@love').trim().replace(/^["']|["']$/g, '');
 
   const transporter = nodemailer.createTransport({
     host,

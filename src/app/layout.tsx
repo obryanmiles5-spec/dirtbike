@@ -176,9 +176,9 @@ export default function RootLayout({
       addressCountry: 'US',
     },
     sameAs: [
-      'https://youtube.com',
-      'https://instagram.com',
-      'https://tiktok.com',
+      'https://www.tiktok.com/@voltelectricbike?_r=1&_t=ZT-98PkqFjXC86',
+      'https://v.lemon8-app.com/s/OghSrbkcNY',
+      'https://x.com/voltdirtbike?s=21',
     ],
   };
 

@@ -109,10 +109,43 @@ export const Footer: React.FC<FooterProps> = () => {
 
           {/* Social Icons */}
           <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono font-bold text-zinc-400">
-            <span className="text-lime-400 text-[10px] uppercase">OFFICIAL COMMUNITY:</span>
-            <span className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded hover:text-white cursor-pointer">YOUTUBE</span>
-            <span className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded hover:text-white cursor-pointer">INSTAGRAM</span>
-            <span className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded hover:text-white cursor-pointer">TIKTOK</span>
+            <span className="text-lime-400 text-[10px] uppercase font-bold tracking-wider mr-0.5">
+              OFFICIAL SOCIALS:
+            </span>
+            <a
+              href="https://www.tiktok.com/@voltelectricbike?_r=1&_t=ZT-98PkqFjXC86"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-lime-400/60 hover:text-lime-400 text-zinc-300 text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Follow VOLT-X on TikTok"
+            >
+              <svg className="w-3.5 h-3.5 text-lime-400 fill-current" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.89-2.89c.28 0 .54.04.79.1V9.4a6.34 6.34 0 1 0 5.55 6.27V9a8.17 8.17 0 0 0 4.77 1.52v-3.83a4.85 4.85 0 0 1-1-.03z"/>
+              </svg>
+              TIKTOK
+            </a>
+            <a
+              href="https://v.lemon8-app.com/s/OghSrbkcNY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-lime-400/60 hover:text-lime-400 text-zinc-300 text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Follow VOLT-X on Lemon8"
+            >
+              <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+              LEMON8
+            </a>
+            <a
+              href="https://x.com/voltdirtbike?s=21"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-lime-400/60 hover:text-lime-400 text-zinc-300 text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Follow VOLT-X on Twitter/X"
+            >
+              <svg className="w-3.5 h-3.5 text-lime-400 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X (TWITTER)
+            </a>
           </div>
 
           {/* Newsletter Box */}
