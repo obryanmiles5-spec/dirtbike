@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'razor.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.unsplash.com',
       },
       {
@@ -28,6 +32,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'ebmx.com.au',
       },
+      {
+        protocol: 'https',
+        hostname: 'ronhack.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'starkfuture-usa.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.prod.website-files.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'electricrideco.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'freegobikes.com',
+      }
     ],
   },
 };
