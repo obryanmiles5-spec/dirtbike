@@ -204,8 +204,12 @@ export const Home: React.FC<HomeProps> = () => {
       <TrustPilotSlider />
 
       {/* Homepage FAQs (4 Accordion-Style Questions for GEO & Conversion) */}
-      <section className="py-20 bg-zinc-900/60 px-4 border-t border-zinc-800">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <section 
+        className="py-20 px-4 border-t border-zinc-800 relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('https://lh3.googleusercontent.com/d/1J34hpKzSuKLkr5yD_OhP4b87ikWvGwf-')` }}
+      >
+        <div className="absolute inset-0 bg-zinc-950/60 backdrop-blur-[1px]"></div>
+        <div className="max-w-4xl mx-auto space-y-8 relative z-10">
           <div className="text-center space-y-3">
             <div className="inline-flex items-center gap-2 bg-lime-400/10 border border-lime-400/30 px-3 py-1 rounded-md text-lime-400 text-xs font-mono font-bold uppercase">
               <HelpCircle className="w-3.5 h-3.5" />

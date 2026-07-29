@@ -1991,17 +1991,19 @@ export const BIKES_DATA: Bike[] = [
   },
   {
     "id": "surge-v-instrument-panel",
-    "name": "Surge V Digital Instrument Panel Display",
-    "tagline": "Full Color LCD Telemetry Dashboard",
+    "name": "Surge V Instrument Panel",
+    "tagline": "Full Color HD LCD Digital Telemetry Display Cluster",
     "category": "accessories",
     "categoryLabel": "Electronics & Displays",
-    "price": 149.00,
-    "originalPrice": 179.00,
+    "price": 189.00,
+    "originalPrice": 219.00,
     "rating": 5,
     "reviewCount": 16,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM.jpeg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/InstrumentPanel_1.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM.jpeg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/InstrumentPanel_1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/InstrumentPanel_2.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/InstrumentPanel_5.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
@@ -2024,34 +2026,35 @@ export const BIKES_DATA: Bike[] = [
     },
     "features": [
       "Full Color High-Contrast LCD Screen",
-      "Real-Time Battery Voltage & Speed",
+      "Real-Time Battery Voltage & Speedometer",
       "Plug & Play Factory Wiring Harness",
       "IP67 Waterproof Sealed Housing"
     ],
-    "description": "Official Surge V digital instrument display panel. Features high-contrast full-color LCD screen displaying real-time speed, battery voltage state of charge, trip meter, error codes, and speed mode settings. Direct plug-and-play fitment with IP67 waterproof sealed casing.",
+    "description": "Official Surge V digital instrument display panel cluster. Features high-contrast full-color LCD screen displaying real-time speed, battery voltage state of charge, trip meter, error codes, and speed mode settings. Direct plug-and-play fitment with IP67 waterproof sealed casing.",
     "stockCount": 20,
     "isBestSeller": false,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-charger",
-    "name": "Surge V 97V Fast Charger",
-    "tagline": "Rapid High-Voltage Smart Charger",
-    "category": "accessories",
+    "name": "Surge V Charger",
+    "tagline": "Rapid High-Voltage Quick Charging Adapter",
+    "category": "battery",
     "categoryLabel": "Battery & Charger",
-    "price": 389.00,
-    "originalPrice": 449.00,
+    "price": 299.00,
+    "originalPrice": 349.00,
     "rating": 5,
     "reviewCount": 24,
-    "image": "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Chargingadapter_1.jpg?v=1783927287",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2023/03/60v-10a-Surron-Charger.jpg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Chargingadapter_1.jpg?v=1783927287",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Chargingadapter_2.jpg?v=1783927287"
     ],
     "specs": {
       "motorPowerKW": 0,
       "peakPowerKW": 0,
       "peakTorqueNm": 0,
-      "batteryCapacity": "97V Smart Fast Charger",
+      "batteryCapacity": "Surge V Fast Charger",
       "batteryVoltage": 97,
       "batteryAh": 0,
       "batteryKWh": 0,
@@ -2067,35 +2070,36 @@ export const BIKES_DATA: Bike[] = [
       "wheelSize": "N/A"
     },
     "features": [
-      "97V High Voltage Fast Charging",
+      "High Voltage Quick Charging Adapter",
       "Dual Active Intelligent Cooling Fans",
-      "Auto-Shutdown Overcharge Protection",
-      "LED Voltage & Status Indicators"
+      "Auto-Shutdown Overcharge Thermal Protection",
+      "LED Charging & Status Indicators"
     ],
-    "description": "High-power 97V intelligent fast charger engineered specifically for Surge V lithium power packs. Features active cooling fan system, automatic cut-off protection, aluminum alloy casing, and LED charge status indicators.",
+    "description": "Surge V high-output quick charging adapter. Designed for high-voltage e-moto batteries with intelligent thermal management, automatic cut-off protection, aluminum alloy casing, and LED charge status indicators.",
     "stockCount": 15,
     "isBestSeller": true,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-rear-rack",
-    "name": "Surge V Heavy-Duty Rear Cargo Rack",
-    "tagline": "Reinforced Billet Aluminum Luggage Carrier",
+    "name": "Surge V Rear Rack",
+    "tagline": "Heavy-Duty Billet Aluminum Rear Luggage & Cargo Rack Set",
     "category": "accessories",
     "categoryLabel": "Frame & Rack",
-    "price": 119.00,
-    "originalPrice": 139.00,
+    "price": 199.00,
+    "originalPrice": 229.00,
     "rating": 5,
     "reviewCount": 18,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM.jpeg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/RearRackset_1.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-09-at-1.34.55-PM.jpeg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/RearRackset_1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/RearRackset_2.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
       "peakPowerKW": 0,
       "peakTorqueNm": 0,
-      "batteryCapacity": "Cargo Carrier",
+      "batteryCapacity": "Cargo Carrier Rack",
       "batteryVoltage": 0,
       "batteryAh": 0,
       "batteryKWh": 0,
@@ -2111,35 +2115,36 @@ export const BIKES_DATA: Bike[] = [
       "wheelSize": "N/A"
     },
     "features": [
-      "Heavy-Duty 6061 T6 Construction",
+      "Heavy-Duty CNC Aluminum Construction",
       "Multiple Strap & Bungee Anchors",
-      "Matte Black Powder-Coat Finish",
-      "Direct Frame Mounting Points"
+      "Anodized Durable Surface Finish",
+      "Direct Factory Frame Mounting Points"
     ],
-    "description": "Custom fit rear cargo rack for the Surge V e-moto. Constructed from heavy-duty 6061 T6 billet aluminum with durable powder-coated finish. Features multiple tie-down slots for gear bags and rear cargo box mounting.",
+    "description": "Heavy-duty CNC aluminum rear luggage & cargo rack set engineered for Surge V electric dirt bikes. High load capacity with pre-drilled accessory mounting points and multiple tie-down slots for gear bags.",
     "stockCount": 22,
     "isBestSeller": false,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-controller",
-    "name": "Surge V High-Performance Sine-Wave Vector Controller",
-    "tagline": "Ultra-Smooth High kW Vector Speed Control",
+    "name": "Surge V Controller",
+    "tagline": "High-Output Field Oriented Control (FOC) Sine-Wave Controller",
     "category": "accessories",
     "categoryLabel": "Controller & Power",
-    "price": 699.00,
-    "originalPrice": 799.00,
+    "price": 899.00,
+    "originalPrice": 999.00,
     "rating": 5,
     "reviewCount": 31,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/controller-1.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/10/X7444-1.jpg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/controller-1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/controller-2.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
-      "peakPowerKW": 20,
+      "peakPowerKW": 25,
       "peakTorqueNm": 0,
-      "batteryCapacity": "Up to 97V / 20kW",
+      "batteryCapacity": "Up to 97V / 25kW",
       "batteryVoltage": 97,
       "batteryAh": 0,
       "batteryKWh": 0,
@@ -2155,36 +2160,37 @@ export const BIKES_DATA: Bike[] = [
       "wheelSize": "N/A"
     },
     "features": [
-      "FOC Sine-Wave Vector Controller",
-      "Bluetooth Mobile App Tuning",
-      "Configurable Regenerative Braking",
+      "High-Output Field Oriented Control (FOC)",
+      "Buttery Smooth Throttle Response",
+      "Variable Regenerative Braking System",
       "Direct Plug & Play Wiring Harness"
     ],
-    "description": "Advanced high-efficiency Field Oriented Control (FOC) sine-wave controller tuned for Surge V e-motos. Delivers buttery smooth throttle response, fully configurable power curves via Bluetooth mobile app, and variable regenerative braking.",
+    "description": "High-output Field Oriented Control (FOC) sine-wave controller for Surge V e-motos. Delivers smooth throttle response, regenerative braking, maximum power tuning, and high efficiency.",
     "stockCount": 12,
     "isBestSeller": true,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-motor",
-    "name": "Surge V Peak Performance Brushless IPM Motor",
-    "tagline": "High Torque High RPM E-Moto Powertrain",
+    "name": "Surge V Motor",
+    "tagline": "35kW Peak LPMSM Motor with Resolver Encoder",
     "category": "accessories",
     "categoryLabel": "Motor & Powertrain",
-    "price": 799.00,
-    "originalPrice": 899.00,
+    "price": 999.00,
+    "originalPrice": 1199.00,
     "rating": 5,
     "reviewCount": 27,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM.jpeg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/motor-1.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-25-at-3.21.25-PM.jpeg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/motor-1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/motor-2.jpg?v=1783927284"
     ],
     "specs": {
-      "motorPowerKW": 8,
-      "peakPowerKW": 18,
-      "peakTorqueNm": 45,
-      "batteryCapacity": "60V-97V Compatible",
-      "batteryVoltage": 0,
+      "motorPowerKW": 15,
+      "peakPowerKW": 35,
+      "peakTorqueNm": 800,
+      "batteryCapacity": "97V Rated Voltage",
+      "batteryVoltage": 97,
       "batteryAh": 0,
       "batteryKWh": 0,
       "rangeMilesMin": 0,
@@ -2199,29 +2205,30 @@ export const BIKES_DATA: Bike[] = [
       "wheelSize": "N/A"
     },
     "features": [
-      "High-Temp Neodymium Magnets",
-      "IPM Rotor Architecture",
-      "Advanced Thermal Cooling Fins",
-      "Supports Up to 18kW Peak Power"
+      "LPMSM (Low Pole Permanent Magnet Synchronous Motor)",
+      "Resolver Encoder Type",
+      "35kW Peak Output Power / 15kW Rated",
+      "97V Rated Operating Voltage"
     ],
-    "description": "High-efficiency Interior Permanent Magnet (IPM) brushless motor engineered for extreme thermal endurance and instant electric torque. Precision CNC rotor with high-temperature neodymium magnets and passive cooling fins.",
+    "description": "Low Pole Permanent Magnet Synchronous Motor (LPMSM) with resolver encoder, rated 97V, 15kW rated / 35kW peak output. Delivers instant massive wheel torque and thermal endurance.",
     "stockCount": 10,
     "isBestSeller": false,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-wheel-rim",
-    "name": "Surge V Reinforced Billet Wheel Rim",
-    "tagline": "Heavy Duty 7075 Aluminum Off-Road Rim",
+    "name": "Surge V Wheel Rim",
+    "tagline": "Reinforced 7075 Aluminum Alloy Off-Road Spoked Rim",
     "category": "accessories",
     "categoryLabel": "Wheels & Hubs",
-    "price": 189.00,
-    "originalPrice": 219.00,
+    "price": 219.00,
+    "originalPrice": 249.00,
     "rating": 5,
     "reviewCount": 14,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Rim-Front.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-1.jpg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Rim-Front.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Rim-Rear_2.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
@@ -2237,35 +2244,36 @@ export const BIKES_DATA: Bike[] = [
       "weightLbs": 4.2,
       "chargeTimeHours": 0,
       "groundClearanceInches": 0,
-      "frameType": "7075-T6 Billet Aluminum",
+      "frameType": "7075 Aluminum Alloy",
       "brakes": "N/A",
       "suspension": "N/A",
-      "wheelSize": "19-inch / 18-inch Options"
+      "wheelSize": "19-inch Front / 18-inch Rear"
     },
     "features": [
-      "7075-T6 Billet Aluminum Alloy",
+      "7075 Aluminum Alloy Construction",
       "36 Heavy Spoke Hole Pattern",
-      "Anodized Impact-Resistant Surface",
-      "Reinforced Bead Lock Ribs"
+      "Impact-Resistant Surface",
+      "Available in 19-inch Front or 18-inch Rear"
     ],
-    "description": "Ultra-durable 7075-T6 billet aluminum off-road wheel rim designed for heavy dirt jumps and aggressive trail impact. Anodized finish with 36 heavy-gauge spoke holes for maximum wheel strength.",
+    "description": "Reinforced 7075 aluminum alloy spoked wheel rims designed for extreme off-road terrain and heavy dirt trail impacts. Available in 19-inch front or 18-inch rear sizes.",
     "stockCount": 16,
     "isBestSeller": false,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-outer-tire",
-    "name": "Surge V All-Terrain Knobby Outer Tire",
-    "tagline": "Deep-Tread High Traction Off-Road Rubber",
+    "name": "Surge V Off-road Outer Tire",
+    "tagline": "High-Traction Knobby Off-Road Trail Outer Tire",
     "category": "accessories",
     "categoryLabel": "Tires & Tubes",
-    "price": 109.00,
-    "originalPrice": 129.00,
+    "price": 169.00,
+    "originalPrice": 189.00,
     "rating": 5,
     "reviewCount": 22,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Outertire-Rear_2.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-04-at-10.16.15_48bf5546.jpg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Outertire-Rear_2.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Outertire-Front_2.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
@@ -2281,42 +2289,43 @@ export const BIKES_DATA: Bike[] = [
       "weightLbs": 6.8,
       "chargeTimeHours": 0,
       "groundClearanceInches": 0,
-      "frameType": "4-Ply Reinforced Nylon",
+      "frameType": "Puncture-Resistant Heavy-Duty Compound",
       "brakes": "N/A",
       "suspension": "N/A",
-      "wheelSize": "19-inch / 18-inch Options"
+      "wheelSize": "19-inch Front / 18-inch Rear"
     },
     "features": [
-      "4-Ply Reinforced Carcass",
-      "Aggressive Directional Knobs",
+      "High-Traction Aggressive Knobby Pattern",
+      "Optimized for Mud, Sand, and Rocks",
       "Puncture-Resistant Sidewalls",
-      "Optimal Mud & Sand Evacuation"
+      "Options for 19-inch Front / 18-inch Rear"
     ],
-    "description": "Premium high-traction all-terrain outer dirt tire formulated with sticky rubber compound and reinforced 4-ply carcass. Deep directional knobs provide relentless grip in loose dirt, mud, and rocky trails.",
+    "description": "High-traction aggressive knobby off-road outer tire for mud, sand, and hardpack trails. Heavy-duty puncture resistant sidewall construction.",
     "stockCount": 25,
     "isBestSeller": false,
     "featuredOrder": 0
   },
   {
     "id": "surge-v-97v-45ah-battery",
-    "name": "Surge V 97V 45Ah Extreme Race Battery",
-    "tagline": "Ultra High Voltage 4365Wh Power Pack",
-    "category": "accessories",
+    "name": "Surge V 97V 45Ah Battery",
+    "tagline": "High-Capacity 97V 45Ah Extreme High-Output Power Pack",
+    "category": "battery",
     "categoryLabel": "Battery & Charger",
-    "price": 3299.00,
-    "originalPrice": 3699.00,
+    "price": 1899.00,
+    "originalPrice": 2199.00,
     "rating": 5,
     "reviewCount": 19,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7.png",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/battery-1.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/11/ezgif.com-webp-to-png-converter-7.png"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/battery-1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/battery-2.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
       "peakPowerKW": 0,
       "peakTorqueNm": 0,
       "batteryCapacity": "97V 45Ah (4365Wh)",
-      "batteryVoltage": 80,
+      "batteryVoltage": 97,
       "batteryAh": 45,
       "batteryKWh": 4.36,
       "rangeMilesMin": 0,
@@ -2325,35 +2334,37 @@ export const BIKES_DATA: Bike[] = [
       "weightLbs": 48,
       "chargeTimeHours": 3.5,
       "groundClearanceInches": 0,
-      "frameType": "Potted Stainless Steel Shell",
+      "frameType": "Protected Enclosure with Smart BMS",
       "brakes": "N/A",
       "suspension": "N/A",
       "wheelSize": "N/A"
     },
     "features": [
-      "97V Nominal High Voltage (26S)",
-      "4365Wh Extreme Energy Density",
-      "Smart Bluetooth BMS Telemetry",
-      "Potted Stainless Steel Enclosure"
+      "97V High Nominal Operating Voltage",
+      "45Ah Large Capacity (4365Wh)",
+      "Advanced Smart BMS Protection",
+      "Quick-Swap Heavy-Duty Carrying Handle"
     ],
-    "description": "The pinnacle of high-voltage performance for Surge V e-motos. 97V nominal (26S configuration) with 45Ah capacity delivering 4365Wh of explosive power. Housed in a welded stainless-steel enclosure with smart Bluetooth BMS monitor.",
+    "description": "High-capacity 97V 45Ah premium lithium-ion battery pack with advanced Smart BMS, thermal protection, and quick-swap handle for maximum range and output.",
     "stockCount": 8,
     "isBestSeller": true,
     "featuredOrder": 0
   },
   {
     "id": "supermoto-wheel-set",
-    "name": "YVOLT Pro Supermoto Wheel Set (Front & Rear)",
-    "tagline": "Complete 17-Inch Street & Track Conversion",
+    "name": "Supermoto Wheel Set",
+    "tagline": "17-Inch Touring & Street Conversion Wheel Set",
     "category": "accessories",
     "categoryLabel": "Wheels & Tires",
-    "price": 549.00,
-    "originalPrice": 649.00,
+    "price": 599.00,
+    "originalPrice": 699.00,
     "rating": 5,
     "reviewCount": 33,
-    "image": "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/supermoto_wheels.png?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2024/10/L7263H-3.jpg"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/supermoto_wheels.png?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/tire-1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/tire-2.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
@@ -2369,41 +2380,44 @@ export const BIKES_DATA: Bike[] = [
       "weightLbs": 22,
       "chargeTimeHours": 0,
       "groundClearanceInches": 0,
-      "frameType": "CNC Anodized Hubs",
+      "frameType": "17-inch Alloy Rim",
       "brakes": "N/A",
       "suspension": "N/A",
       "wheelSize": "17-Inch Front / 17-Inch Rear"
     },
     "features": [
-      "Complete Front & Rear Set",
-      "17-Inch Anodized Alloy Rims",
-      "CNC Machined Billet Hubs",
-      "Pre-Mounted High-Grip Street Radial Tires"
+      "17-Inch Supermoto Rims",
+      "Front 100mm / Rear 140mm Width",
+      "Load Index 66 (300 kg per tire)",
+      "Speed Rating S (180 km/h)"
     ],
-    "description": "Transform your dirt bike into an agile street carver. Complete 17-inch supermoto wheel set pre-laced with CNC anodized hubs, heavy stainless steel spokes, and sticky high-grip street radial tires installed.",
+    "description": "17-inch street supermoto wheel & touring tire conversion set. Front 100mm / Rear 140mm section width, speed rating S (180 km/h), load index 66 (300 kg per tire) for maximum cornering grip.",
     "stockCount": 14,
     "isBestSeller": true,
     "featuredOrder": 0
   },
   {
     "id": "helmet",
-    "name": "YVOLT Carbon-Composite E-Moto Dirt Helmet",
-    "tagline": "DOT & ECE 22.06 Certified Lightweight Armor",
+    "name": "Helmet",
+    "tagline": "Y-VOLT Exclusive Off-Road Dirt Helmet",
     "category": "accessories",
     "categoryLabel": "Safety & Gear",
-    "price": 249.00,
+    "price": 259.00,
     "originalPrice": 299.00,
     "rating": 5,
     "reviewCount": 41,
-    "image": "https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1.png",
+    "image": "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/helmet-1.jpg?v=1783927284",
     "galleryImages": [
-      "https://ebmx.com.au/wp-content/uploads/2023/04/Shark-Battery-1-1.png"
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/helmet-1.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/helmet-2.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/helmet-3.jpg?v=1783927284",
+      "https://cdn.shopify.com/s/files/1/1010/6028/0692/files/Off-Road_Helmet_1.jpg?v=1783927284"
     ],
     "specs": {
       "motorPowerKW": 0,
       "peakPowerKW": 0,
       "peakTorqueNm": 0,
-      "batteryCapacity": "Safety Armor",
+      "batteryCapacity": "Safety Gear",
       "batteryVoltage": 0,
       "batteryAh": 0,
       "batteryKWh": 0,
@@ -2413,18 +2427,18 @@ export const BIKES_DATA: Bike[] = [
       "weightLbs": 2.9,
       "chargeTimeHours": 0,
       "groundClearanceInches": 0,
-      "frameType": "Carbon-Fiber Composite Shell",
+      "frameType": "Lightweight Composite Shell",
       "brakes": "N/A",
       "suspension": "N/A",
       "wheelSize": "N/A"
     },
     "features": [
-      "Carbon Fiber & Fiberglass Shell",
-      "DOT & ECE 22.06 Dual Certified",
-      "Multi-Channel Flow-Through Ventilation",
-      "Emergency Release Cheek Pads & Washable Liner"
+      "Y-VOLT Exclusive Design",
+      "Aerodynamic High-Flow Ventilation Ports",
+      "Removable Washable Moisture-Wicking Liner",
+      "Anti-Glare Adjustable Visor Peak"
     ],
-    "description": "Lightweight carbon-composite full-face helmet engineered for high-speed e-moto riding and aggressive trail riding. Exceeds DOT and ECE 22.06 safety standards. Features multi-port airflow ventilation and moisture-wicking washable liner.",
+    "description": "Y-VOLT Exclusive lightweight aerodynamic off-road helmet with high-flow ventilation, removable washable inner liner, and anti-glare visor peak.",
     "stockCount": 30,
     "isBestSeller": false,
     "featuredOrder": 0

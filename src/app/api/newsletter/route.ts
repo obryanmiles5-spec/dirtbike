@@ -52,20 +52,22 @@ export async function POST(request: Request) {
       fromName: 'VOLT-X Off-Road Alerts'
     });
 
-    // 2. Send Alert to HQ Admin
-    const adminEmailHtml = `
-      <div style="font-family: Arial, sans-serif; background-color: #0b0f17; color: #ffffff; padding: 20px; border-radius: 8px;">
-        <h3 style="color: #a3e635; margin-top: 0;">New Newsletter Subscriber</h3>
-        <p style="color: #cbd5e1;">A new user subscribed to VIP alerts: <strong>${email}</strong></p>
-      </div>
-    `;
+    // 2. Send Alert to HQ Admin only if subscriber email is different from senderEmail
+    if (senderEmail && senderEmail.toLowerCase() !== email.toLowerCase()) {
+      const adminEmailHtml = `
+        <div style="font-family: Arial, sans-serif; background-color: #0b0f17; color: #ffffff; padding: 20px; border-radius: 8px;">
+          <h3 style="color: #a3e635; margin-top: 0;">New Newsletter Subscriber</h3>
+          <p style="color: #cbd5e1;">A new user subscribed to VIP alerts: <strong>${email}</strong></p>
+        </div>
+      `;
 
-    sendMailDirect({
-      to: senderEmail,
-      subject: `[Subscriber Alert] New VIP Off-Road Alert Signup: ${email}`,
-      html: adminEmailHtml,
-      fromName: 'VOLT-X Newsletter'
-    }).catch(err => console.warn('Admin newsletter alert error:', err));
+      sendMailDirect({
+        to: senderEmail,
+        subject: `[Subscriber Alert] New VIP Off-Road Alert Signup: ${email}`,
+        html: adminEmailHtml,
+        fromName: 'VOLT-X Newsletter'
+      }).catch(err => console.warn('Admin newsletter alert error:', err));
+    }
 
     return NextResponse.json({
       success: true,

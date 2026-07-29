@@ -46,20 +46,34 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   // Shipping Form State
   const [formData, setFormData] = useState({
-    firstName: 'Alex',
-    lastName: 'Rider',
-    email: 'alex.rider@offroad.com',
-    phone: '+1 (555) 392-8801',
-    street: '742 Trailhead Ridge Way',
-    city: 'Reno',
-    state: 'NV',
-    zip: '89502',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    street: '',
+    city: '',
+    state: '',
+    zip: '',
     country: 'United States'
   });
 
   // Processing state
   const [isProcessing, setIsProcessing] = useState(false);
   const [completedOrder, setCompletedOrder] = useState<OrderDetails | null>(null);
+
+  // Reset modal step and completed order whenever modal visibility toggles
+  React.useEffect(() => {
+    if (!isOpen) {
+      setStep('details');
+      setCompletedOrder(null);
+    }
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setStep('details');
+    setCompletedOrder(null);
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -165,7 +179,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           </div>
 
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
@@ -764,7 +778,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               <div className="flex items-center justify-center gap-3">
                 <button
-                  onClick={onClose}
+                  onClick={handleClose}
                   className="px-6 py-3 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   RETURN TO STORE

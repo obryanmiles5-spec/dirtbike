@@ -34,6 +34,25 @@ export const About: React.FC<AboutProps> = ({ onNavigateToShop }) => {
         </p>
       </div>
 
+      {/* Featured Catchy Section */}
+      <div className="relative rounded-2xl overflow-hidden border border-zinc-800 my-12 group">
+        <img 
+          src="https://lh3.googleusercontent.com/d/1IhBo0FFHdWPDqPdCXXH515ZHTuxdwq_5" 
+          alt="Volt-X Engineering Excellence" 
+          className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent flex flex-col justify-end p-8 sm:p-12">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+              BORN IN THE DIRT.<br/><span className="text-lime-400">BUILT FOR THE FUTURE.</span>
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-lg font-sans">
+              We don't just build electric bikes; we engineer adrenaline machines. Stripping away the noise, the oil, and the maintenance of gas-powered engines, we replace them with instantaneous torque and relentless, pulse-pounding power.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Powertrain & Battery Technology Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="p-6 rounded-xl bg-zinc-950 border border-zinc-800 space-y-3">

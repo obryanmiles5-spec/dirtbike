@@ -21,18 +21,18 @@ export async function POST(request: Request) {
     saveOrderToLog(orderData);
 
     const senderEmail = getSenderAddress();
-    const customerEmail = customer?.email;
-    const customerName = customer ? `${customer.firstName || ''} ${customer.lastName || ''}`.trim() : 'Valued Customer';
+    const customerEmail = (customer?.email || orderData.email || '').trim();
+    const customerName = customer ? `${customer.firstName || ''} ${customer.lastName || ''}`.trim() : (orderData.customerName || 'Valued Customer');
 
     // Format item list for email
     const itemListHtml = (items || []).map((item: any) => `
       <tr style="border-bottom: 1px solid #1e293b;">
         <td style="padding: 10px 0; color: #ffffff; font-weight: bold;">
-          ${item.bike?.name || 'VOLT-X Product'}
+          ${item.bike?.name || item.name || 'VOLT-X Product'}
           ${item.selectedAccessories && item.selectedAccessories.length > 0 ? `<br/><span style="font-size: 11px; color: #38bdf8; font-weight: normal;">+ Accessories: ${item.selectedAccessories.map((a: any) => a.name).join(', ')}</span>` : ''}
         </td>
         <td style="padding: 10px; color: #94a3b8; text-align: center;">x${item.quantity || 1}</td>
-        <td style="padding: 10px 0; color: #a3e635; text-align: right; font-weight: bold;">$${((item.bike?.price || 0) * (item.quantity || 1)).toLocaleString()}</td>
+        <td style="padding: 10px 0; color: #a3e635; text-align: right; font-weight: bold;">$${(((item.bike?.price || item.price || 0) * (item.quantity || 1))).toLocaleString()}</td>
       </tr>
     `).join('');
 
@@ -83,7 +83,7 @@ export async function POST(request: Request) {
           <div style="background-color: #0f172a; padding: 16px; border-radius: 8px; font-size: 12px; color: #94a3b8; margin-bottom: 24px;">
             <p style="margin: 0 0 6px 0; color: #38bdf8; font-weight: bold; font-size: 13px;">📦 SHIPPING DETAILS:</p>
             <p style="margin: 0;"><strong>Recipient:</strong> ${customerName}</p>
-            <p style="margin: 0;"><strong>Shipping Address:</strong> ${customer?.address || ''}, ${customer?.city || ''}, ${customer?.state || ''} ${customer?.zip || ''}</p>
+            <p style="margin: 0;"><strong>Shipping Address:</strong> ${customer?.address || orderData.shippingAddress?.street || ''}, ${customer?.city || orderData.shippingAddress?.city || ''}, ${customer?.state || orderData.shippingAddress?.state || ''} ${customer?.zip || orderData.shippingAddress?.zip || ''}</p>
             <p style="margin: 0;"><strong>Estimated Freight Delivery:</strong> ${estimatedDelivery || '3-5 Business Days'}</p>
             <p style="margin: 0;"><strong>Tracking ID:</strong> <span style="color: #a3e635; font-family: monospace;">${trackingNumber || 'VX-FREIGHT-TRACKING'}</span></p>
           </div>
@@ -102,26 +102,28 @@ export async function POST(request: Request) {
       });
     }
 
-    // 2. Send Admin Notification
-    const adminEmailHtml = `
-      <div style="font-family: Arial, sans-serif; background-color: #030712; color: #ffffff; padding: 24px; border: 1px solid #a3e635; border-radius: 12px;">
-        <h2 style="color: #a3e635; margin-top: 0;">🚨 New Crate Order #${orderId}</h2>
-        <p style="color: #e2e8f0; font-size: 15px;">A new order was placed on the website for <strong>$${(totalAmount || 0).toLocaleString()}</strong>.</p>
-        <hr style="border-color: #1e293b;" />
-        <p><strong>Customer:</strong> ${customerName} (${customerEmail})</p>
-        <p><strong>Phone:</strong> ${customer?.phone || 'N/A'}</p>
-        <p><strong>Address:</strong> ${customer?.address}, ${customer?.city}, ${customer?.state} ${customer?.zip}</p>
-        <p><strong>Items:</strong> ${(items || []).map((i: any) => `${i.bike?.name} (x${i.quantity || 1})`).join(', ')}</p>
-        <p><strong>Tracking:</strong> ${trackingNumber}</p>
-      </div>
-    `;
+    // 2. Send Admin Notification if senderEmail is set and different from customerEmail
+    if (senderEmail && senderEmail.toLowerCase() !== customerEmail.toLowerCase()) {
+      const adminEmailHtml = `
+        <div style="font-family: Arial, sans-serif; background-color: #030712; color: #ffffff; padding: 24px; border: 1px solid #a3e635; border-radius: 12px;">
+          <h2 style="color: #a3e635; margin-top: 0;">🚨 New Crate Order #${orderId}</h2>
+          <p style="color: #e2e8f0; font-size: 15px;">A new order was placed on the website for <strong>$${(totalAmount || 0).toLocaleString()}</strong>.</p>
+          <hr style="border-color: #1e293b;" />
+          <p><strong>Customer:</strong> ${customerName} (${customerEmail})</p>
+          <p><strong>Phone:</strong> ${customer?.phone || orderData.phone || 'N/A'}</p>
+          <p><strong>Address:</strong> ${customer?.address || orderData.shippingAddress?.street}, ${customer?.city || orderData.shippingAddress?.city}, ${customer?.state || orderData.shippingAddress?.state} ${customer?.zip || orderData.shippingAddress?.zip}</p>
+          <p><strong>Items:</strong> ${(items || []).map((i: any) => `${i.bike?.name || i.name} (x${i.quantity || 1})`).join(', ')}</p>
+          <p><strong>Tracking:</strong> ${trackingNumber}</p>
+        </div>
+      `;
 
-    sendMailDirect({
-      to: senderEmail,
-      subject: `🚨 NEW ORDER RECEIVED #${orderId} - $${(totalAmount || 0).toLocaleString()}`,
-      html: adminEmailHtml,
-      fromName: 'VOLT-X Store Alerts'
-    }).catch(err => console.warn('Admin order alert error:', err));
+      sendMailDirect({
+        to: senderEmail,
+        subject: `🚨 NEW ORDER RECEIVED #${orderId} - $${(totalAmount || 0).toLocaleString()}`,
+        html: adminEmailHtml,
+        fromName: 'VOLT-X Store Alerts'
+      }).catch(err => console.warn('Admin order alert error:', err));
+    }
 
     return NextResponse.json({
       success: true,
