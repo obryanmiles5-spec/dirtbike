@@ -102,8 +102,8 @@ export async function POST(request: Request) {
       });
     }
 
-    // 2. Send Admin Notification if senderEmail is set and different from customerEmail
-    if (senderEmail && senderEmail.toLowerCase() !== customerEmail.toLowerCase()) {
+    // 2. Send Admin Notification
+    if (senderEmail) {
       const adminEmailHtml = `
         <div style="font-family: Arial, sans-serif; background-color: #030712; color: #ffffff; padding: 24px; border: 1px solid #a3e635; border-radius: 12px;">
           <h2 style="color: #a3e635; margin-top: 0;">🚨 New Crate Order #${orderId}</h2>
@@ -117,12 +117,16 @@ export async function POST(request: Request) {
         </div>
       `;
 
-      sendMailDirect({
-        to: senderEmail,
-        subject: `🚨 NEW ORDER RECEIVED #${orderId} - $${(totalAmount || 0).toLocaleString()}`,
-        html: adminEmailHtml,
-        fromName: 'VOLT-X Store Alerts'
-      }).catch(err => console.warn('Admin order alert error:', err));
+      try {
+        await sendMailDirect({
+          to: senderEmail,
+          subject: `🚨 NEW ORDER RECEIVED #${orderId} - $${(totalAmount || 0).toLocaleString()}`,
+          html: adminEmailHtml,
+          fromName: 'VOLT-X Store Alerts'
+        });
+      } catch (err) {
+        console.warn('Admin order alert error:', err);
+      }
     }
 
     return NextResponse.json({
