@@ -65,7 +65,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Category routes
-  const categories = ['electric-dirt-bikes', 'e-bikes', 'accessories', 'battery'];
+  const categories = [
+    'electric-dirt-bikes',
+    'electric-dirt-bikes-adults',
+    'surron-alternatives',
+    'street-legal-electric-motos',
+    'e-bikes',
+    'accessories',
+    'battery'
+  ];
   const categoryRoutes: MetadataRoute.Sitemap = categories.map((cat) => ({
     url: `${baseUrl}/shop/${cat}`,
     lastModified: currentDate,

@@ -8,10 +8,23 @@ import { BikeCard } from '@/components/BikeCard';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://voltdirtbike.com';
 
 const CATEGORY_NAMES: Record<string, string> = {
-  'electric-dirt-bikes': 'Electric Dirt Bikes',
-  'e-bikes': 'E-Bikes',
-  'accessories': 'Accessories & Batteries',
-  'battery': 'Batteries & Chargers',
+  'electric-dirt-bikes': 'Adult Electric Dirt Bikes',
+  'electric-dirt-bikes-adults': 'Adult Electric Dirt Bikes',
+  'surron-alternatives': 'Surron Rivals & E-Motos',
+  'street-legal-electric-motos': 'Street Legal Electric Motorcycles',
+  'e-bikes': 'E-Bikes & Scramblers',
+  'accessories': 'Accessories & Gear',
+  'battery': 'Batteries & Fast Chargers',
+};
+
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  'electric-dirt-bikes': 'Browse high-performance adult electric dirt bikes, 72V e-motos, and Surron rivals with 50+ mph top speeds and 1000Nm wheel torque. Free nationwide crate freight.',
+  'electric-dirt-bikes-adults': 'Shop heavy-duty electric dirt bikes for adults built with aircraft-grade aluminum alloy frames, 18kW peak motors, and long-range Samsung battery cells.',
+  'surron-alternatives': 'High-power e-motos engineered to outperform Surron Light Bee and Storm Bee models with superior suspension, higher voltage controllers, and 2-seater option.',
+  'street-legal-electric-motos': 'DOT-compliant dual-sport electric dirt bikes and supermotos equipped with LED lighting, turn signals, mirrors, horn, and 17-digit VIN numbers.',
+  'e-bikes': 'High-speed urban electric bicycles, scramblers, and 2-seater passenger e-bikes built for commuters and weekend adventure riders.',
+  'accessories': 'Upgrade your e-moto with CNC footpegs, passenger sit carrier kits, heavy-duty battery locks, protective skid plates, and fast chargers.',
+  'battery': 'High-capacity 60V, 72V, and 80V lithium-ion battery packs and 15A ultra-fast smart chargers for instant quick swapping.',
 };
 
 interface CategoryPageProps {
@@ -19,12 +32,7 @@ interface CategoryPageProps {
 }
 
 export async function generateStaticParams() {
-  return [
-    { category: 'electric-dirt-bikes' },
-    { category: 'e-bikes' },
-    { category: 'accessories' },
-    { category: 'battery' },
-  ];
+  return Object.keys(CATEGORY_NAMES).map((cat) => ({ category: cat }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -33,18 +41,28 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   if (!categoryName) {
     return {
-      title: 'Category Not Found | VOLT-X Motorsports',
+      title: 'Category Not Found | VoltDirtBike',
       description: 'The requested product category could not be found.',
     };
   }
 
-  const title = `${categoryName} | VOLT-X Motorsports USA`;
-  const description = `Shop high-output ${categoryName} at VOLT-X Motorsports. Precision engineered off-road machines with high-voltage battery architecture and instant wheel torque. Free 50-state freight shipping.`;
+  const description = CATEGORY_DESCRIPTIONS[category] || `Shop ${categoryName} at VoltDirtBike with free 50-state freight delivery.`;
+  const title = `${categoryName} | VoltDirtBike Official Store`;
   const canonicalUrl = `${siteUrl}/shop/${category}`;
 
   return {
     title,
     description,
+    keywords: [
+      categoryName,
+      'electric dirt bike for adults',
+      'surron bike',
+      'fast electric bike',
+      'street legal electric dirt bike',
+      'e-bike dirt',
+      '72v e-moto',
+      'electric motorcycle for adults'
+    ],
     alternates: {
       canonical: canonicalUrl,
     },
@@ -66,11 +84,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const bikes = BIKES_DATA.filter((b) => {
+    if (category === 'electric-dirt-bikes' || category === 'electric-dirt-bikes-adults' || category === 'surron-alternatives') {
+      return b.category === 'electric-dirt-bikes' || b.category === 'e-bikes';
+    }
+    if (category === 'street-legal-electric-motos') {
+      return b.category === 'electric-dirt-bikes' || b.category === 'e-bikes';
+    }
     if (category === 'accessories') {
       return b.category === 'accessories' || b.category === 'battery';
     }
     return b.category === category;
   });
+
   const canonicalUrl = `${siteUrl}/shop/${category}`;
 
   const breadcrumbSchema = {
@@ -98,11 +123,38 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     ],
   };
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: categoryName,
+    description: CATEGORY_DESCRIPTIONS[category] || `List of ${categoryName} available at VoltDirtBike`,
+    itemListElement: bikes.map((bike, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'Product',
+        name: bike.name,
+        url: `${siteUrl}/product/${bike.id}`,
+        image: bike.image,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'USD',
+          price: bike.price,
+          availability: 'https://schema.org/InStock',
+        },
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
       <div className="bg-zinc-950 min-h-screen pt-8 pb-20 px-4 sm:px-6 lg:px-8">
@@ -116,13 +168,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <span className="text-white font-bold uppercase">{categoryName}</span>
           </nav>
 
-          <div className="border-b border-zinc-800 pb-6">
-            <h1 className="text-4xl font-black text-white uppercase tracking-tight">
+          {/* Semantic Header & Content Buffer for AI Crawlers */}
+          <div className="border-b border-zinc-800 pb-6 space-y-3">
+            <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
               {categoryName}
             </h1>
-            <p className="text-zinc-400 text-sm font-mono mt-2">
-              Explore our lineup of {categoryName.toLowerCase()} engineered for trail performance & reliability.
+            <p className="text-zinc-300 text-sm font-sans max-w-3xl leading-relaxed">
+              {CATEGORY_DESCRIPTIONS[category] || `Explore our high-performance line of ${categoryName.toLowerCase()} engineered with high-voltage battery architecture, adjustable hydraulic suspension, and instant motor torque.`}
             </p>
+            <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-lime-400 pt-1">
+              <span className="bg-lime-400/10 border border-lime-400/30 px-2.5 py-1 rounded">FREE 50-STATE FREIGHT</span>
+              <span className="bg-lime-400/10 border border-lime-400/30 px-2.5 py-1 rounded">INSTANT TORQUE</span>
+              <span className="bg-lime-400/10 border border-lime-400/30 px-2.5 py-1 rounded">1-YEAR FACTORY WARRANTY</span>
+            </div>
           </div>
 
           {bikes.length === 0 ? (

@@ -9,7 +9,8 @@ import { useAppContext } from '../context/AppContext';
 import { TrustPilotSlider } from '../components/TrustPilotSlider';
 import { Bike } from '../types';
 import { formatImageUrl, handleImageError } from '../lib/imageUtils';
-import { ArrowRight, BookOpen, Calendar, Clock } from 'lucide-react';
+import { ArrowRight, BookOpen, Calendar, Clock, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { FAQS_DATA } from '../data/faqs';
 
 interface HomeProps {
   onSelectBike?: (bike: Bike) => void;
@@ -18,6 +19,7 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = () => {
   const { setSelectedBike } = useAppContext();
+  const [openFaqIndex, setOpenFaqIndex] = React.useState<number | null>(0);
   const featuredBikes = BIKES_DATA.filter(b => b.isBestSeller || b.featuredOrder).slice(0, 4);
 
   // User provided Google Drive Image URLs
@@ -200,6 +202,74 @@ export const Home: React.FC<HomeProps> = () => {
       </section>
 
       <TrustPilotSlider />
+
+      {/* Homepage FAQs (4 Accordion-Style Questions for GEO & Conversion) */}
+      <section className="py-20 bg-zinc-900/60 px-4 border-t border-zinc-800">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center gap-2 bg-lime-400/10 border border-lime-400/30 px-3 py-1 rounded-md text-lime-400 text-xs font-mono font-bold uppercase">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+              E-Moto & Surron Buyers Guide FAQs
+            </h2>
+            <p className="text-zinc-400 text-sm font-mono max-w-2xl mx-auto">
+              Clear answers on speed, battery range, street legal setup, and purchasing adult electric dirt bikes with nationwide freight delivery.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {FAQS_DATA.slice(0, 4).map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={faq.id}
+                  className="bg-[#0f121a] rounded-xl border border-zinc-800 overflow-hidden transition-all duration-200"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-zinc-900/50 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="w-7 h-7 rounded-lg bg-lime-400/10 text-lime-400 font-mono font-black text-xs flex items-center justify-center shrink-0">
+                        0{index + 1}
+                      </span>
+                      <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-tight">
+                        {faq.question}
+                      </h3>
+                    </div>
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5 text-lime-400 shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-zinc-500 shrink-0" />
+                    )}
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-5 pb-6 sm:px-6 sm:pb-6 pt-0 text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans border-t border-zinc-800/60 mt-1 pl-15">
+                      <div className="pt-3 border-l-2 border-lime-400/40 pl-4">
+                        {faq.answer}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold text-lime-400 hover:text-lime-300 uppercase tracking-wider bg-zinc-900 border border-zinc-800 px-5 py-3 rounded-lg hover:border-lime-400/40 transition-colors"
+            >
+              <span>EXPLORE ALL FREQUENTLY ASKED QUESTIONS</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Homepage Blog Posts Section (4 posts in 1 row) */}
       <section className="py-20 bg-zinc-950 px-4 border-t border-zinc-900">
