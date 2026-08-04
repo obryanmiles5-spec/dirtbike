@@ -274,7 +274,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
                 <p className="text-xs text-lime-400 font-mono flex items-center gap-1.5">
                   <Truck className="w-4 h-4" />
-                  Free 50-State Crate Freight Shipping Included
+                  {bike.category === 'accessories' || bike.category === 'battery'
+                    ? 'Free Shipping on Accessories'
+                    : bike.category === 'electric-dirt-bikes'
+                    ? '$250 50-State Crate Freight Shipping'
+                    : '$150 US Freight Shipping'}
                 </p>
                 <div className="flex items-center gap-2 text-xs text-zinc-400">
                   <ShieldCheck className="w-4 h-4 text-lime-400" />

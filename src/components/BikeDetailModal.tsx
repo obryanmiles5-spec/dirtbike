@@ -475,7 +475,12 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
 
                 <div className="flex items-center justify-between text-[10px] text-zinc-400 font-mono px-1">
                   <span className="flex items-center gap-1">
-                    <Truck className="w-3.5 h-3.5 text-lime-400" /> Insured Freight Crate
+                    <Truck className="w-3.5 h-3.5 text-lime-400" />
+                    {bike.category === 'accessories' || bike.category === 'battery'
+                      ? 'Free Accessory Shipping'
+                      : bike.category === 'electric-dirt-bikes'
+                      ? '$250 Crate Freight'
+                      : '$150 US Freight Delivery'}
                   </span>
                   <span className="flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5 text-lime-400" /> 2-Yr Factory Warranty

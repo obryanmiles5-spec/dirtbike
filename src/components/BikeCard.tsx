@@ -159,7 +159,13 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
               )}
             </div>
             <div className="text-[11px] text-zinc-400 font-medium font-sans flex items-center gap-1 mt-0.5">
-              <span className="text-lime-400 font-bold">Free Crate Freight Delivery</span>
+              <span className="text-lime-400 font-bold">
+                {bike.category === 'accessories' || bike.category === 'battery'
+                  ? 'Free Accessory Shipping'
+                  : bike.category === 'electric-dirt-bikes'
+                  ? '$250 Crate Freight'
+                  : '$150 US Freight Delivery'}
+              </span>
             </div>
           </div>
 

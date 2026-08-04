@@ -78,8 +78,28 @@ export interface OrderDetails {
   customerName: string;
   email: string;
   phone: string;
-  shippingAddress: {
+  company?: string;
+  orderNotes?: string;
+  shipToDifferentAddress?: boolean;
+  billingAddress: {
+    firstName: string;
+    lastName: string;
+    company?: string;
     street: string;
+    street2?: string;
+    city: string;
+    state: string;
+    zip: string;
+    country: string;
+    phone: string;
+    email: string;
+  };
+  shippingAddress: {
+    firstName?: string;
+    lastName?: string;
+    company?: string;
+    street: string;
+    street2?: string;
     city: string;
     state: string;
     zip: string;
@@ -88,15 +108,20 @@ export interface OrderDetails {
   customer?: {
     firstName?: string;
     lastName?: string;
+    company?: string;
     email?: string;
     phone?: string;
     address?: string;
+    address2?: string;
     city?: string;
     state?: string;
     zip?: string;
+    country?: string;
   };
   deliveryMethod: 'freight_crate' | 'dealer_pickup';
+  deliveryMethodTitle?: string;
   paymentMethod: 'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto';
+  paymentMethodTitle?: string;
   items: CartItem[];
   subtotal: number;
   shippingCost: number;

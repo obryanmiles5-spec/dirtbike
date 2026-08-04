@@ -44,17 +44,30 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [deliveryMethod, setDeliveryMethod] = useState<'freight_crate' | 'dealer_pickup'>('freight_crate');
   const [paymentMethod, setPaymentMethod] = useState<'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto'>('credit_card');
 
-  // Shipping Form State
+  // Complete WooCommerce Billing & Shipping Form State
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: '',
-    phone: '',
+    company: '',
+    country: 'United States',
     street: '',
+    street2: '',
     city: '',
     state: '',
     zip: '',
-    country: 'United States'
+    phone: '',
+    email: '',
+    shipToDifferentAddress: false,
+    shippingFirstName: '',
+    shippingLastName: '',
+    shippingCompany: '',
+    shippingCountry: 'United States',
+    shippingStreet: '',
+    shippingStreet2: '',
+    shippingCity: '',
+    shippingState: '',
+    shippingZip: '',
+    orderNotes: ''
   });
 
   // Processing state
@@ -78,12 +91,55 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   if (!isOpen) return null;
 
   const discountAmount = subtotal * discountRate;
-  const shippingCost = deliveryMethod === 'freight_crate' ? (subtotal >= 3500 ? 0 : 250) : 0;
+  
+  // Calculate shipping according to rules:
+  // - Accessories / Battery: $0
+  // - Dirt bikes (electric-dirt-bikes): $250
+  // - E-bikes (e-bikes): $150
+  const calculatedShipping = cart.reduce((sum, item) => {
+    const cat = item.bike?.category;
+    const name = (item.bike?.name || '').toLowerCase();
+    const qty = item.quantity || 1;
+
+    if (cat === 'accessories' || cat === 'battery') {
+      return sum;
+    }
+    if (cat === 'electric-dirt-bikes' || name.includes('dirt bike') || name.includes('dirt')) {
+      return sum + 250 * qty;
+    }
+    if (cat === 'e-bikes' || name.includes('e-bike') || name.includes('ebike')) {
+      return sum + 150 * qty;
+    }
+    return sum + 250 * qty;
+  }, 0);
+
+  const shippingCost = deliveryMethod === 'freight_crate' ? calculatedShipping : 0;
   const taxAmount = (subtotal - discountAmount) * 0.07;
   const grandTotal = subtotal - discountAmount + shippingCost + taxAmount;
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const getPaymentMethodTitle = (method: string): string => {
+    switch (method) {
+      case 'credit_card': return 'Credit Card (Fincra Encrypted Portal)';
+      case 'apple_pay': return 'Apple Pay';
+      case 'bank_transfer': return 'Direct Bank Wire / ACH Transfer';
+      case 'bitcoin': return 'Bitcoin (BTC) Crypto';
+      case 'cashapp': return 'Cash App ($Cashtag)';
+      case 'chime': return 'Chime Pay Friends';
+      case 'zelle': return 'Zelle Instant Transfer';
+      default: return 'Direct Gateway Payment';
+    }
+  };
+
+  const getDeliveryMethodTitle = (method: string): string => {
+    return method === 'freight_crate'
+      ? '50-State Insured Crate Freight'
+      : 'Certified Dealer Prep (Reno, NV)';
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const target = e.target;
+    const value = target.type === 'checkbox' ? (target as HTMLInputElement).checked : target.value;
+    setFormData({ ...formData, [target.name]: value });
   };
 
   const handleProcessPayment = async (e: React.FormEvent) => {
@@ -102,30 +158,69 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     const orderId = `VX-${Math.floor(100000 + Math.random() * 900000)}`;
     const trackingNumber = `1Z-VOLT-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
     
+    const billingAddress = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      company: formData.company || undefined,
+      street: formData.street,
+      street2: formData.street2 || undefined,
+      city: formData.city,
+      state: formData.state,
+      zip: formData.zip,
+      country: formData.country,
+      phone: formData.phone,
+      email: formData.email
+    };
+
+    const shippingAddress = formData.shipToDifferentAddress ? {
+      firstName: formData.shippingFirstName || formData.firstName,
+      lastName: formData.shippingLastName || formData.lastName,
+      company: formData.shippingCompany || formData.company || undefined,
+      street: formData.shippingStreet,
+      street2: formData.shippingStreet2 || undefined,
+      city: formData.shippingCity,
+      state: formData.shippingState,
+      zip: formData.shippingZip,
+      country: formData.shippingCountry || 'United States'
+    } : {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      company: formData.company || undefined,
+      street: formData.street,
+      street2: formData.street2 || undefined,
+      city: formData.city,
+      state: formData.state,
+      zip: formData.zip,
+      country: formData.country
+    };
+
     const newOrder: OrderDetails = {
       orderId,
-      customerName: `${formData.firstName} ${formData.lastName}`,
+      customerName: `${formData.firstName} ${formData.lastName}`.trim(),
       email: formData.email,
       phone: formData.phone,
-      shippingAddress: {
-        street: formData.street,
-        city: formData.city,
-        state: formData.state,
-        zip: formData.zip,
-        country: formData.country,
-      },
+      company: formData.company || undefined,
+      orderNotes: formData.orderNotes || undefined,
+      shipToDifferentAddress: formData.shipToDifferentAddress,
+      billingAddress,
+      shippingAddress,
       customer: {
         firstName: formData.firstName,
         lastName: formData.lastName,
+        company: formData.company || undefined,
         email: formData.email,
         phone: formData.phone,
         address: formData.street,
+        address2: formData.street2 || undefined,
         city: formData.city,
         state: formData.state,
-        zip: formData.zip
+        zip: formData.zip,
+        country: formData.country
       },
       deliveryMethod,
+      deliveryMethodTitle: getDeliveryMethodTitle(deliveryMethod),
       paymentMethod,
+      paymentMethodTitle: getPaymentMethodTitle(paymentMethod),
       items: [...cart],
       subtotal,
       shippingCost,
@@ -209,76 +304,92 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               {/* Form Column */}
               <div className="lg:col-span-7 space-y-6">
                 <div>
-                  <h4 className="text-xs font-black text-white uppercase tracking-wider mb-3 font-mono">1. CONTACT & US SHIPPING ADDRESS</h4>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider mb-3 font-mono">1. BILLING DETAILS (WOOCOMMERCE STANDARD)</h4>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="text-[11px] text-zinc-400 mb-1 block">First Name</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block">First Name *</label>
                       <input
                         type="text"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
+                        placeholder="John"
                         className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] text-zinc-400 mb-1 block">Last Name</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Last Name *</label>
                       <input
                         type="text"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
+                        placeholder="Doe"
                         className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
                       />
                     </div>
                     <div className="col-span-2">
-                      <label className="text-[11px] text-zinc-400 mb-1 block">Email Address (for Crate Tracking & Updates)</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <label className="text-[11px] text-zinc-400 mb-1 block">Phone Number (Required for Freight Driver Appointment)</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Company Name (Optional)</label>
                       <input
                         type="text"
-                        name="phone"
-                        value={formData.phone}
+                        name="company"
+                        value={formData.company}
                         onChange={handleInputChange}
-                        required
+                        placeholder="Acme Motors LLC"
                         className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
                       />
                     </div>
                     <div className="col-span-2">
-                      <label className="text-[11px] text-zinc-400 mb-1 block">US Street Address</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Country / Region *</label>
+                      <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
+                      >
+                        <option value="United States">United States (US)</option>
+                        <option value="Canada">Canada</option>
+                        <option value="United Kingdom">United Kingdom (UK)</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Mexico">Mexico</option>
+                      </select>
+                    </div>
+                    <div className="col-span-2">
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Street Address *</label>
                       <input
                         type="text"
                         name="street"
                         value={formData.street}
                         onChange={handleInputChange}
                         required
+                        placeholder="House number and street name"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none mb-2"
+                      />
+                      <input
+                        type="text"
+                        name="street2"
+                        value={formData.street2}
+                        onChange={handleInputChange}
+                        placeholder="Apartment, suite, unit, etc. (optional)"
                         className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] text-zinc-400 mb-1 block">City</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Town / City *</label>
                       <input
                         type="text"
                         name="city"
                         value={formData.city}
                         onChange={handleInputChange}
                         required
+                        placeholder="Reno"
                         className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] text-zinc-400 mb-1 block">State & ZIP</label>
+                      <label className="text-[11px] text-zinc-400 mb-1 block">State & ZIP Code *</label>
                       <div className="grid grid-cols-2 gap-2">
                         <input
                           type="text"
@@ -286,6 +397,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                           value={formData.state}
                           onChange={handleInputChange}
                           required
+                          placeholder="NV"
                           className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none font-mono"
                         />
                         <input
@@ -294,16 +406,136 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                           value={formData.zip}
                           onChange={handleInputChange}
                           required
+                          placeholder="89501"
                           className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none font-mono"
                         />
                       </div>
                     </div>
+                    <div className="col-span-2">
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Phone Number * (Required for Freight Driver Appointment)</label>
+                      <input
+                        type="text"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="(505) 652-1743"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <label className="text-[11px] text-zinc-400 mb-1 block">Email Address * (for Order Receipt & Crate Tracking)</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="john@example.com"
+                        className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white focus:border-lime-400 focus:outline-none"
+                      />
+                    </div>
                   </div>
+                </div>
+
+                {/* Separate Shipping Address Checkbox */}
+                <div className="p-4 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3">
+                  <label className="flex items-center gap-3 cursor-pointer text-xs font-bold text-white">
+                    <input
+                      type="checkbox"
+                      name="shipToDifferentAddress"
+                      checked={formData.shipToDifferentAddress}
+                      onChange={handleInputChange}
+                      className="w-4 h-4 rounded border-zinc-700 text-lime-400 focus:ring-lime-400 bg-zinc-900"
+                    />
+                    <span>Ship to a different address?</span>
+                  </label>
+
+                  {formData.shipToDifferentAddress && (
+                    <div className="grid grid-cols-2 gap-3 pt-2 border-t border-zinc-900 animate-in fade-in duration-150">
+                      <div>
+                        <label className="text-[11px] text-zinc-400 mb-1 block">Shipping First Name</label>
+                        <input
+                          type="text"
+                          name="shippingFirstName"
+                          value={formData.shippingFirstName}
+                          onChange={handleInputChange}
+                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-white focus:border-lime-400 focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[11px] text-zinc-400 mb-1 block">Shipping Last Name</label>
+                        <input
+                          type="text"
+                          name="shippingLastName"
+                          value={formData.shippingLastName}
+                          onChange={handleInputChange}
+                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-white focus:border-lime-400 focus:outline-none"
+                        />
+                      </div>
+                      <div className="col-span-2">
+                        <label className="text-[11px] text-zinc-400 mb-1 block">Shipping Street Address</label>
+                        <input
+                          type="text"
+                          name="shippingStreet"
+                          value={formData.shippingStreet}
+                          onChange={handleInputChange}
+                          placeholder="Shipping house number and street name"
+                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-white focus:border-lime-400 focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[11px] text-zinc-400 mb-1 block">Shipping City</label>
+                        <input
+                          type="text"
+                          name="shippingCity"
+                          value={formData.shippingCity}
+                          onChange={handleInputChange}
+                          className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-white focus:border-lime-400 focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[11px] text-zinc-400 mb-1 block">State & ZIP</label>
+                        <div className="grid grid-cols-2 gap-2">
+                          <input
+                            type="text"
+                            name="shippingState"
+                            value={formData.shippingState}
+                            onChange={handleInputChange}
+                            placeholder="State"
+                            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-white focus:border-lime-400 focus:outline-none"
+                          />
+                          <input
+                            type="text"
+                            name="shippingZip"
+                            value={formData.shippingZip}
+                            onChange={handleInputChange}
+                            placeholder="ZIP"
+                            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-white focus:border-lime-400 focus:outline-none"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Additional Information / Order Notes */}
+                <div>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider mb-2 font-mono">2. ADDITIONAL INFORMATION</h4>
+                  <label className="text-[11px] text-zinc-400 mb-1 block">Order Notes / Special Delivery Instructions (Optional)</label>
+                  <textarea
+                    name="orderNotes"
+                    value={formData.orderNotes}
+                    onChange={handleInputChange}
+                    rows={2}
+                    placeholder="Notes about your order, e.g. special delivery notes, gate code, ranch access instructions."
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-xs text-white focus:border-lime-400 focus:outline-none resize-none"
+                  />
                 </div>
 
                 {/* Delivery Options */}
                 <div>
-                  <h4 className="text-xs font-black text-white uppercase tracking-wider mb-3 font-mono">2. CHOOSE FREIGHT DELIVERY METHOD</h4>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider mb-3 font-mono">3. CHOOSE FREIGHT DELIVERY METHOD</h4>
                   <div className="grid grid-cols-2 gap-3">
                     <div
                       onClick={() => setDeliveryMethod('freight_crate')}
@@ -319,7 +551,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       </div>
                       <p className="text-[10px] text-zinc-400">Insured crate delivery directly to your home garage or ranch.</p>
                       <span className="text-xs font-mono font-bold text-lime-400 mt-2 block">
-                        {subtotal >= 3500 ? 'FREE' : '$250 Crate Fee'}
+                        {calculatedShipping === 0 ? 'FREE Shipping' : `$${calculatedShipping} Freight Fee`}
                       </span>
                     </div>
 
@@ -345,7 +577,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
                 <button
                   onClick={() => setStep('payment')}
-                  className="w-full py-3.5 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full py-3.5 rounded-lg bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-lime-400/20"
                 >
                   <span>CONTINUE TO PAYMENT METHOD</span>
                   <ArrowRight className="w-4 h-4" />
@@ -683,6 +915,43 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       Order #{completedOrder.orderId} was securely logged for Reno HQ Crate Preparation.
                     </span>
                   </div>
+                </div>
+
+                {/* WooCommerce Billing & Shipping Receipt Breakdown */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-zinc-900/60 rounded-lg border border-zinc-800 text-xs">
+                  <div>
+                    <span className="font-bold text-lime-400 font-mono uppercase block mb-1">BILLING ADDRESS</span>
+                    <p className="text-white font-medium">{completedOrder.billingAddress?.firstName || completedOrder.customer?.firstName || ''} {completedOrder.billingAddress?.lastName || completedOrder.customer?.lastName || ''}</p>
+                    {completedOrder.billingAddress?.company && <p className="text-zinc-400">{completedOrder.billingAddress.company}</p>}
+                    <p className="text-zinc-300">{completedOrder.billingAddress?.street || completedOrder.customer?.address || ''}</p>
+                    {completedOrder.billingAddress?.street2 && <p className="text-zinc-400">{completedOrder.billingAddress.street2}</p>}
+                    <p className="text-zinc-300">
+                      {completedOrder.billingAddress?.city || completedOrder.customer?.city || ''}, {completedOrder.billingAddress?.state || completedOrder.customer?.state || ''} {completedOrder.billingAddress?.zip || completedOrder.customer?.zip || ''}
+                    </p>
+                    <p className="text-zinc-400">{completedOrder.billingAddress?.country || completedOrder.customer?.country || 'United States'}</p>
+                    <p className="text-zinc-400 mt-1 font-mono">📞 {completedOrder.phone}</p>
+                    <p className="text-zinc-400 font-mono">✉️ {completedOrder.email}</p>
+                  </div>
+
+                  <div>
+                    <span className="font-bold text-lime-400 font-mono uppercase block mb-1">SHIPPING ADDRESS</span>
+                    <p className="text-white font-medium">{completedOrder.shippingAddress?.firstName || completedOrder.customer?.firstName || ''} {completedOrder.shippingAddress?.lastName || completedOrder.customer?.lastName || ''}</p>
+                    {completedOrder.shippingAddress?.company && <p className="text-zinc-400">{completedOrder.shippingAddress.company}</p>}
+                    <p className="text-zinc-300">{completedOrder.shippingAddress?.street || completedOrder.customer?.address || ''}</p>
+                    {completedOrder.shippingAddress?.street2 && <p className="text-zinc-400">{completedOrder.shippingAddress.street2}</p>}
+                    <p className="text-zinc-300">
+                      {completedOrder.shippingAddress?.city || completedOrder.customer?.city || ''}, {completedOrder.shippingAddress?.state || completedOrder.customer?.state || ''} {completedOrder.shippingAddress?.zip || completedOrder.customer?.zip || ''}
+                    </p>
+                    <p className="text-zinc-400">{completedOrder.shippingAddress?.country || 'United States'}</p>
+                    <p className="text-lime-400 font-mono mt-1 text-[11px]">🚚 {completedOrder.deliveryMethodTitle || 'Insured Crate Freight'}</p>
+                  </div>
+
+                  {completedOrder.orderNotes && (
+                    <div className="sm:col-span-2 pt-2 border-t border-zinc-800">
+                      <span className="font-bold text-zinc-400 font-mono text-[10px] uppercase block">ORDER NOTES / SPECIAL INSTRUCTIONS:</span>
+                      <p className="text-zinc-300 italic text-[11px] font-sans mt-0.5">&ldquo;{completedOrder.orderNotes}&rdquo;</p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Shipment Tracker Simulation */}

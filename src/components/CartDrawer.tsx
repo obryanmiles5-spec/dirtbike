@@ -45,7 +45,28 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   if (!isCartOpen) return null;
 
   const discountAmount = subtotal * discountRate;
-  const estimatedShipping = subtotal > 3500 ? 0 : 250;
+  
+  // Calculate shipping according to rules:
+  // - Accessories / Battery: $0
+  // - Dirt bikes (electric-dirt-bikes): $250
+  // - E-bikes (e-bikes): $150
+  const estimatedShipping = cart.reduce((sum, item) => {
+    const cat = item.bike?.category;
+    const name = (item.bike?.name || '').toLowerCase();
+    const qty = item.quantity || 1;
+
+    if (cat === 'accessories' || cat === 'battery') {
+      return sum;
+    }
+    if (cat === 'electric-dirt-bikes' || name.includes('dirt bike') || name.includes('dirt')) {
+      return sum + 250 * qty;
+    }
+    if (cat === 'e-bikes' || name.includes('e-bike') || name.includes('ebike')) {
+      return sum + 150 * qty;
+    }
+    return sum + 250 * qty;
+  }, 0);
+
   const estimatedTax = (subtotal - discountAmount) * 0.07;
   const grandTotal = subtotal - discountAmount + estimatedShipping + estimatedTax;
 
@@ -93,9 +114,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         <div className="bg-lime-950/40 border-b border-lime-800/40 px-4 py-2.5 text-xs flex items-center justify-between text-lime-400 font-mono">
           <span className="flex items-center gap-1.5 font-bold">
             <Truck className="w-4 h-4 text-lime-400" />
-            {subtotal >= 3500 ? '50-STATE FREIGHT CRATE SHIPPING UNLOCKED!' : 'ADD BIKE FOR FREE 50-STATE CRATE FREIGHT'}
+            FREE SHIPPING ON ACCESSORIES | $250 DIRT BIKES / $150 E-BIKES
           </span>
-          <span className="font-bold">{subtotal >= 3500 ? '$0 FREIGHT' : '$250 CRATE'}</span>
+          <span className="font-bold">{estimatedShipping === 0 ? 'FREE SHIP' : `$${estimatedShipping}`}</span>
         </div>
 
         {/* Cart Items List */}
