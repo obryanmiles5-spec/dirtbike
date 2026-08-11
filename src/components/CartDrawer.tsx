@@ -297,7 +297,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             {/* Payment Methods Callout */}
             <div className="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between font-mono">
               <span>Instant Dispatch Direct Checkout</span>
-              <span className="text-lime-400 font-bold">Fincra • Cards • Crypto</span>
+              <span className="text-lime-400 font-bold">Apple Pay • Wire • Crypto</span>
             </div>
 
             {/* Checkout Button */}

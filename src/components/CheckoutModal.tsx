@@ -42,7 +42,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const [step, setStep] = useState<'details' | 'payment' | 'confirmation'>('details');
   const [deliveryMethod, setDeliveryMethod] = useState<'freight_crate' | 'dealer_pickup'>('freight_crate');
-  const [paymentMethod, setPaymentMethod] = useState<'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto'>('credit_card');
+  const [paymentMethod, setPaymentMethod] = useState<'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto'>('apple_pay');
 
   // Complete WooCommerce Billing & Shipping Form State
   const [formData, setFormData] = useState({
@@ -119,7 +119,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const getPaymentMethodTitle = (method: string): string => {
     switch (method) {
-      case 'credit_card': return 'Credit Card (Fincra Encrypted Portal)';
       case 'apple_pay': return 'Apple Pay';
       case 'bank_transfer': return 'Direct Bank Wire / ACH Transfer';
       case 'bitcoin': return 'Bitcoin (BTC) Crypto';
@@ -145,15 +144,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const handleProcessPayment = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
-
-    // If Credit Card method, open the Fincra checkout link
-    if (paymentMethod === 'credit_card') {
-      try {
-        window.open('https://l.fincra.com/4Sf', '_blank');
-      } catch (err) {
-        console.error('Failed to open payment link:', err);
-      }
-    }
 
     const orderId = `VX-${Math.floor(100000 + Math.random() * 900000)}`;
     const trackingNumber = `1Z-VOLT-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
@@ -650,20 +640,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </h4>
 
               {/* Payment Gateway Options Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <button
-                  type="button"
-                  onClick={() => setPaymentMethod('credit_card')}
-                  className={`p-3 rounded-lg border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                    paymentMethod === 'credit_card'
-                      ? 'bg-lime-950/60 border-lime-400 text-white font-bold'
-                      : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700'
-                  }`}
-                >
-                  <CreditCard className="w-5 h-5 text-lime-400" />
-                  <span className="text-xs">Credit Card</span>
-                </button>
-
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('apple_pay')}
@@ -744,37 +721,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
 
               {/* Dynamic Payment Details Panel */}
-              {paymentMethod === 'credit_card' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-4 font-mono">
-                  <div className="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-900 pb-2">
-                    <span className="font-bold text-white">Credit Card Direct Link Gateway</span>
-                    <span className="text-lime-400 font-bold">VISA • MC • AMEX • DISCOVER</span>
-                  </div>
-
-                  <div className="p-4 bg-lime-950/30 border border-lime-500/30 rounded-xl space-y-3">
-                    <div className="flex items-center gap-2 text-lime-400 font-bold text-sm">
-                      <CreditCard className="w-5 h-5" />
-                      <span>SECURE CREDIT CARD CHECKOUT</span>
-                    </div>
-                    <p className="text-xs text-zinc-300 font-sans leading-relaxed">
-                      Clicking <strong>PLACE ORDER & OPEN CREDIT CARD LINK</strong> below will register your order and automatically open our encrypted Fincra Credit Card payment portal in your browser.
-                    </p>
-
-                    <div className="pt-1">
-                      <a
-                        href="https://l.fincra.com/4Sf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-lime-400/20"
-                      >
-                        <CreditCard className="w-4 h-4" />
-                        <span>OPEN SECURE FINCRA CREDIT CARD LINK DIRECTLY</span>
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )}
 
               {paymentMethod === 'apple_pay' && (
                 <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 font-mono">
@@ -857,15 +803,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 {isProcessing ? (
                   <span className="flex items-center gap-2 font-mono">
                     <span className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
-                    {paymentMethod === 'credit_card' ? 'PROCESSING ORDER & OPENING FINCRA LINK...' : 'AUTHORIZING GATEWAY...'}
+                    AUTHORIZING GATEWAY...
                   </span>
                 ) : (
                   <>
                     <Lock className="w-4 h-4" />
                     <span>
-                      {paymentMethod === 'credit_card'
-                        ? `PLACE ORDER & OPEN CREDIT CARD LINK ($${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })})`
-                        : `PLACE ORDER OF $${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                      {`PLACE ORDER OF $${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                     </span>
                   </>
                 )}
@@ -982,24 +926,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     <span>PAYMENT METHOD: {completedOrder.paymentMethod.toUpperCase()}</span>
                     <span className="text-[10px] text-zinc-400">STATUS: ORDER LOGGED</span>
                   </div>
-
-                  {completedOrder.paymentMethod === 'credit_card' && (
-                    <div className="space-y-2.5 pt-1">
-                      <p className="text-zinc-300">
-                        To finalize your payment instantly via Credit Card, please click the secure Fincra payment gateway link below:
-                      </p>
-                      <a
-                        href="https://l.fincra.com/4Sf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-lime-400/20 font-mono"
-                      >
-                        <CreditCard className="w-4 h-4" />
-                        <span>COMPLETE CREDIT CARD PAYMENT (FINCRA GATEWAY)</span>
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  )}
 
                   {completedOrder.paymentMethod === 'apple_pay' && (
                     <p className="text-zinc-300 leading-relaxed">

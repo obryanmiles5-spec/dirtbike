@@ -82,7 +82,7 @@ export default async function LegalPolicyPage({ params }: LegalPageProps) {
               <p>Your details are used strictly to coordinate 50-state heavy freight crate shipping, generate Manufacturer Statement of Origin (MSO) titles for state DMV registration, and dispatch battery warranty updates.</p>
 
               <h2 className="text-lg font-bold text-white uppercase font-mono">3. Data Security & Encryption</h2>
-              <p>We do not store complete raw credit card numbers. Payment processing is tokenized directly through accredited PCI-DSS compliant payment networks including Fincra, Apple Pay, and secure bank wire partners.</p>
+              <p>Payment processing is handled securely through accredited compliant payment networks including Apple Pay, Bitcoin/Crypto, and secure bank wire partners.</p>
             </>
           )}
 

@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
   const announcements = [
     { text: "US HOTLINE: 505-652-1743 | EMAIL: contact@voltdirtbike.com", code: "DIRECT DISPATCH", highlight: "24/7 SUPPORT", link: "tel:505-652-1743" },
     { text: "FREE 50-STATE FREIGHT CRATE DELIVERY ON ALL E-MOTO ORDERS", code: "CODE: VOLTX100 ($100 OFF)", highlight: "FREE FREIGHT", link: null },
-    { text: "ACCEPTING CREDIT CARD (FINCRA), APPLE PAY, BITCOIN, CASH APP & CHIME", code: "INSTANT CHECKOUT", highlight: "SECURE PAY", link: null },
+    { text: "ACCEPTING APPLE PAY, BANK WIRE, BITCOIN, CASH APP & CHIME", code: "INSTANT CHECKOUT", highlight: "SECURE PAY", link: null },
     { text: "2026 APEX 60 & STEALTH PRO 72 IN STOCK FOR NEXT-DAY RENO DISPATCH", code: "FAST DISPATCH", highlight: "READY TO SHIP", link: null }
   ];
 

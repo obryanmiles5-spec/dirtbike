@@ -67,7 +67,6 @@ export async function POST(request: Request) {
     const formattedShippingAddress = `${sStreet1}${sStreet2 ? `, ${sStreet2}` : ''}, ${sCity}, ${sState} ${sZip}, ${sCountry}`;
 
     const displayPaymentTitle = paymentMethodTitle || (
-      paymentMethod === 'credit_card' ? 'Credit Card (Fincra Encrypted Gateway)' :
       paymentMethod === 'apple_pay' ? 'Apple Pay' :
       paymentMethod === 'bank_transfer' ? 'Direct Bank Wire / ACH Transfer' :
       paymentMethod === 'bitcoin' ? 'Bitcoin (BTC) Crypto' :

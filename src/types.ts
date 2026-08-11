@@ -120,7 +120,7 @@ export interface OrderDetails {
   };
   deliveryMethod: 'freight_crate' | 'dealer_pickup';
   deliveryMethodTitle?: string;
-  paymentMethod: 'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto';
+  paymentMethod: 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto';
   paymentMethodTitle?: string;
   items: CartItem[];
   subtotal: number;

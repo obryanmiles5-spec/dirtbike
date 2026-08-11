@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
           <div>
             <h4 className="text-white font-black text-xs uppercase tracking-wider mb-1 font-mono">Secure Direct Gateways</h4>
-            <p className="text-xs text-zinc-400 leading-relaxed">Accepting Credit Card (Fincra), Apple Pay, Bank Wire, Bitcoin, Cash App & Chime.</p>
+            <p className="text-xs text-zinc-400 leading-relaxed">Accepting Apple Pay, Bank Wire, Bitcoin, Cash App & Chime.</p>
           </div>
         </div>
       </div>
