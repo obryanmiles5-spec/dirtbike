@@ -13,8 +13,8 @@ const CATEGORY_NAMES: Record<string, string> = {
   'surron-alternatives': 'Surron Rivals & E-Motos',
   'street-legal-electric-motos': 'Street Legal Electric Motorcycles',
   'e-bikes': 'E-Bikes & Scramblers',
-  'accessories': 'Accessories & Gear',
-  'battery': 'Batteries & Fast Chargers',
+  'accessories': 'Electric Dirt Bike Parts & Accessories',
+  'battery': 'Batteries & Ultra-Fast Chargers',
 };
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
@@ -23,8 +23,8 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   'surron-alternatives': 'High-power e-motos engineered to outperform Surron Light Bee and Storm Bee models with superior suspension, higher voltage controllers, and 2-seater option.',
   'street-legal-electric-motos': 'DOT-compliant dual-sport electric dirt bikes and supermotos equipped with LED lighting, turn signals, mirrors, horn, and 17-digit VIN numbers.',
   'e-bikes': 'High-speed urban electric bicycles, scramblers, and 2-seater passenger e-bikes built for commuters and weekend adventure riders.',
-  'accessories': 'Upgrade your e-moto with CNC footpegs, passenger sit carrier kits, heavy-duty battery locks, protective skid plates, and fast chargers.',
-  'battery': 'High-capacity 60V, 72V, and 80V lithium-ion battery packs and 15A ultra-fast smart chargers for instant quick swapping.',
+  'accessories': 'Shop genuine replacement electric dirt bike parts and accessories. Sourced Sur-Ron Light Bee & Storm Bee batteries, 10A fast chargers, Talaria Sting 72V packs, Stark Varg chargers, off-road MX helmets, chest armour, brake pads, and tyres.',
+  'battery': 'High-capacity 60V, 72V, 104V lithium-ion battery packs and 10A/15A ultra-fast smart chargers for Sur-Ron, Talaria, Stark Varg, KTM, E Ride Pro, RFN, and Revvi.',
 };
 
 interface CategoryPageProps {
@@ -50,19 +50,50 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const title = `${categoryName} | VoltDirtBike Official Store`;
   const canonicalUrl = `${siteUrl}/shop/${category}`;
 
+  const categoryKeywordsMap: Record<string, string[]> = {
+    'accessories': [
+      'electric dirt bike parts',
+      'surron parts',
+      'surron light bee battery',
+      'surron storm bee charger',
+      'talaria sting r battery',
+      'stark varg charger',
+      'ktm sxe battery',
+      'e ride pro battery',
+      'rfn ares charger',
+      'revvi 36v battery',
+      'off road mx helmet',
+      'motocross body armour',
+      'performance brake pads',
+      'electric dirt bike tyres'
+    ],
+    'battery': [
+      'surron battery',
+      'surron charger',
+      'talaria battery replacement',
+      '60v 38ah battery',
+      '72v 40ah battery',
+      'stark varg battery',
+      'fast charger electric dirt bike',
+      '10a charger surron'
+    ]
+  };
+
+  const keywords = categoryKeywordsMap[category] || [
+    categoryName,
+    'electric dirt bike for adults',
+    'surron bike',
+    'fast electric bike',
+    'street legal electric dirt bike',
+    'e-bike dirt',
+    '72v e-moto',
+    'electric motorcycle for adults'
+  ];
+
   return {
     title,
     description,
-    keywords: [
-      categoryName,
-      'electric dirt bike for adults',
-      'surron bike',
-      'fast electric bike',
-      'street legal electric dirt bike',
-      'e-bike dirt',
-      '72v e-moto',
-      'electric motorcycle for adults'
-    ],
+    keywords,
     alternates: {
       canonical: canonicalUrl,
     },

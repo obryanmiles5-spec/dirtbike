@@ -67,6 +67,7 @@ export async function POST(request: Request) {
     const formattedShippingAddress = `${sStreet1}${sStreet2 ? `, ${sStreet2}` : ''}, ${sCity}, ${sState} ${sZip}, ${sCountry}`;
 
     const displayPaymentTitle = paymentMethodTitle || (
+      paymentMethod === 'credit_card' ? 'Credit / Debit Card (Online Checkout)' :
       paymentMethod === 'apple_pay' ? 'Apple Pay' :
       paymentMethod === 'bank_transfer' ? 'Direct Bank Wire / ACH Transfer' :
       paymentMethod === 'bitcoin' ? 'Bitcoin (BTC) Crypto' :
@@ -160,6 +161,87 @@ export async function POST(request: Request) {
               </tr>
             </table>
           </div>
+
+          ${paymentMethod === 'apple_pay' ? `
+            <div style="background-color: #0f172a; padding: 20px; border-radius: 12px; border: 2px solid #60a5fa; margin-bottom: 24px; font-family: Arial, sans-serif;">
+              <h3 style="color: #60a5fa; margin: 0 0 10px 0; font-size: 15px; text-transform: uppercase;">📱 Apple Pay Payment Instructions</h3>
+              <p style="color: #cbd5e1; font-size: 13px; margin: 0 0 14px 0; line-height: 1.5;">
+                Please send your payment of <strong>$${(totalAmount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</strong> via Apple Pay to:
+              </p>
+
+              <div style="background-color: #030712; padding: 16px; border-radius: 8px; border: 1px solid #1e293b; text-align: center;">
+                <span style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 4px;">Apple Pay Recipient Number:</span>
+                <span style="color: #ffffff; font-size: 22px; font-weight: 900; font-family: monospace;">(252) 532 9377</span>
+              </div>
+            </div>
+          ` : ''}
+
+          ${paymentMethod === 'credit_card' ? `
+            <div style="background-color: #0f172a; padding: 20px; border-radius: 12px; border: 2px solid #a3e635; margin-bottom: 24px; font-family: Arial, sans-serif; text-align: center;">
+              <h3 style="color: #a3e635; margin: 0 0 10px 0; font-size: 16px; text-transform: uppercase;">💳 Complete Credit Card Payment</h3>
+              <p style="color: #cbd5e1; font-size: 13px; margin: 0 0 16px 0; line-height: 1.5;">
+                If you have not yet completed your payment, click the secure 256-bit SSL encrypted link below to pay <strong>$${(totalAmount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</strong> via Credit / Debit Card:
+              </p>
+
+              <a href="https://checkout.bachs.io/pay/pl_ef4a46d9a381" target="_blank" style="display: inline-block; background-color: #a3e635; color: #020617; font-weight: 900; font-size: 14px; text-decoration: none; padding: 14px 28px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;">
+                PAY WITH CREDIT CARD NOW &rarr;
+              </a>
+
+              <p style="color: #94a3b8; font-size: 11px; margin: 12px 0 16px 0; font-family: monospace;">
+                Direct Link: https://checkout.bachs.io/pay/pl_ef4a46d9a381
+              </p>
+
+              <div style="background-color: #451a03; padding: 14px; border-radius: 8px; border: 1px solid #f59e0b; color: #fef3c7; font-size: 12px; line-height: 1.5; text-align: left;">
+                <strong style="color: #fbbf24; text-transform: uppercase; display: block; margin-bottom: 4px;">⚠️ Notice</strong>
+                Please note that E-Quad Bike is officially affiliated with <strong>The ANDERSON BILLIARDS LLC</strong>, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, <strong>The Bookfever LLC</strong>, which forms part of our authorized payment network.
+              </div>
+            </div>
+          ` : ''}
+
+          ${paymentMethod === 'bank_transfer' ? `
+            <div style="background-color: #0f172a; padding: 20px; border-radius: 12px; border: 2px solid #14b8a6; margin-bottom: 24px; font-family: Arial, sans-serif;">
+              <h3 style="color: #2dd4bf; margin: 0 0 10px 0; font-size: 15px; text-transform: uppercase;">🏦 Official Bank Transfer (Wire / ACH) Details</h3>
+              <p style="color: #cbd5e1; font-size: 13px; margin: 0 0 14px 0; line-height: 1.5;">
+                Please initiate your wire or ACH payment of <strong>$${(totalAmount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</strong> to our corporate bank account using the verified credentials below:
+              </p>
+
+              <table style="width: 100%; border-collapse: collapse; background-color: #030712; border-radius: 8px; border: 1px solid #1e293b; font-size: 13px; color: #cbd5e1; margin-bottom: 14px;">
+                <tr style="border-bottom: 1px solid #1e293b;">
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8; width: 40%;">Bank Name:</td>
+                  <td style="padding: 10px; font-weight: bold; color: #ffffff;">Lead Bank</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #1e293b;">
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8;">Account Beneficiary:</td>
+                  <td style="padding: 10px; font-weight: bold; color: #a3e635;">The Bookfever LLC</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #1e293b;">
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8;">Routing Number (ABA):</td>
+                  <td style="padding: 10px; font-family: monospace; font-weight: bold; color: #ffffff; font-size: 14px;">101019644</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #1e293b;">
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8;">Account Number:</td>
+                  <td style="padding: 10px; font-family: monospace; font-weight: bold; color: #ffffff; font-size: 14px;">218330421509</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #1e293b;">
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8;">Account Type:</td>
+                  <td style="padding: 10px; color: #ffffff;">Corporate Checking</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #1e293b;">
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8;">Bank Address:</td>
+                  <td style="padding: 10px; color: #ffffff;">1801 Main St., Kansas City, MO 64108</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; font-weight: bold; color: #94a3b8;">Currency:</td>
+                  <td style="padding: 10px; color: #ffffff; font-weight: bold;">USD ($)</td>
+                </tr>
+              </table>
+
+              <div style="background-color: #451a03; padding: 14px; border-radius: 8px; border: 1px solid #f59e0b; color: #fef3c7; font-size: 12px; line-height: 1.5;">
+                <strong style="color: #fbbf24; text-transform: uppercase; display: block; margin-bottom: 4px;">⚠️ Payment Notice!</strong>
+                Please note that E-Quad Bike is officially affiliated with The Bookfever LLC, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, <strong>The Bookfever LLC</strong>, which forms part of our authorized payment network.
+              </div>
+            </div>
+          ` : ''}
 
           <!-- Billing & Shipping Details Grid -->
           <div style="display: table; width: 100%; margin-bottom: 24px;">

@@ -13,7 +13,6 @@ import { Bike } from '../types';
 import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
 import { formatImageUrl } from '../lib/imageUtils';
-import { ProductWatermark } from './ProductWatermark';
 
 interface BikeCardProps {
   bike: Bike;
@@ -93,19 +92,16 @@ export const BikeCard: React.FC<BikeCardProps> = ({ bike, onSelectBike }) => {
       </div>
 
       {/* Product Image Container */}
-      <Link href={`/product/${bike.id}`} className="relative aspect-[4/3] bg-zinc-950 overflow-hidden block">
+      <Link href={`/product/${bike.id}`} className="relative aspect-square bg-zinc-950 overflow-hidden block">
         <img
           src={formatImageUrl(bike.image)}
           alt={bike.name}
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+          className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500"
         />
 
-        {/* Product Logo Watermark Overlay */}
-        <ProductWatermark size="sm" />
-
-        {/* Gradient vignette at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
+        {/* Subtle Bottom Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent pointer-events-none" />
 
         {/* Hover Quick View Overlay */}
         {onSelectBike && (

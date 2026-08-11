@@ -53,5 +53,23 @@ export const FAQS_DATA: FAQItem[] = [
     category: 'Passenger Capacity',
     question: 'Do you offer 2-seater electric dirt bikes for adults with passenger footpegs?',
     answer: 'Yes! We offer specialized dual-passenger adult electric dirt bikes equipped with extended comfortable bench seats, foldable CNC aluminum rear passenger footpegs, passenger grab rails, and heavy-duty steel subframes rated up to 450 lbs total payload.'
+  },
+  {
+    id: 'faq-bank-payment',
+    category: 'Payment Methods & Financing',
+    question: 'What are your Bank Transfer (Wire / ACH) details and payment partner notices?',
+    answer: 'We accept Direct Bank Wire / ACH transfers to our official Lead Bank corporate account: Beneficiary: The Bookfever LLC | Bank Name: Lead Bank | Routing Number: 101019644 | Account Number: 218330421509 | Account Type: Corporate Checking | Bank Address: 1801 Main St., Kansas City, MO 64108 | Currency: USD. Please note that E-Quad Bike is officially affiliated with The Bookfever LLC, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, The Bookfever LLC, which forms part of our authorized payment network.'
+  },
+  {
+    id: 'faq-credit-card-payment',
+    category: 'Payment Methods & Financing',
+    question: 'How do I pay by Credit Card or Debit Card?',
+    answer: 'We accept Visa, MasterCard, American Express, and Discover cards via our encrypted 256-bit SSL online checkout gateway. You can use our official secure credit card payment link (https://checkout.bachs.io/pay/pl_ef4a46d9a381) during or after checkout to instantly process your order. Notice: Please note that E-Quad Bike is officially affiliated with The ANDERSON BILLIARDS LLC, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, The Bookfever LLC, which forms part of our authorized payment network.'
+  },
+  {
+    id: 'faq-apple-pay-payment',
+    category: 'Payment Methods & Financing',
+    question: 'How do I send payment using Apple Pay?',
+    answer: 'To pay via Apple Pay, send your order payment directly to our registered Apple Pay phone number: (252) 532 9377. Once sent, complete your order on the checkout screen or notify our customer support team with your transaction details.'
   }
 ];

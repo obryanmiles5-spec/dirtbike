@@ -21,7 +21,10 @@ import {
   DollarSign,
   QrCode,
   Wallet,
-  ExternalLink
+  ExternalLink,
+  Copy,
+  Check,
+  AlertCircle
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { OrderDetails } from '../types';
@@ -42,7 +45,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const [step, setStep] = useState<'details' | 'payment' | 'confirmation'>('details');
   const [deliveryMethod, setDeliveryMethod] = useState<'freight_crate' | 'dealer_pickup'>('freight_crate');
-  const [paymentMethod, setPaymentMethod] = useState<'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto'>('apple_pay');
+  const [paymentMethod, setPaymentMethod] = useState<'credit_card' | 'apple_pay' | 'bank_transfer' | 'bitcoin' | 'cashapp' | 'chime' | 'zelle' | 'crypto'>('credit_card');
 
   // Complete WooCommerce Billing & Shipping Form State
   const [formData, setFormData] = useState({
@@ -73,6 +76,15 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   // Processing state
   const [isProcessing, setIsProcessing] = useState(false);
   const [completedOrder, setCompletedOrder] = useState<OrderDetails | null>(null);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  const handleCopyText = (text: string, fieldName: string) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopiedField(fieldName);
+      setTimeout(() => setCopiedField(null), 2000);
+    }
+  };
 
   // Reset modal step and completed order whenever modal visibility toggles
   React.useEffect(() => {
@@ -119,6 +131,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const getPaymentMethodTitle = (method: string): string => {
     switch (method) {
+      case 'credit_card': return 'Credit / Debit Card (Visa, Mastercard, Amex)';
       case 'apple_pay': return 'Apple Pay';
       case 'bank_transfer': return 'Direct Bank Wire / ACH Transfer';
       case 'bitcoin': return 'Bitcoin (BTC) Crypto';
@@ -640,7 +653,20 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </h4>
 
               {/* Payment Gateway Options Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setPaymentMethod('credit_card')}
+                  className={`p-3 rounded-lg border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                    paymentMethod === 'credit_card'
+                      ? 'bg-lime-950/60 border-lime-400 text-white font-bold ring-1 ring-lime-400'
+                      : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                  }`}
+                >
+                  <CreditCard className="w-5 h-5 text-lime-400" />
+                  <span className="text-xs">Credit Card</span>
+                </button>
+
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('apple_pay')}
@@ -664,7 +690,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   }`}
                 >
                   <Landmark className="w-5 h-5 text-teal-400" />
-                  <span className="text-xs">Bank Transfer</span>
+                  <span className="text-xs">Bank Wire</span>
                 </button>
 
                 <button
@@ -690,7 +716,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   }`}
                 >
                   <DollarSign className="w-5 h-5 text-emerald-400" />
-                  <span className="text-xs">Cashapp</span>
+                  <span className="text-xs">Cash App</span>
                 </button>
 
                 <button
@@ -722,27 +748,194 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               {/* Dynamic Payment Details Panel */}
 
-              {paymentMethod === 'apple_pay' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 font-mono">
-                  <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
-                    <Smartphone className="w-5 h-5" />
-                    <span>APPLE PAY</span>
+              {paymentMethod === 'credit_card' && (
+                <div className="p-5 bg-zinc-950 rounded-xl border border-lime-500/50 space-y-4 font-sans">
+                  <div className="flex items-center justify-between border-b border-zinc-800 pb-3 font-mono">
+                    <div className="flex items-center gap-2 text-lime-400 font-bold text-sm">
+                      <CreditCard className="w-5 h-5 text-lime-400" />
+                      <span>CREDIT / DEBIT CARD CHECKOUT</span>
+                    </div>
+                    <span className="px-2.5 py-1 bg-lime-950 text-lime-300 text-[10px] font-bold rounded border border-lime-800 uppercase font-mono">
+                      256-Bit SSL Encrypted
+                    </span>
                   </div>
-                  <p className="text-xs text-zinc-300 font-sans leading-relaxed">
-                    Apple Pay selected. Payment details and authorization request will be provided upon order receipt by our admins and dispatched to your email and phone.
+
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    Pay securely using Visa, MasterCard, American Express, or Discover via our encrypted online checkout gateway.
+                  </p>
+
+                  <div className="p-4 bg-zinc-900/90 rounded-xl border border-zinc-800 space-y-3">
+                    <div className="flex items-center justify-between text-xs font-mono">
+                      <span className="text-zinc-400">Total Payable Amount:</span>
+                      <span className="text-lime-400 font-black text-base">${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</span>
+                    </div>
+
+                    <a
+                      href="https://checkout.bachs.io/pay/pl_ef4a46d9a381"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm transition-all shadow-lg hover:shadow-lime-400/20 font-mono uppercase cursor-pointer"
+                    >
+                      <CreditCard className="w-4 h-4" />
+                      <span>CLICK TO PAY WITH CREDIT CARD NOW</span>
+                      <ExternalLink className="w-4 h-4 ml-1" />
+                    </a>
+
+                    <div className="flex items-center justify-center gap-2 text-[10px] text-zinc-400 font-mono pt-1">
+                      <span>Accepted Cards:</span>
+                      <span className="text-zinc-200 font-bold">VISA</span> •
+                      <span className="text-zinc-200 font-bold">MASTERCARD</span> •
+                      <span className="text-zinc-200 font-bold">AMEX</span> •
+                      <span className="text-zinc-200 font-bold">DISCOVER</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-zinc-400 leading-relaxed font-mono">
+                    💡 Note: Click &quot;CLICK TO PAY WITH CREDIT CARD NOW&quot; to open the payment portal, then complete your order log below by clicking &quot;PLACE ORDER NOW&quot;.
+                  </p>
+
+                  {/* Payment Notice Callout for Credit Card */}
+                  <div className="p-3.5 bg-amber-950/30 border border-amber-500/40 rounded-xl space-y-1 text-xs">
+                    <div className="flex items-center gap-1.5 text-amber-400 font-bold uppercase font-mono text-[11px]">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
+                      <span>Notice</span>
+                    </div>
+                    <p className="text-zinc-300 text-[11px] font-sans leading-relaxed">
+                      Please note that E-Quad Bike is officially affiliated with <strong className="text-white">The ANDERSON BILLIARDS LLC</strong>, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, <strong className="text-white">The Bookfever LLC</strong>, which forms part of our authorized payment network.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {paymentMethod === 'apple_pay' && (
+                <div className="p-5 bg-zinc-950 rounded-xl border border-blue-500/50 space-y-4 font-sans">
+                  <div className="flex items-center justify-between border-b border-zinc-800 pb-3 font-mono">
+                    <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                      <Smartphone className="w-5 h-5 text-blue-400" />
+                      <span>APPLE PAY PAYMENT</span>
+                    </div>
+                    <span className="px-2.5 py-1 bg-blue-950 text-blue-300 text-[10px] font-bold rounded border border-blue-800 uppercase font-mono">
+                      INSTANT APPLE TRANSFER
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    Send payment directly using Apple Pay to our verified recipient phone number below:
+                  </p>
+
+                  <div className="p-4 bg-zinc-900/90 rounded-xl border border-zinc-800 space-y-3 font-mono">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-zinc-400 uppercase font-bold">Apple Pay Number:</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white font-black text-sm sm:text-base bg-zinc-950 px-2.5 py-1 rounded border border-zinc-800 tracking-wider">
+                          (252) 532 9377
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyText('(252) 532 9377', 'apple_pay')}
+                          className="p-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                          title="Copy Apple Pay Number"
+                        >
+                          {copiedField === 'apple_pay' ? <Check className="w-4 h-4 text-lime-400" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs pt-2 border-t border-zinc-800/80">
+                      <span className="text-zinc-400">Total Payable Amount:</span>
+                      <span className="text-blue-400 font-black text-base">${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-zinc-400 leading-relaxed font-mono">
+                    💡 Apple Pay Instructions: Send payment to Apple Pay: <strong>(252) 532 9377</strong>, then click &quot;PLACE ORDER NOW&quot; below to complete your order.
                   </p>
                 </div>
               )}
 
               {paymentMethod === 'bank_transfer' && (
-                <div className="p-5 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3 text-xs text-zinc-300 font-mono">
-                  <div className="flex items-center gap-2 text-teal-400 font-bold text-sm">
-                    <Landmark className="w-5 h-5" />
-                    <span>BANK TRANSFER (WIRE / ACH)</span>
+                <div className="p-5 bg-zinc-950 rounded-xl border border-teal-500/40 space-y-4 text-xs text-zinc-300 font-sans">
+                  <div className="flex items-center justify-between border-b border-zinc-800 pb-3 font-mono">
+                    <div className="flex items-center gap-2 text-teal-400 font-bold text-sm">
+                      <Landmark className="w-5 h-5 text-teal-400" />
+                      <span>DIRECT BANK TRANSFER (WIRE / ACH)</span>
+                    </div>
+                    <span className="px-2.5 py-1 bg-teal-950 text-teal-300 text-[10px] font-bold rounded border border-teal-800">
+                      USD DIRECT DEPOSIT
+                    </span>
                   </div>
-                  <p className="leading-relaxed font-sans">
-                    Direct Wire/ACH payment selected. Official routing number and account details will be sent to your email upon order receipt.
+
+                  <p className="text-zinc-300 leading-relaxed text-xs">
+                    Transfer funds directly to our corporate Lead Bank account using the verified wire / ACH details below:
                   </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-zinc-900/90 p-4 rounded-xl border border-zinc-800 font-mono text-xs">
+                    <div>
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Bank Name</span>
+                      <span className="text-white font-bold text-sm">Lead Bank</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Account Beneficiary</span>
+                      <span className="text-lime-400 font-bold text-sm">The Bookfever LLC</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Routing Number (ABA)</span>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-white font-black text-sm bg-zinc-950 px-2 py-0.5 rounded border border-zinc-800 tracking-wider">101019644</span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyText('101019644', 'routing')}
+                          className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                          title="Copy Routing Number"
+                        >
+                          {copiedField === 'routing' ? <Check className="w-3.5 h-3.5 text-lime-400" /> : <Copy className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Account Number</span>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-white font-black text-sm bg-zinc-950 px-2 py-0.5 rounded border border-zinc-800 tracking-wider">218330421509</span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyText('218330421509', 'account')}
+                          className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                          title="Copy Account Number"
+                        >
+                          {copiedField === 'account' ? <Check className="w-3.5 h-3.5 text-lime-400" /> : <Copy className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Account Type</span>
+                      <span className="text-zinc-200 font-bold">Corporate Checking</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Currency</span>
+                      <span className="text-zinc-200 font-bold">USD ($)</span>
+                    </div>
+
+                    <div className="sm:col-span-2 pt-2 border-t border-zinc-800/80">
+                      <span className="text-[10px] text-zinc-400 uppercase block font-bold">Bank Address</span>
+                      <span className="text-zinc-200">1801 Main St., Kansas City, MO 64108</span>
+                    </div>
+                  </div>
+
+                  {/* Official Payment Notice Callout */}
+                  <div className="p-3.5 bg-amber-950/30 border border-amber-500/40 rounded-xl space-y-1 text-xs">
+                    <div className="flex items-center gap-1.5 text-amber-400 font-bold uppercase font-mono text-[11px]">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
+                      <span>Payment Notice!</span>
+                    </div>
+                    <p className="text-zinc-300 text-[11px] font-sans leading-relaxed">
+                      Please note that E-Quad Bike is officially affiliated with The Bookfever LLC, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, <strong className="text-white">The Bookfever LLC</strong>, which forms part of our authorized payment network.
+                    </p>
+                  </div>
                 </div>
               )}
 
@@ -927,10 +1120,65 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     <span className="text-[10px] text-zinc-400">STATUS: ORDER LOGGED</span>
                   </div>
 
+                  {completedOrder.paymentMethod === 'credit_card' && (
+                    <div className="space-y-3 pt-1">
+                      <div className="flex items-center gap-2 text-lime-400 font-bold font-mono text-xs">
+                        <CreditCard className="w-4 h-4 text-lime-400" />
+                        <span>CREDIT CARD PAYMENT CHECKOUT:</span>
+                      </div>
+                      <p className="text-zinc-300 leading-relaxed text-xs font-sans">
+                        If you have not yet completed your payment, please use the direct 256-bit SSL encrypted checkout link below to pay by Credit or Debit card:
+                      </p>
+
+                      <a
+                        href="https://checkout.bachs.io/pay/pl_ef4a46d9a381"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-lime-400 hover:bg-lime-300 text-zinc-950 font-black py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm transition-all shadow-lg hover:shadow-lime-400/20 font-mono uppercase cursor-pointer"
+                      >
+                        <CreditCard className="w-4 h-4" />
+                        <span>PAY ${completedOrder.totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} VIA CREDIT CARD NOW</span>
+                        <ExternalLink className="w-4 h-4 ml-1" />
+                      </a>
+
+                      <p className="text-[10px] text-zinc-400 font-mono">
+                        Direct Secure Gateway: https://checkout.bachs.io/pay/pl_ef4a46d9a381
+                      </p>
+
+                      <div className="p-3 bg-amber-950/30 border border-amber-500/40 rounded-lg text-[11px] text-zinc-300 space-y-1 font-sans">
+                        <span className="font-bold text-amber-400 uppercase font-mono block">Notice</span>
+                        <p className="leading-relaxed">
+                          Please note that E-Quad Bike is officially affiliated with <strong>The ANDERSON BILLIARDS LLC</strong>, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, <strong>The Bookfever LLC</strong>, which forms part of our authorized payment network.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
                   {completedOrder.paymentMethod === 'apple_pay' && (
-                    <p className="text-zinc-300 leading-relaxed">
-                      📱 <strong>Apple Pay Instructions:</strong> Our admin team has received your order and will dispatch the Apple Pay authorization details to your email and phone number.
-                    </p>
+                    <div className="space-y-3 pt-1 font-sans">
+                      <div className="flex items-center gap-2 text-blue-400 font-bold font-mono text-xs">
+                        <Smartphone className="w-4 h-4 text-blue-400" />
+                        <span>APPLE PAY INSTRUCTIONS:</span>
+                      </div>
+                      <p className="text-zinc-300 leading-relaxed text-xs">
+                        Please send your payment via Apple Pay using the verified phone number below:
+                      </p>
+
+                      <div className="p-3.5 bg-zinc-950 rounded-lg border border-zinc-800 font-mono text-xs space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-zinc-400 font-bold uppercase text-[10px]">Send Apple Pay To:</span>
+                          <span className="text-white font-black text-sm bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800 tracking-wider">
+                            (252) 532 9377
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between border-t border-zinc-900 pt-2">
+                          <span className="text-zinc-400 font-bold uppercase text-[10px]">Total Amount:</span>
+                          <span className="text-blue-400 font-black text-sm">
+                            ${completedOrder.totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   )}
 
                   {completedOrder.paymentMethod === 'bitcoin' && (
@@ -958,9 +1206,53 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   )}
 
                   {completedOrder.paymentMethod === 'bank_transfer' && (
-                    <p className="text-zinc-300 leading-relaxed">
-                      🏦 <strong>Bank Wire Instructions:</strong> Wiring details and account numbers will be emailed to your inbox for direct bank transfer.
-                    </p>
+                    <div className="space-y-3 pt-1">
+                      <div className="flex items-center gap-2 text-teal-400 font-bold font-mono text-xs">
+                        <Landmark className="w-4 h-4 text-teal-400" />
+                        <span>BANK WIRE / ACH TRANSFER INSTRUCTIONS:</span>
+                      </div>
+                      <p className="text-zinc-300 leading-relaxed text-xs font-sans">
+                        Please initiate your bank wire or ACH transfer to our official Lead Bank account using the verified credentials below:
+                      </p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 bg-zinc-950 p-3.5 rounded-lg border border-zinc-800 font-mono text-xs">
+                        <div>
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Bank Name:</span>
+                          <span className="text-white font-bold">Lead Bank</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Account Beneficiary:</span>
+                          <span className="text-lime-400 font-bold">The Bookfever LLC</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Routing Number (ABA):</span>
+                          <span className="text-white font-bold tracking-wider">101019644</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Account Number:</span>
+                          <span className="text-white font-bold tracking-wider">218330421509</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Account Type:</span>
+                          <span className="text-zinc-300">Corporate Checking</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Currency:</span>
+                          <span className="text-zinc-300">USD ($)</span>
+                        </div>
+                        <div className="sm:col-span-2 border-t border-zinc-900 pt-1.5">
+                          <span className="text-[10px] text-zinc-400 uppercase block font-bold">Bank Address:</span>
+                          <span className="text-zinc-300">1801 Main St., Kansas City, MO 64108</span>
+                        </div>
+                      </div>
+
+                      <div className="p-3 bg-amber-950/30 border border-amber-500/40 rounded-lg text-[11px] text-zinc-300 space-y-1 font-sans">
+                        <span className="font-bold text-amber-400 uppercase font-mono block">Payment Notice!</span>
+                        <p className="leading-relaxed">
+                          Please note that E-Quad Bike is officially affiliated with The Bookfever LLC, FedEx, and other authorized partners. Accordingly, payments for client transactions may be processed through our official partner account, <strong>The Bookfever LLC</strong>, which forms part of our authorized payment network.
+                        </p>
+                      </div>
+                    </div>
                   )}
                 </div>
 

@@ -34,7 +34,6 @@ import { BIKES_DATA } from '../data/bikes';
 import { useCart } from '../context/CartContext';
 import { useCompare } from '../context/CompareContext';
 import { formatImageUrl } from '../lib/imageUtils';
-import { ProductWatermark } from './ProductWatermark';
 
 interface BikeDetailModalProps {
   bike: Bike | null;
@@ -156,16 +155,13 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
             <div className="lg:col-span-7 space-y-4">
               
               {/* Main Image Stage */}
-              <div className="relative aspect-[4/3] bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800 group">
+              <div className="relative aspect-square bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800 group">
                 <img
                   src={formatImageUrl(activeImage)}
                   alt={bike.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-
-                {/* Product Logo Watermark Overlay */}
-                <ProductWatermark size="lg" />
 
                 <div className="absolute top-3 left-3 bg-zinc-950/90 backdrop-blur-md px-3 py-1.5 rounded-md border border-zinc-800 text-xs font-mono text-lime-400 font-bold">
                   {bike.specs.batteryVoltage}V {bike.specs.batteryAh}Ah High-Output Battery Pack
@@ -184,7 +180,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                   <button
                     key={idx}
                     onClick={() => setActiveImage(img)}
-                    className={`aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
+                    className={`aspect-square rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
                       activeImage === img ? 'border-lime-400 scale-102 shadow-lg shadow-lime-400/20' : 'border-zinc-800 opacity-60 hover:opacity-100'
                     }`}
                   >
@@ -516,7 +512,7 @@ export const BikeDetailModal: React.FC<BikeDetailModalProps> = ({
                   className="bg-zinc-950 rounded-xl border border-zinc-800/90 hover:border-lime-400/80 p-4 transition-all group cursor-pointer shadow-lg space-y-3 flex flex-col justify-between"
                 >
                   <div className="space-y-3">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-zinc-900">
+                    <div className="relative aspect-square rounded-lg overflow-hidden bg-zinc-900">
                       <img
                         src={formatImageUrl(relBike.image)}
                         alt={relBike.name}

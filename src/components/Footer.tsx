@@ -195,6 +195,12 @@ export const Footer: React.FC<FooterProps> = () => {
               </Link>
             </li>
             <li>
+              <Link href="/parts-accessories" className="hover:text-lime-400 transition-colors uppercase flex items-center gap-1.5 font-bold text-lime-400">
+                <Zap className="w-3.5 h-3.5 text-lime-400" />
+                <span>Parts & Accessories (48 Sourced Items)</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/about" className="hover:text-lime-400 transition-colors uppercase">
                 Engineering & Battery Tech
               </Link>

@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { BIKES_DATA } from '@/data/bikes';
 import { BikeCard } from '@/components/BikeCard';
-import { ProductWatermark } from '@/components/ProductWatermark';
 import { formatImageUrl } from '@/lib/imageUtils';
 import { Star, ShieldCheck, Truck, Zap, Check, ArrowLeft, SlidersHorizontal, ShoppingCart } from 'lucide-react';
 
@@ -31,14 +30,37 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     };
   }
 
-  const title = `${bike.name} - ${bike.tagline}`;
-  const description = `${bike.description.slice(0, 155)}... Specs: ${bike.specs.batteryVoltage}V ${bike.specs.batteryAh}Ah Battery, ${bike.specs.peakPowerKW}kW Peak Power, ${bike.specs.topSpeedMph} MPH top speed. Free 50-state crate freight.`;
+  const isAccessory = bike.category === 'accessories' || bike.category === 'battery';
+  const title = `${bike.name} | ${bike.categoryLabel} – VoltTrail & VOLT-X`;
+  const description = isAccessory
+    ? `${bike.description.slice(0, 150)}... Sourced for ${bike.name}. ${bike.specs.batteryCapacity ? `Compatibility: ${bike.specs.batteryCapacity}.` : ''} Free delivery.`
+    : `${bike.description.slice(0, 155)}... Specs: ${bike.specs.batteryVoltage}V ${bike.specs.batteryAh}Ah Battery, ${bike.specs.peakPowerKW}kW Peak Power, ${bike.specs.topSpeedMph} MPH top speed. Free 50-state freight.`;
   const canonicalUrl = `${siteUrl}/product/${bike.id}`;
   const imageUrl = formatImageUrl(bike.image);
+
+  const productKeywords = [
+    bike.name,
+    bike.categoryLabel,
+    bike.specs.frameType || '',
+    'electric dirt bike parts',
+    'surron parts',
+    'surron battery',
+    'talaria accessories',
+    'stark varg charger',
+    'ktm sxe battery',
+    'e-moto accessories',
+    'replacement battery pack',
+    'fast charger',
+    'mx helmet',
+    'off road riding gear',
+    'knobbly tyres',
+    'performance brake pads'
+  ].filter(Boolean);
 
   return {
     title,
     description,
+    keywords: productKeywords,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -85,9 +107,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     description: bike.description,
     sku: bike.id,
     mpn: bike.id,
+    category: bike.categoryLabel,
     brand: {
       '@type': 'Brand',
-      name: 'VOLT-X Motorsports',
+      name: bike.specs.frameType || 'VoltTrail',
     },
     offers: {
       '@type': 'Offer',
@@ -197,14 +220,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Gallery Section */}
             <div className="space-y-4">
-              <div className="relative aspect-[4/3] rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden group">
+              <div className="relative aspect-square rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden group">
                 <img
                   src={formattedMainImage}
                   alt={bike.name}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* Logo Watermark Overlay */}
-                <ProductWatermark size="lg" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   {bike.isBestSeller && (
                     <span className="px-3 py-1 bg-amber-400 text-zinc-950 text-xs font-black uppercase tracking-wider rounded-md">

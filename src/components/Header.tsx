@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'contact', label: 'Contact', href: '/contact', icon: PhoneCall },
     { id: 'electric-dirt-bikes', label: 'Electric Dirt Bikes', href: '/shop/electric-dirt-bikes', icon: BikeIcon },
     { id: 'e-bikes', label: 'E-Bikes', href: '/shop/e-bikes', icon: Zap },
-    { id: 'accessories', label: 'Accessories', href: '/shop/accessories', icon: Zap },
+    { id: 'accessories', label: 'Parts & Accessories', href: '/parts-accessories', icon: Zap },
   ] as const;
 
   return (
